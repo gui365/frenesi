@@ -31,6 +31,15 @@ body {
   text-align: center;
 }
 
+.page-title {
+  width: 100%;
+  background-color: rgb(43, 18, 66);
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  box-sizing: border-box;
+  padding: 8px;
+}
+
 /* MARGIN */
 .m-b-1rem {
   margin-bottom: 1rem;
@@ -43,4 +52,19 @@ body {
 /* OPACITY, VISIBILITY AND DISPLAY */
 .opacity02 {
   opacity: .2;
+}
+
+/* ERRORS */
+#error-message {
+  width: 80%;
+  font-size: 0.8rem;
+  color: rgb(209, 0, 0);
+  border: 2px double rgb(255, 164, 164);
+  background-color: rgb(255, 219, 219);
+  padding: 0.8rem;
+  box-shadow: 0 2px 3px rgba(46, 46, 46, 0.4);
+  border-radius: 3px;
+  margin: auto;
+  margin-top: 2rem;
+  text-align: center;
 }

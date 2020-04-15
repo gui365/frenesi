@@ -1,58 +1,71 @@
 import React, { Component } from 'react';
-// import { withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import PlayArea from '../../components/PlayArea/PlayArea';
 import CardsArea from '../../components/CardsArea/CardsArea';
+import Spinner from '../../components/Spinner/Spinner';
 import answers from '../../data/cardsAnswers';
 import answersExp from '../../data/cardsAnswersExp01';
 import questions from '../../data/cardsQuestions';
 import questionsExp from '../../data/cardsQuestionsExp01';
 import { fire } from '../../fire';
+import './Game.scss';
 
 class Game extends Component {
   state = {
     questions: [],
     answers: [],
-    currentGame: null
+    currentGame: null,
+    gamesList: [],
+    errorNoGameIdFound: false
   }
-  
+
   db = fire.database();
 
-  componentWillMount() {
-    this.setState({
-      answers: answers.concat(answersExp),
-      questions: questions.concat(questionsExp),
-    });
-
-    const currentGameId = this.props.match.params.gameId;
-    console.log(currentGameId)
-    this.db.ref(`games/${currentGameId}`).on('value', snapshot => {
-      // console.log(snapshot.val())
-      // const currentGame = snapshot.val().games[currentGameId];
-      // this.setState({
-      //   currentGame
-      // });
-    });
-
-    // this.db.ref('cards/answers').set(answers.concat(answersExp));
-    // this.db.ref('cards/questions').set(questions.concat(questionsExp));
-  }
+  // componentWillMount() {
+  //   this.setState({
+  //     answers: answers.concat(answersExp),
+  //     questions: questions.concat(questionsExp),
+  //   });
+  //   // this.db.ref('cards/answers').set(answers.concat(answersExp));
+  //   // this.db.ref('cards/questions').set(questions.concat(questionsExp));
+  // }
 
   componentDidMount() {
-   
+    const currentGameId = this.props.match.params.gameId;
+    this.setState({
+      showSpinner: true
+    })
+    this.db.ref(`games`).on('value', snapshot => {
+      console.log('snapshot', snapshot)
+      if (snapshot.val() && Object.keys(snapshot.val()).indexOf(currentGameId) !== -1) {
+        this.setState({
+          showSpinner: false,
+          gamesList: snapshot.val(),
+          currentGame: snapshot.val()[currentGameId],
+          answers: answers.concat(answersExp),
+          questions: questions.concat(questionsExp)
+        });
+      } else {
+        this.setState({
+          errorNoGameIdFound: true,
+          showSpinner: false,
+        })
+      }
+    });
     // this.db.ref('cards/answers').on('value', snapshot => {
     //   this.setState({
     //     answers: snapshot.val(),
     //   });
     // });
 
-  //   this.db.ref('cards/questions').on('value', snapshot => {
-  //     const answers = this.pickRandomAnswerCards();
-  //     this.setState({
-  //       cardsAnswers: answers,
-  //       questions: snapshot.val(),
-  //     });
-  //   });
+    //   this.db.ref('cards/questions').on('value', snapshot => {
+    //     const answers = this.pickRandomAnswerCards();
+    //     this.setState({
+    //       cardsAnswers: answers,
+    //       questions: snapshot.val(),
+    //     });
+    //   });
   }
 
   pickOneQuestion = () => {
@@ -90,22 +103,44 @@ class Game extends Component {
     }
   }
 
+  endGame = () => {
+    this.db.ref(`/games/${this.state.currentGame.gameId}`).remove();
+    this.props.history.push('/dashboard');
+  }
+
   render() {
     return (
       <div id='container'>
         <Navbar />
+        <h1 className='page-title'>
+          {
+            this.props.match.params.gameId
+              ? `Partida ${this.props.match.params.gameId}`
+              : null
+          }
+        </h1>
         {
-          !!this.state.questions.length &&
+          !this.state.errorNoGameIdFound && !this.state.showSpinner &&
+          <button onClick={this.endGame}>Terminar</button>
+        }
+        {
+          !!this.state.questions.length && !this.state.errorNoGameIdFound &&
           <>
             <PlayArea question={this.pickOneQuestion()} />
             <CardsArea answers={this.pickRandomAnswerCards()} />
-            <button >Terminar</button>
           </>
+        }
+        {
+          this.state.errorNoGameIdFound &&
+          <div id='error-message'>No hay ninguna partida con este codigo. Volve al <Link className='link' to='/dashboard'>Menu</Link> para crear una.</div>
+        }
+        {
+          this.state.showSpinner &&
+          <Spinner width='100px' height='100px' />
         }
       </div>
     );
   }
 }
 
-// export default withRouter(Game);
-export default Game;
+export default withRouter(Game);

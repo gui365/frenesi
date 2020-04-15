@@ -8,6 +8,24 @@ table {
 
   td {
     padding: 0 2px;
+    vertical-align: middle;
+
+    &:last-child {
+      button {
+        &:hover {
+          background-color: rgb(255, 213, 74);
+        }
+      }
+    }
+
+    &:nth-child(4) {
+      button {
+        &:hover {
+          // background-color: rgb(255, 206, 231);
+          background-color: rgb(197, 233, 97);
+        }
+      }
+    }
   }
 
   tr {
@@ -24,27 +42,32 @@ table {
 
   .game-options-btn {
     border: none;
-    background-color: rgb(10, 77, 202);
-    // background: linear-gradient(40deg, rgb(255, 173, 251), rgb(190, 111, 255));
+    background: none;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
     font-size: inherit;
-    padding: 3px;
-    border-radius: 5px;
-    // color: rgb(10, 77, 202);
-    color: white;
-    // font-weight: bold;
+    padding: 0;
+    border-radius: 50%;
+    box-shadow: 0 3px 2px rgba(110, 110, 110, 0.4);
 
-    // .button-icon {
-    //   width: 20px;
-    // }
+    .button-icon {
+      width: 50px;
+
+      &:focus {
+        outline: none;
+      }
+    }
 
     &:disabled {
       background-color: rgb(233, 233, 233);
       color: rgb(187, 187, 187);
       font-weight: normal;
+    }
+
+    &:focus {
+      outline: none;
+      transform: scale(.8, .8);
     }
   }
 }
@@ -94,7 +117,7 @@ table {
 #game-btn-start {
   background-color: rgb(47, 160, 94);
   color: rgb(255, 255, 255);
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 // ---- ANIMATIONS ----

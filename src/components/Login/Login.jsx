@@ -40,30 +40,10 @@ const Login = (props) => {
     })
   }
 
-  // const createUser = () => {
-  //   fire.auth().createUserWithEmailAndPassword(email, password).then((userData) => {
-  //     userData.user.updateProfile({
-  //       displayName: "Obi"
-  //     }).then((res) => {
-  //       console.log(res)
-  //     })
-  //   }).catch((err) => {
-  //     if (err) {
-  //       console.log(err);
-  //       setError({
-  //         code: err.code,
-  //         message: err.message
-  //       })
-  //       return;
-  //     }
-  //     alert('Successfully created user ' + email);
-  //   });
-  // }
-
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (email === '' || password === '') {
-      this.login();
+    if (email !== '' || password !== '') {
+      login();
     }
   }
 
@@ -87,12 +67,11 @@ const Login = (props) => {
               <Input label="contraseña" name="password" changeFunction={handleChange} type="password" />
             </div>
             <div>
-              <Button type="submit" isDisabled={isInvalid} content="Entrar" clickHandler={login} />
-              {/* <Button isDisabled={isInvalid} content="Crear Usuario" clickHandler={createUser} /> */}
+              <Button type="submit" isDisabled={isInvalid} content="Entrar" />
             </div>
             {
               error && error.message &&
-              <div id="error-login">{error.message}</div>
+              <div id="error-message">{error.message}</div>
             }
           </>
       }

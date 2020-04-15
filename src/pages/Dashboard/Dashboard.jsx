@@ -13,9 +13,12 @@ const Dashboard = (props) => {
   const [gameList, setGameList] = useState([]);
   const [currentGameId, setCurrentGameId] = useState('');
   const [userHasJoined, setUserHasJoined] = useState(false);
+  const [showSpinner, setShowSpinner] = useState(false);
 
   useEffect(() => {
-    console.log('currentGameId', currentGameId)
+    console.log('game id', currentGameId);
+    console.log('game id', );
+    setShowSpinner(true);
     db.ref('games').on('value', snapshot => {
       const snap = snapshot.val();
       const objToArray = [];
@@ -26,6 +29,7 @@ const Dashboard = (props) => {
       }
       setGameList(objToArray);
       setMaxGameNumber(objToArray.length);
+      setShowSpinner(false);
 
       if (snap && currentGameId) {
         if (snap[currentGameId] && snap[currentGameId]['gameHasStarted'] === true) {
@@ -84,8 +88,8 @@ const Dashboard = (props) => {
   return (
     <div id='container'>
       <Navbar logout={true} />
+      <h1 className='page-title'>Menu</h1>
       <main id='dashboard-content'>
-        <h1>Menu</h1>
         <section id='menu-options'>
           <Button
             icon='new'
@@ -111,6 +115,7 @@ const Dashboard = (props) => {
             currentGameId={currentGameId}
             user={user}
             startGame={startGame}
+            showSpinner={showSpinner}
           />
         </section>
       </main>

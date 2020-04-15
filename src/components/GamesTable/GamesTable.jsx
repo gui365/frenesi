@@ -1,6 +1,7 @@
 import React from 'react';
 import './GamesTable.scss';
 import Button from '../../components/Button';
+import Spinner from '../../components/Spinner';
 
 const GamesTable = (props) => {
   const {
@@ -11,11 +12,11 @@ const GamesTable = (props) => {
     userHasJoined,
     currentGameId,
     user,
-    startGame
+    startGame,
+    showSpinner
   } = props;
 
   const currentGame = gameList.filter(game => game.gameId === currentGameId)[0];
-  console.log(currentGame)
   const getPlayers = () => {
     if (currentGame) {
       const playersObject = currentGame.players;
@@ -37,7 +38,7 @@ const GamesTable = (props) => {
 
   return (
     <>
-      <h2>Partidas disponibles</h2>
+      <h2 className='bold'>{`ID: ${currentGameId} Game: ${JSON.stringify(currentGame)}`}</h2>
       {
         userHasJoined && currentGameId &&
         <>
@@ -98,18 +99,18 @@ const GamesTable = (props) => {
                         ? (<>
                           <td>
                             <Button
-                              // icon='join'
+                              icon='game'
                               isDisabled={userHasJoined && currentGameId}
                               className='game-options-btn'
-                              content='Unirse'
+                              // content='Unirse'
                               clickHandler={() => { joinGame(game.gameId) }} />
                           </td>
                           <td>
                             <Button
-                              // icon='join'
+                              icon='trash'
                               isDisabled={userHasJoined && currentGameId}
                               className='game-options-btn'
-                              content='x'
+                              // content='x'
                               clickHandler={() => { deleteGame(game.gameId) }} />
                           </td>
                         </>)
@@ -125,7 +126,10 @@ const GamesTable = (props) => {
               })}
             </tbody>
           </table>
-          : <p>No hay partidas disponibles.</p>
+          : showSpinner
+            // ? <p>Cargando partidas...</p>
+            ? <Spinner width='30px' height='30px' text='Cargando partidas...' />
+            : <p>No hay partidas disponibles.</p>
       }
 
     </>

@@ -31,7 +31,11 @@ const AppRouter = () => {
   return (
     <Router forceRefresh={true}>
       <Route exact path="/">
-        <Redirect to={"/signin"} />
+        {
+          !!sessionStorage.getItem('user')
+          ? <Redirect to={"/dashboard"} />
+          : <Redirect to={"/signin"} />
+        }
       </Route>
       <Route path="/signin" component={() => <Authentication />} />
       {privateRoutes()}

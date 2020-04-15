@@ -5,29 +5,37 @@
   margin: 5px;
   padding: 10px;
   box-sizing: border-box;
-  font-size: .8rem;
-  font-family: 'SegoeUI', Arial, Helvetica, sans-serif;
+  font-size: 0.8rem;
+  font-family: "SegoeUI", Arial, Helvetica, sans-serif;
   font-weight: bold;
   overflow-wrap: break-word;
 
   &.answer {
     background-color: rgb(255, 255, 255);
-    
+
     .card-content {
       color: rgb(0, 0, 0);
     }
   }
-  
+
   &.question {
     background-color: rgb(111, 29, 136);
+    display: flex;
+    width: 80%;
+    height: 180px;
+    text-align: center;
+    align-items: center;
+    line-height: 1.4;
 
     .card-content {
       color: rgb(255, 255, 255);
-    }  
+      font-size: .9rem;
+      margin: auto;
+    }
   }
 
   &.interactive {
-    background-color: rgba(0, 0, 0, .1);
+    background-color: rgba(0, 0, 0, 0.1);
     border: 2px rgb(114, 114, 114) inset;
   }
 }
