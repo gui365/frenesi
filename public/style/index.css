@@ -1,0 +1,46 @@
+@font-face {
+  font-family: "SegoeUI";
+  src: url("./fonts/SegoeUI.ttf");
+}
+
+html {
+  font-family: "SegoeUI", Arial, Helvetica, sans-serif;
+  color: rgb(14, 14, 14);
+  font-size: 18px;
+}
+
+body {
+  /* background-image: url("/images/back_stars2.png"); */
+  /* background-size: contain; */
+  /* background-color: rgb(248, 236, 255); */
+  /* background: linear-gradient(to bottom right, rgba(151, 243, 189, 1), rgba(247, 168, 230, 1)); */
+  /* background-repeat: repeat;
+  background-size: 25%; */
+  margin: 0;
+  line-height: 1.1;
+  /* height: 100vh; */
+}
+
+/* TEXT */
+
+.bold {
+  font-weight: bold;
+}
+
+.align-center {
+  text-align: center;
+}
+
+/* MARGIN */
+.m-b-1rem {
+  margin-bottom: 1rem;
+}
+
+.m-b-2rem {
+  margin-bottom: 2rem;
+}
+
+/* OPACITY, VISIBILITY AND DISPLAY */
+.opacity02 {
+  opacity: .2;
+}

@@ -1,0 +1,47 @@
+#dashboard-content {
+  padding: 10px;
+
+  #menu-options {
+    display: flex;
+
+    .menu-options-btn {
+      width: 50%;
+      padding: 10px;
+      border: none;
+      border-radius: 0 20px 20px 0;
+      box-shadow: 0 4px 3px rgba(0, 0, 0, 0.3);
+      background-color: rgb(255, 251, 230);
+      font-size: 1rem;
+      margin-top: 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+
+      .button-icon {
+        width: 25px;
+        margin-bottom: 5px;
+      }
+
+      &:first-of-type {
+        border-radius: 20px 0 0 20px;
+        background-color: rgb(255, 196, 147);
+        // background: linear-gradient(180deg, rgb(221, 0, 0), rgb(255, 190, 228));
+      }
+
+      &:disabled {
+        background-color: rgb(233, 233, 233);
+        color: rgb(187, 187, 187);
+        font-weight: normal;
+
+        .button-icon {
+          opacity: .2;
+        }
+      }
+    }
+  }
+
+  #menu-games-table {
+    margin-top: 1rem;
+  }
+}

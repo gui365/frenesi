@@ -1,0 +1,95 @@
+#container-login {
+  text-align: center;
+  padding: 3rem 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  box-sizing: border-box;
+  background-image: url("/images/back_stars2.png");
+  background-size: 60vw;
+  background-color: rgba(111, 29, 136, 0.1);
+
+  #logo-login {
+    width: 50vw;
+    margin-bottom: 2rem;
+  }
+
+  #star-icon {
+    width: 50px;
+    margin-bottom: -1.5rem;
+    animation-name: 'rotate';
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+  }
+
+  label {
+    font-size: 0.7rem;
+    margin-right: 0.5rem;
+    display: block;
+    text-align: left;
+  }
+
+  input {
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+    padding: 0.2rem;
+    border: 1px rgb(228, 228, 228) solid;
+    box-shadow: 1px 1px 2px rgba(46, 46, 46, 0.4) inset;
+
+    &:focus {
+      background-color: rgb(255, 254, 238);
+      outline: none;
+    }
+  }
+
+  button {
+    font-size: 0.7rem;
+    background: none;
+    border: none;
+    padding: 0.3rem 0.6rem;
+    color: rgb(111, 29, 136);
+    margin-top: 1rem;
+
+    &:first-of-type {
+      margin-right: 0.5rem;
+      background-color: rgb(111, 29, 136);
+      border-radius: 5px;
+      color: rgb(255, 255, 255);
+    }
+
+    &:disabled {
+      &:first-of-type {
+        background-color: rgb(240, 240, 240);
+      }
+      color: rgb(173, 173, 173);
+      border: inherit;
+    }
+  }
+
+  #error-login {
+    font-size: 0.8rem;
+    color: rgb(209, 0, 0);
+    border: 2px double rgb(255, 164, 164);
+    background-color: rgb(255, 219, 219);
+    padding: 0.8rem;
+    box-shadow: 0 2px 3px rgba(46, 46, 46, 0.4);
+    border-radius: 3px;
+    margin-top: 1rem;
+  }
+
+  #logged-in-message {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
