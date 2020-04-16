@@ -16,8 +16,6 @@ const Dashboard = (props) => {
   const [showSpinner, setShowSpinner] = useState(false);
 
   useEffect(() => {
-    console.log('game id', currentGameId);
-    console.log('game id', );
     setShowSpinner(true);
     db.ref('games').on('value', snapshot => {
       const snap = snapshot.val();
@@ -31,7 +29,9 @@ const Dashboard = (props) => {
       setMaxGameNumber(objToArray.length);
       setShowSpinner(false);
 
-      if (snap && currentGameId) {
+      // alert(`SNAP ${!!snap} && CURRENTID ${!!currentGameId} && USERJOINED ${!!userHasJoined}`)
+      if (snap && currentGameId && userHasJoined) {
+        // alert(`SNAP CURRENTGAME ${!!snap[currentGameId]} GAME STARTED? ${!!snap[currentGameId]['gameHasStarted'] === true}`)
         if (snap[currentGameId] && snap[currentGameId]['gameHasStarted'] === true) {
           const history = props.history;
           if (history) {
@@ -40,7 +40,7 @@ const Dashboard = (props) => {
         }
       }
     });
-  }, [db, props.history, currentGameId])
+  }, [db, currentGameId, userHasJoined])
 
   const generateUniqueId = () => {
     const letter = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -79,7 +79,6 @@ const Dashboard = (props) => {
   }
 
   const startGame = () => {
-    console.log('start game')
     db.ref(`games/${currentGameId}`).update({
       gameHasStarted: true
     });
@@ -88,6 +87,7 @@ const Dashboard = (props) => {
   return (
     <div id='container'>
       <Navbar logout={true} />
+      {/* <h1 className='page-title'>{`userJoined ${userHasJoined} gameId ${currentGameId}`}</h1> */}
       <h1 className='page-title'>Menu</h1>
       <main id='dashboard-content'>
         <section id='menu-options'>

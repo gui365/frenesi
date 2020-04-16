@@ -117,8 +117,9 @@ const GamesTable = (props) => {
                         : <td>
                           <Button
                             isDisabled={true}
-                            className='game-options-btn'
-                            content='En progreso' />
+                            className='game-options-btn in-progress-btn'
+                            content='En progreso'
+                          />
                         </td>
                     }
                   </tr>

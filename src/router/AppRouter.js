@@ -9,7 +9,6 @@ import { auth } from '../fire';
 const AppRouter = () => {
   useEffect(() => {
     auth.onAuthStateChanged(userAuth => {
-      // console.log('App - Update state?', userAuth !== JSON.parse(sessionStorage.getItem('user')));
       if (userAuth !== JSON.parse(sessionStorage.getItem('user'))) {
         sessionStorage.setItem('user', JSON.stringify({
           email: userAuth.email,

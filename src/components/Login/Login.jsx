@@ -30,7 +30,7 @@ const Login = (props) => {
       }
     }).catch((err) => {
       if (err) {
-        console.log(err);
+        console.error(err);
         setError({
           code: err.code,
           message: err.message

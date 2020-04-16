@@ -37,7 +37,6 @@ class Game extends Component {
       showSpinner: true
     })
     this.db.ref(`games`).on('value', snapshot => {
-      console.log('snapshot', snapshot)
       if (snapshot.val() && Object.keys(snapshot.val()).indexOf(currentGameId) !== -1) {
         this.setState({
           showSpinner: false,
@@ -77,7 +76,7 @@ class Game extends Component {
         this.pickOneQuestion();
       }
     } else {
-      console.log('Game over!');
+      alert('Game over!');
     }
   }
 
@@ -89,7 +88,6 @@ class Game extends Component {
         answers.push(a);
       }
     }
-    // console.log(answers);
     return answers;
   }
 

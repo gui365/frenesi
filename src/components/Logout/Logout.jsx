@@ -12,11 +12,17 @@ const Logout = (props) => {
         const history = props.history;
         history.push('/signin');
       }
-    }).catch(err => console.log(err));
+    }).catch(err => console.error(err));
   }
 
   return (
-    <img onClick={logout} className='navbar-icon' id='icon-exit' src='/images/icon-exit.png' alt='exit icon' />
+    <img
+      onClick={logout}
+      className='navbar-icon'
+      id='icon-exit'
+      src='/images/icon-exit.png'
+      alt='exit icon'
+    />
   )
 }
 
