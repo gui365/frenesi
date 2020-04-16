@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import './Dashboard.scss';
 import Navbar from '../../components/Navbar';
@@ -6,18 +6,24 @@ import Button from '../../components/Button';
 import GamesTable from '../../components/GamesTable';
 import { fire } from '../../fire';
 
-const Dashboard = (props) => {
-  const user = JSON.parse(sessionStorage.getItem('user'));
-  const db = fire.database();
-  const [maxGameNumber, setMaxGameNumber] = useState(0);
-  const [gameList, setGameList] = useState([]);
-  const [currentGameId, setCurrentGameId] = useState('');
-  const [userHasJoined, setUserHasJoined] = useState(false);
-  const [showSpinner, setShowSpinner] = useState(false);
+class Dashboard extends Component {
+  state = {
+    maxGameNumber: 0,
+    gameList: [],
+    currentGameId: '',
+    userHasJoined: false,
+    showSpinner: false
+  }
 
-  useEffect(() => {
-    setShowSpinner(true);
-    db.ref('games').on('value', snapshot => {
+  user = JSON.parse(sessionStorage.getItem('user'));
+  db = fire.database();
+
+  componentDidMount() {
+    this.setState({
+      showSpinner: true
+    });
+
+    this.db.ref('games').on('value', snapshot => {
       const snap = snapshot.val();
       const objToArray = [];
       for (const key in snap) {
@@ -25,24 +31,27 @@ const Dashboard = (props) => {
           objToArray.push(snap[key]);
         }
       }
-      setGameList(objToArray);
-      setMaxGameNumber(objToArray.length);
-      setShowSpinner(false);
+
+      this.setState({
+        gameList: objToArray,
+        maxGameNumber: objToArray.length,
+        showSpinner: false
+      })
 
       // alert(`SNAP ${!!snap} && CURRENTID ${!!currentGameId} && USERJOINED ${!!userHasJoined}`)
-      if (snap && currentGameId && userHasJoined) {
-        // alert(`SNAP CURRENTGAME ${!!snap[currentGameId]} GAME STARTED? ${!!snap[currentGameId]['gameHasStarted'] === true}`)
-        if (snap[currentGameId] && snap[currentGameId]['gameHasStarted'] === true) {
-          const history = props.history;
+      if (snap && this.state.currentGameId && this.state.userHasJoined) {
+        // alert(`SNAP CURRENTGAME ${!!snap[this.state.currentGameId]} GAME STARTED? ${!!snap[this.state.currentGameId]['gameHasStarted'] === true}`)
+        if (snap[this.state.currentGameId] && snap[this.state.currentGameId]['gameHasStarted'] === true) {
+          const history = this.props.history;
           if (history) {
-            history.push(`/game/${currentGameId}`);
+            history.push(`/game/${this.state.currentGameId}`);
           }
         }
       }
     });
-  }, [db, currentGameId, userHasJoined])
+  }
 
-  const generateUniqueId = () => {
+  generateUniqueId = () => {
     const letter = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     let id = letter[Math.floor(Math.random() * letter.length)];
 
@@ -52,75 +61,81 @@ const Dashboard = (props) => {
     return id;
   }
 
-  const createGame = () => {
-    const id = generateUniqueId();
-    db.ref(`games/${id}`).set({
+  createGame = () => {
+    const id = this.generateUniqueId();
+    this.db.ref(`games/${id}`).set({
       gameId: id,
-      createdBy: user.displayName ? user.displayName : user.email,
+      createdBy: this.user.displayName ? this.user.displayName : this.user.email,
       createdOn: (new Date()).toLocaleDateString(),
       gameHasStarted: false
     });
   }
 
-  const joinGame = (id) => {
-    db.ref(`games/${id}/players/${user.displayName}`).update(user);
-    setUserHasJoined(true);
-    setCurrentGameId(id);
+  joinGame = (id) => {
+    this.db.ref(`games/${id}/players/${this.user.displayName}`).update(this.user);
+    this.setState({
+      userHasJoined: true,
+      currentGameId: id
+    });
   }
 
-  const deleteGame = (id) => {
-    db.ref(`games/${id}`).remove();
+  deleteGame = (id) => {
+    this.db.ref(`games/${id}`).remove();
   }
 
-  const removePlayer = (id) => {
-    db.ref(`games/${id}/players/${user.displayName}`).remove();
-    setUserHasJoined(false);
-    setCurrentGameId('');
+  removePlayer = (id) => {
+    this.db.ref(`games/${id}/players/${this.user.displayName}`).remove();
+    this.setState({
+      userHasJoined: false,
+      currentGameId: ''
+    });
   }
 
-  const startGame = () => {
-    db.ref(`games/${currentGameId}`).update({
+  startGame = () => {
+    this.db.ref(`games/${this.state.currentGameId}`).update({
       gameHasStarted: true
     });
   }
 
-  return (
-    <div id='container'>
-      <Navbar logout={true} />
-      {/* <h1 className='page-title'>{`userJoined ${userHasJoined} gameId ${currentGameId}`}</h1> */}
-      <h1 className='page-title'>Menu</h1>
-      <main id='dashboard-content'>
-        <section id='menu-options'>
-          <Button
-            icon='new'
-            className='menu-options-btn'
-            content='Nueva partida'
-            clickHandler={createGame}
-            isDisabled={maxGameNumber === 3}
-          />
-          <Button
-            icon='join'
-            className='menu-options-btn'
-            content='Unirse'
-            clickHandler={() => { console.log('unirse') }}
-          />
-        </section>
-        <section id='menu-games-table'>
-          <GamesTable
-            gameList={gameList}
-            joinGame={joinGame}
-            deleteGame={deleteGame}
-            removePlayer={removePlayer}
-            userHasJoined={userHasJoined}
-            currentGameId={currentGameId}
-            user={user}
-            startGame={startGame}
-            showSpinner={showSpinner}
-          />
-        </section>
-      </main>
-    </div>
-  );
+  render() {
+    return (
+      <div id='container' >
+        <Navbar logout={true} />
+        {/* <h1 className='page-title'>{`userJoined ${userHasJoined} gameId ${this.state.currentGameId}`}</h1> */}
+        <h1 className='page-title' > Menu</h1>
+        <main id='dashboard-content'>
+          <section id='menu-options'>
+            <Button
+              icon='new'
+              className='menu-options-btn'
+              content='Nueva partida'
+              clickHandler={this.createGame}
+              isDisabled={this.maxGameNumber === 3}
+            />
+            <Button
+              icon='join'
+              className='menu-options-btn'
+              content='Unirse'
+              clickHandler={() => { console.log('unirse') }}
+            />
+          </section>
+          <section id='menu-games-table'>
+            <GamesTable
+              gameList={this.state.gameList}
+              joinGame={this.joinGame}
+              deleteGame={this.deleteGame}
+              removePlayer={this.removePlayer}
+              userHasJoined={this.state.userHasJoined}
+              currentGameId={this.state.currentGameId}
+              user={this.user}
+              startGame={this.startGame}
+              showSpinner={this.state.showSpinner}
+            />
+          </section>
+        </main>
+      </div >
+    );
+  }
 }
 
 export default withRouter(Dashboard);
