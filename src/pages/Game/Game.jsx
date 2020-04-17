@@ -22,15 +22,6 @@ class Game extends Component {
 
   db = fire.database();
 
-  // componentWillMount() {
-  //   this.setState({
-  //     answers: answers.concat(answersExp),
-  //     questions: questions.concat(questionsExp),
-  //   });
-  //   // this.db.ref('cards/answers').set(answers.concat(answersExp));
-  //   // this.db.ref('cards/questions').set(questions.concat(questionsExp));
-  // }
-
   componentDidMount() {
     const currentGameId = this.props.match.params.gameId;
     this.setState({
@@ -52,19 +43,6 @@ class Game extends Component {
         })
       }
     });
-    // this.db.ref('cards/answers').on('value', snapshot => {
-    //   this.setState({
-    //     answers: snapshot.val(),
-    //   });
-    // });
-
-    //   this.db.ref('cards/questions').on('value', snapshot => {
-    //     const answers = this.pickRandomAnswerCards();
-    //     this.setState({
-    //       cardsAnswers: answers,
-    //       questions: snapshot.val(),
-    //     });
-    //   });
   }
 
   pickOneQuestion = () => {
@@ -108,7 +86,7 @@ class Game extends Component {
 
   render() {
     return (
-      <div id='container'>
+      <div id='game-container'>
         <Navbar />
         <h1 className='page-title'>
           {
@@ -134,7 +112,7 @@ class Game extends Component {
         }
         {
           this.state.showSpinner &&
-          <Spinner width='100px' height='100px' />
+          <Spinner styleObject={{ marginTop: '3rem' }} width='100px' height='100px' />
         }
       </div>
     );

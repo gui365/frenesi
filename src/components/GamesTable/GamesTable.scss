@@ -96,7 +96,7 @@ table {
   }
 }
 
-#star-icon {
+#star-icon-table {
   width: 35px;
   animation-name: "rotate";
   animation-duration: 4s;
@@ -149,5 +149,12 @@ table {
     background-color: rgb(123, 30, 209);
     color: rgb(255, 255, 255);
     border: dashed 2px rgb(255, 255, 255);
+  }
+}
+
+@media only screen and (min-width: 555px) {
+  #game-message-waiting {
+    margin: 1rem 3rem;
+    padding: .5rem 3rem;
   }
 }

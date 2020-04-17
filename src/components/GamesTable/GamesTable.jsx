@@ -38,12 +38,12 @@ const GamesTable = (props) => {
 
   return (
     <>
-      <h2 className='bold'>{`ID: ${currentGameId} Game: ${JSON.stringify(currentGame)}`}</h2>
+      <h2 className='bold'>Partidas</h2>
       {
         userHasJoined && currentGameId &&
         <>
           <div id='game-message-waiting'>
-            <img id='star-icon' src='images/star.ico' alt='star-icon'></img>
+            <img id='star-icon-table' src='images/star.ico' alt='star-icon'></img>
             <div>
               <p style={{ marginBottom: '.2rem' }}><span className='bold'>{currentGameId} - Jugadores:</span></p>
               <p>{getPlayers()}</p>
@@ -69,7 +69,7 @@ const GamesTable = (props) => {
             {!currentGame
               ? null
               : (user.displayName === currentGame.createdBy)
-                ? 'Dale click a "Comenzar" cuando todos los jugadores esten listos'
+                ? 'Dale click a "Comenzar" cuando todos los jugadores se hayan unido a la partida'
                 : 'Esperando a que otros jugadores se unan a la partida'
             }
           </p>

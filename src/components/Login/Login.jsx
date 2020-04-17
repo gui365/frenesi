@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { withRouter, Link } from 'react-router-dom';
 import './Login.scss';
 import Button from '../Button';
+import Logo from '../Logo';
 import Input from '../Input';
 import { fire } from '../../fire';
 
@@ -51,8 +52,7 @@ const Login = (props) => {
 
   return (
     <form id="container-login" onSubmit={handleSubmit}>
-      <img id="star-icon" src="images/star.ico" alt="star-icon"></img>
-      <img id="logo-login" src="/images/logo.png" alt="Frenesi logo" />
+      <Logo />
       {
         user && user.email
           ?

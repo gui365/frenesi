@@ -1,0 +1,22 @@
+#logo {
+  width: 50vw;
+  margin-bottom: 2rem;
+}
+
+#star-icon {
+  width: 50px;
+  margin-bottom: -1.5rem;
+  animation-name: "rotate";
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+@media (min-width: 555px) {
+  #logo {
+    width: 50%;
+  }
+
+  #star-icon {
+    width: 5vw;
+  }
+}

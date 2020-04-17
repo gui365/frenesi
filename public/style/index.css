@@ -22,13 +22,8 @@ body {
 }
 
 /* TEXT */
-
 .bold {
   font-weight: bold;
-}
-
-.align-center {
-  text-align: center;
 }
 
 .page-title {
@@ -49,9 +44,39 @@ body {
   margin-bottom: 2rem;
 }
 
+/* PADDING */
+.px-1rem {
+  padding: 0 1rem;
+}
+
+/* ALIGNMENT */
+.a-center {
+  align-items: center;
+}
+
+.j-center {
+  justify-content: center;
+}
+
+.j-between {
+  justify-content: space-between;
+}
+
+.align-center {
+  text-align: center;
+}
+
+.flex-direction-column {
+  flex-direction: column;
+}
+
 /* OPACITY, VISIBILITY AND DISPLAY */
 .opacity02 {
-  opacity: .2;
+  opacity: 0.2;
+}
+
+.d-flex {
+  display: flex;
 }
 
 /* ERRORS */
@@ -67,4 +92,9 @@ body {
   margin: auto;
   margin-top: 2rem;
   text-align: center;
+}
+
+/* SIZE */
+.w-100 {
+  width: 100%;
 }

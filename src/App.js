@@ -25,7 +25,7 @@ class App extends Component {
 
   render() {
     return (
-      <div style={{ boxSizing: 'border-box' }}>
+      <div style={{ boxSizing: 'border-box', height:'100vh' }}>
         <AppRouter />
         {
           window.location.pathname.includes('dashboard') &&

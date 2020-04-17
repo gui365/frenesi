@@ -6,13 +6,14 @@ const Spinner = ({
   height = '50px',
   alt,
   text,
+  styleObject,
   ...rest
 }) => {
   return (
     <div className='spinner-div'>
       <img
         className='spinner-img'
-        style={{ width, height }}
+        style={{ width, height, ...styleObject }}
         src={'/images/spinner3s.gif'}
         alt={alt || 'spinner image'}
         {...rest}

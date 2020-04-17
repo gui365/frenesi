@@ -1,79 +1,92 @@
-import React, { useState } from 'react';
+import React, { Component } from 'react';
+import './Admin.scss';
+import Signup from '../../components/Signup';
 import Button from '../../components/Button';
-import Input from '../../components/Input';
-import { fire } from '../../fire';
+import Logo from '../../components/Logo';
 
-const Admin = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [passwordRepeat, setPasswordRepeat] = useState('');
-  const [displayName, setDisplayName] = useState('');
-
-  const handleChange = (event) => {
-    switch (event.target.name) {
-      case 'email':
-        setEmail(event.target.value);
-        break;
-      case 'password':
-        setPassword(event.target.value);
-        break;
-      case 'password-repeat':
-        setPasswordRepeat(event.target.value);
-        break;
-      case 'nombre':
-        setDisplayName(event.target.value);
-        break;
-      default:
-        break;
-    }
-    return;
+class Admin extends Component {
+  state = {
+    section: ''
   }
 
-  const createUser = () => {
-    fire.auth().createUserWithEmailAndPassword(email, password).then((userData) => {
-      userData.user.updateProfile({
-        displayName
-      }).then(() => {
-        alert('Successfully created user ' + email);
-      });
-    }).catch((err) => {
-      if (err) {
-        console.error(err);
-      }
+  sectionTitleClasses = 'admin-section-title d-flex a-center j-between px-1rem';
+
+  // componentWillMount() {
+  //   this.setState({
+  //     answers: answers.concat(answersExp),
+  //     questions: questions.concat(questionsExp),
+  //   });
+  //   // this.db.ref('cards/answers').set(answers.concat(answersExp));
+  //   // this.db.ref('cards/questions').set(questions.concat(questionsExp));
+  // }
+
+  // componentDidMount() {
+  //   this.db.ref('cards/answers').on('value', snapshot => {
+  //     this.setState({
+  //       answers: snapshot.val(),
+  //     });
+  //   });
+
+  //   this.db.ref('cards/questions').on('value', snapshot => {
+  //     const answers = this.pickRandomAnswerCards();
+  //     this.setState({
+  //       cardsAnswers: answers,
+  //       questions: snapshot.val(),
+  //     });
+  //   });
+  // }
+
+  handleNavClick = (event) => {
+    const section = event.target.getAttribute('name');
+    const currentState = this.state.section;
+
+    this.setState({
+      section: currentState === section ? '' : section
     });
   }
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (password === passwordRepeat) {
-      if (email !== '' || password !== '' || passwordRepeat !== '' || displayName !== '') {
-        createUser();
-        return;
-      } else {
-        alert('Todos los campos son obligatorios');
-      }
-    } else {
-      alert('Las contraseñas no coinciden');
-    }
+  render() {
+    return (
+      <main id='admin-container' className='align-center'>
+        <Logo />
+        <h1 className='bold m-b-1rem'>Admin Portal</h1>
+        <div id='admin-container-options'>
+          <div name='signup'
+            className={this.sectionTitleClasses}
+            onClick={this.handleNavClick}>
+            <span name='signup'>Create a new user</span>
+            <Button
+              name='signup'
+              icon={this.state.section === 'signup' ? 'collapse' : 'expand'}
+              imageProps={{ name: 'signup' }}
+            />
+          </div>
+          {
+            this.state.section === 'signup' &&
+            < section >
+              <Signup />
+            </section>
+          }
+          <div name='setQA'
+            className={this.sectionTitleClasses}
+            onClick={this.handleNavClick}>
+            <span name='setQA'>Set Q&amp;A in DB</span>
+            <Button
+              name='setQA'
+              icon={this.state.section === 'setQA' ? 'collapse' : 'expand'}
+              imageProps={{ name: 'setQA' }}
+            />
+          </div>
+          {
+            this.state.section === 'setQA' &&
+            < section >
+              <p>Set QA</p>
+            </section>
+          }
+        </div>
+      </main >
+    );
   }
-
-  return (
-    <div id='admin-container'>
-      <form id="container-login" onSubmit={handleSubmit}>
-        <img id="star-icon" src="images/star.ico" alt="star-icon"></img>
-        <img id="logo-login" src="/images/logo.png" alt="Frenesi logo" />
-        <div>
-          <Input label="email" name="email" changeFunction={handleChange} type="text" /><br />
-          <Input label="contraseña" name="password" changeFunction={handleChange} type="password" /><br />
-          <Input label="repetir contraseña" name="password-repeat" changeFunction={handleChange} type="password" /><br />
-          <Input label="nombre" name="nombre" changeFunction={handleChange} type="text" />
-        </div>
-        <div>
-          <Button type='submit' content="Crear Usuario" />
-        </div>
-      </form>
-    </div>
-  );
 }
 
 export default Admin;

@@ -2,3 +2,8 @@
   font-weight: bold;
   text-decoration: none;
 }
+
+#game-container {
+  min-height: 100vh;
+  background: linear-gradient(120deg, rgb(147, 217, 245), rgb(220, 250, 255), rgb(253, 230, 255), rgb(200, 150, 219));
+}

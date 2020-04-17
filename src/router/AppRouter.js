@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import Authentication from '../pages/Authentication/Authentication';
+import Admin from '../pages/Admin/Admin';
 import Game from '../pages/Game/Game';
 import Dashboard from '../pages/Dashboard/Dashboard';
 import PrivateRoute from '../router/PrivateRoute';
@@ -21,22 +22,23 @@ const AppRouter = () => {
   const privateRoutes = () => {
     return (
       <>
-        <PrivateRoute path="/game/:gameId" component={Game} />
-        <PrivateRoute path="/dashboard" component={Dashboard} />
+        <PrivateRoute path='/game/:gameId' component={Game} />
+        <PrivateRoute path='/dashboard' component={Dashboard} />
       </>
     )
   }
 
   return (
     <Router forceRefresh={true}>
-      <Route exact path="/">
+      <Route exact path='/'>
         {
           !!sessionStorage.getItem('user')
-          ? <Redirect to={"/dashboard"} />
-          : <Redirect to={"/signin"} />
+          ? <Redirect to={'/dashboard'} />
+          : <Redirect to={'/signin'} />
         }
       </Route>
-      <Route path="/signin" component={() => <Authentication />} />
+      <Route path='/admin' component={Admin} />
+      <Route path='/signin' component={() => <Authentication />} />
       {privateRoutes()}
     </Router>
   );

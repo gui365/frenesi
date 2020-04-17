@@ -1,7 +1,14 @@
 import React from 'react';
 import './Button.scss';
 
-const Button = ({ content, type, clickHandler, isDisabled = false, icon, ...rest }) => {
+const Button = ({
+  content,
+  clickHandler,
+  icon,
+  imageProps,
+  isDisabled = false,
+  type,
+  ...rest }) => {
   return (
     <>
       <button
@@ -16,6 +23,7 @@ const Button = ({ content, type, clickHandler, isDisabled = false, icon, ...rest
             className='button-icon'
             src={`/images/icon-${icon}.png`}
             alt={`${icon} icon`}
+            {...imageProps}
           />
         }
         {content}
