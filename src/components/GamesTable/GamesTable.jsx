@@ -5,9 +5,10 @@ import Spinner from '../../components/Spinner';
 
 const GamesTable = (props) => {
   const {
-    gameList,
+    gameListArray,
     joinGame,
     deleteGame,
+    notEnoughPlayersError,
     removePlayer,
     userHasJoined,
     currentGameId,
@@ -16,7 +17,7 @@ const GamesTable = (props) => {
     showSpinner
   } = props;
 
-  const currentGame = gameList.filter(game => game.gameId === currentGameId)[0];
+  const currentGame = gameListArray.filter(game => game.gameId === currentGameId)[0];
   const getPlayers = () => {
     if (currentGame) {
       const playersObject = currentGame.players;
@@ -69,14 +70,16 @@ const GamesTable = (props) => {
             {!currentGame
               ? null
               : (user.displayName === currentGame.createdBy)
-                ? 'Dale click a "Comenzar" cuando todos los jugadores se hayan unido a la partida'
+                ? notEnoughPlayersError
+                  ? 'Se necesitan por lo menos 3 jugadores para empezar la partida'
+                  : 'Dale click a "Comenzar" cuando todos los jugadores se hayan unido a la partida'
                 : 'Esperando a que otros jugadores se unan a la partida'
             }
           </p>
         </>
       }
       {
-        gameList.length ?
+        gameListArray.length ?
           <table className={userHasJoined && currentGameId ? 'opacity02' : null}>
             <thead>
               <tr>
@@ -88,7 +91,7 @@ const GamesTable = (props) => {
               </tr>
             </thead>
             <tbody>
-              {gameList.map(game => {
+              {gameListArray.map(game => {
                 return (
                   <tr className='data-row' key={game.gameId}>
                     <td>{game.gameId}</td>
@@ -114,7 +117,7 @@ const GamesTable = (props) => {
                               clickHandler={() => { deleteGame(game.gameId) }} />
                           </td>
                         </>)
-                        : <td>
+                        : <td colSpan="2">
                           <Button
                             isDisabled={true}
                             className='game-options-btn in-progress-btn'

@@ -3,16 +3,23 @@
 
   #menu-options {
     display: flex;
+    justify-content: space-around;
 
     .menu-options-btn {
-      width: 50%;
+      // width: 50%;
+      width: 100%;
       padding: 10px;
       border: none;
-      border-radius: 0 20px 20px 0;
+      // border-radius: 0 20px 20px 0;
+      border-radius: 10px;
       box-shadow: 0 4px 3px rgba(0, 0, 0, 0.3);
-      background-color: rgb(227, 236, 208);
+      background: linear-gradient(90deg, rgba(167, 45, 238, 0.5), rgba(255, 255, 255, 0.5), rgba(247, 84, 165, 0.5), rgba(255, 255, 255, 0.5));
+      background-size: 200vw;
+      -webkit-animation: background-animation 15s alternate-reverse infinite;
+      -moz-animation: background-animation 15s alternate-reverse infinite;
+      animation: background-animation 15s alternate-reverse infinite;
       font-size: 1rem;
-      margin: 1rem 0;
+      margin: 1rem 1rem;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
@@ -23,11 +30,11 @@
         margin-bottom: 5px;
       }
 
-      &:first-of-type {
-        border-radius: 20px 0 0 20px;
-        background-color: rgb(255, 205, 205);
-        // background: linear-gradient(180deg, rgb(221, 0, 0), rgb(255, 190, 228));
-      }
+      // &:first-of-type {
+      //   border-radius: 20px 0 0 20px;
+      //   background-color: rgb(255, 205, 205);
+      //   // background: linear-gradient(180deg, rgb(221, 0, 0), rgb(255, 190, 228));
+      // }
 
       &:disabled {
         background-color: rgb(233, 233, 233);
@@ -35,7 +42,7 @@
         font-weight: normal;
 
         .button-icon {
-          opacity: .2;
+          opacity: 0.2;
         }
       }
     }
@@ -43,5 +50,39 @@
 
   #menu-games-table {
     margin-top: 1rem;
+  }
+}
+
+@-webkit-keyframes background-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@-moz-keyframes background-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes background-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }

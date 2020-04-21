@@ -1,11 +1,11 @@
 import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 
-const PrivateRoute = ({ component: Component, ...rest }) => {
+const PrivateRoute = ({ component: Component, state, ...rest }) => {
   return (
     <Route {...rest} render={(props) => (
       !!sessionStorage.getItem('user')
-        ? <Component {...props} />
+        ? <Component {...props} {...state} />
         : <Redirect to='/signin' />
     )} />
   )

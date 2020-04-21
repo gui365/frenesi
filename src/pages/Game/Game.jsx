@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import Navbar from '../../components/Navbar';
 import PlayArea from '../../components/PlayArea/PlayArea';
 import CardsArea from '../../components/CardsArea/CardsArea';
@@ -8,53 +8,115 @@ import answers from '../../data/cardsAnswers';
 import answersExp from '../../data/cardsAnswersExp01';
 import questions from '../../data/cardsQuestions';
 import questionsExp from '../../data/cardsQuestionsExp01';
+import { getRandomNumber } from '../../utils/utils';
 import { fire } from '../../fire';
 import './Game.scss';
 
 class Game extends Component {
   state = {
-    questions: [],
     answers: [],
     currentGame: null,
-    gamesList: [],
-    errorNoGameIdFound: false
+    errorNoGameIdFound: false,
+    gameOver: false,
+    players: [],
+    questions: [],
+    round: 1,
+    showSpinner: false,
+    thisPlayer: ''
   }
 
+  currentGameId = this.props.match.params.gameId
   db = fire.database();
 
+  // 3. From judge's app   ->  Pick a question, set in DB
+  // 4. forEach players  ->  Pick 7 cards that haven't been dealt (set in DB when they're drawn)
+  // 5.
+
+  // ***   SUBSEQUENT ROUNDS   ***
+  // 1. Pick a judge       ->  Set judge in the DB
+  // 2. From judge's app   ->  Pick a question, set in DB
+  // 3. 
+
   componentDidMount() {
-    const currentGameId = this.props.match.params.gameId;
+    console.log('componentDidMount');
+    console.log(!!this.state.currentGame);
+    if (!this.state.currentGame) {
+      // *** FIRST TIME GAME LOADS ***
+      console.log('componentDidMount, setting state for first time');
+      this.setGameForFirstTime();
+    } else {
+      // Listen for changes in DB for specific game
+      console.log('componentDidMount, setting state AFTER first time')
+      this.listenForDbChanges();
+    }
+  }
+
+  setGameForFirstTime = () => {
+    console.log('*** SETTING STATE FOR THE FIRST TIME ***');
     this.setState({
       showSpinner: true
     })
-    this.db.ref(`games`).on('value', snapshot => {
-      if (snapshot.val() && Object.keys(snapshot.val()).indexOf(currentGameId) !== -1) {
+    this.db.ref(`games/${this.currentGameId}`).on('value', snapshot => {
+      const snap = snapshot.val();
+      if (snap) {
+        // 1. Set in state: questions, answers, currentGame
         this.setState({
-          showSpinner: false,
-          gamesList: snapshot.val(),
-          currentGame: snapshot.val()[currentGameId],
           answers: answers.concat(answersExp),
-          questions: questions.concat(questionsExp)
+          currentGame: snap,
+          judge: snap.judge,
+          thisPlayer: this.props.player,
+          currentQuestion: snap.currentQuestion,
+          players: snap.players, // This is an object! Player names are keys
+          questions: questions.concat(questionsExp),
+          showSpinner: false
         });
+        if (!this.state.currentQuestion) {
+          this.pickOneQuestion();
+        }
       } else {
         this.setState({
           errorNoGameIdFound: true,
           showSpinner: false,
-        })
+        });
       }
     });
   }
 
+  listenForDbChanges = () => {
+    console.log('listening for changes')
+    this.db.ref(`games/${this.currentGameId}`).on('value', snapshot => {
+      console.log('Value changed for game ' + this.currentGameId);
+    });
+  }
+
   pickOneQuestion = () => {
+    // console.log('*** PICKING ONE QUESTION ***');
     if (this.state.questions.length) {
-      const q = this.state.questions[Math.floor(Math.random() * this.state.questions.length)];
-      if (q && !q.drawn) {
-        return q.content;
+      // console.log('THIS PLAYER IS THE JUDGE', this.state.thisPlayer === this.state.judge);
+      if (this.state.thisPlayer === this.state.judge) {
+        let index = getRandomNumber(this.state.questions.length);
+        const newQuestionsArray = [...this.state.questions];
+        const q = newQuestionsArray[index];
+        if (q && !q.drawn) {
+          // set newQuestionsArray to state
+          this.setState({
+            currentQuestion: q.content
+          });
+          this.db.ref(`games/${this.currentGameId}/currentQuestion`).update({ value: q.content });
+        } else {
+          this.pickOneQuestion();
+        }
       } else {
-        this.pickOneQuestion();
+        this.db.ref(`games/${this.currentGameId}/currentQuestion`).on('value', snap => {
+          this.setState({
+            currentQuestion: snap.val()
+          })
+        });
       }
     } else {
-      alert('Game over!');
+      this.setState({
+        gameOver: true
+      })
     }
   }
 
@@ -70,7 +132,7 @@ class Game extends Component {
   }
 
   pickOneAnswer = () => {
-    let answer = this.state.answers[Math.floor(Math.random() * this.state.answers.length)];
+    let answer = this.state.answers[getRandomNumber(this.state.answers.length)];
     if (answer && !answer.drawn) {
       answer.drawn = true;
       return answer;
@@ -81,6 +143,10 @@ class Game extends Component {
 
   endGame = () => {
     this.db.ref(`/games/${this.state.currentGame.gameId}`).remove();
+    this.redirectToDashboard()
+  }
+
+  redirectToDashboard = () => {
     this.props.history.push('/dashboard');
   }
 
@@ -100,19 +166,19 @@ class Game extends Component {
           <button onClick={this.endGame}>Terminar</button>
         }
         {
-          !!this.state.questions.length && !this.state.errorNoGameIdFound &&
+          !!this.state.questions.length && !this.state.errorNoGameIdFound && !!this.state.currentQuestion &&
           <>
-            <PlayArea question={this.pickOneQuestion()} />
+            <PlayArea question={this.state.currentQuestion.value} />
             <CardsArea answers={this.pickRandomAnswerCards()} />
           </>
         }
         {
           this.state.errorNoGameIdFound &&
-          <div id='error-message'>No hay ninguna partida con este codigo. Volve al <Link className='link' to='/dashboard'>Menu</Link> para crear una.</div>
+          this.redirectToDashboard()
         }
         {
           this.state.showSpinner &&
-          <Spinner styleObject={{ marginTop: '3rem' }} width='100px' height='100px' />
+          <Spinner styleImg={{ marginTop: '3rem' }} width='100px' height='100px' />
         }
       </div>
     );

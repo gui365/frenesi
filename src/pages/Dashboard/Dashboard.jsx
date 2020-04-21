@@ -5,11 +5,12 @@ import Navbar from '../../components/Navbar';
 import Button from '../../components/Button';
 import GamesTable from '../../components/GamesTable';
 import { fire } from '../../fire';
+import { getRandomNumber } from '../../utils/utils';
 
 class Dashboard extends Component {
   state = {
     maxGameNumber: 0,
-    gameList: [],
+    gameListArray: [],
     currentGameId: '',
     userHasJoined: false,
     showSpinner: false
@@ -33,14 +34,13 @@ class Dashboard extends Component {
       }
 
       this.setState({
-        gameList: objToArray,
+        gameListObject: snap,
+        gameListArray: objToArray,
         maxGameNumber: objToArray.length,
         showSpinner: false
       })
 
-      // alert(`SNAP ${!!snap} && CURRENTID ${!!currentGameId} && USERJOINED ${!!userHasJoined}`)
       if (snap && this.state.currentGameId && this.state.userHasJoined) {
-        // alert(`SNAP CURRENTGAME ${!!snap[this.state.currentGameId]} GAME STARTED? ${!!snap[this.state.currentGameId]['gameHasStarted'] === true}`)
         if (snap[this.state.currentGameId] && snap[this.state.currentGameId]['gameHasStarted'] === true) {
           const history = this.props.history;
           if (history) {
@@ -53,10 +53,10 @@ class Dashboard extends Component {
 
   generateUniqueId = () => {
     const letter = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    let id = letter[Math.floor(Math.random() * letter.length)];
+    let id = letter[getRandomNumber(letter.length)];
 
     for (let i = 0; i < 4; i++) {
-      id += Math.floor(Math.random() * 10);
+      id += getRandomNumber(10);
     }
     return id;
   }
@@ -64,10 +64,12 @@ class Dashboard extends Component {
   createGame = () => {
     const id = this.generateUniqueId();
     this.db.ref(`games/${id}`).set({
-      gameId: id,
+      cards: this.props.cards,
       createdBy: this.user.displayName ? this.user.displayName : this.user.email,
       createdOn: (new Date()).toLocaleDateString(),
-      gameHasStarted: false
+      gameHasStarted: false,
+      gameId: id,
+      judge: ''
     });
   }
 
@@ -92,9 +94,28 @@ class Dashboard extends Component {
   }
 
   startGame = () => {
-    this.db.ref(`games/${this.state.currentGameId}`).update({
-      gameHasStarted: true
-    });
+    const { gameListObject, currentGameId } = this.state;
+    const currentGamePlayers = Object.keys(gameListObject[currentGameId].players);
+    
+    // IF at least 3 players have joined the game, continue to next step
+    if (currentGamePlayers.length >= 1) {
+      // Select a judge, set in DB before history.push
+      this.db.ref(`games/${this.state.currentGameId}`).update({
+        gameHasStarted: true,
+        judge: currentGamePlayers[0]
+      });
+    } else {
+      // OTHERWISE set notEnoughPlayersError to true and show error
+      this.setState({
+        notEnoughPlayersError: true
+      });
+      // And set it back to false after 3 seconds to hide the error
+      setTimeout(() => {
+        this.setState({
+          notEnoughPlayersError: false
+        })
+      }, 3000);
+    }
   }
 
   render() {
@@ -102,7 +123,7 @@ class Dashboard extends Component {
       <div id='container' >
         <Navbar logout={true} />
         {/* <h1 className='page-title'>{`userJoined ${userHasJoined} gameId ${this.state.currentGameId}`}</h1> */}
-        <h1 className='page-title' > Menu</h1>
+        <h1 className='page-title' >Menu</h1>
         <main id='dashboard-content'>
           <section id='menu-options'>
             <Button
@@ -112,24 +133,25 @@ class Dashboard extends Component {
               clickHandler={this.createGame}
               isDisabled={this.maxGameNumber === 3}
             />
-            <Button
+            {/* <Button
               icon='join'
               className='menu-options-btn'
               content='Unirse'
               clickHandler={() => { console.log('unirse') }}
-            />
+            /> */}
           </section>
           <section id='menu-games-table'>
             <GamesTable
-              gameList={this.state.gameList}
-              joinGame={this.joinGame}
-              deleteGame={this.deleteGame}
-              removePlayer={this.removePlayer}
-              userHasJoined={this.state.userHasJoined}
               currentGameId={this.state.currentGameId}
-              user={this.user}
-              startGame={this.startGame}
+              deleteGame={this.deleteGame}
+              gameListArray={this.state.gameListArray}
+              joinGame={this.joinGame}
+              notEnoughPlayersError={this.state.notEnoughPlayersError}
+              removePlayer={this.removePlayer}
               showSpinner={this.state.showSpinner}
+              startGame={this.startGame}
+              userHasJoined={this.state.userHasJoined}
+              user={this.user}
             />
           </section>
         </main>

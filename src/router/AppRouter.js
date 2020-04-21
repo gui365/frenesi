@@ -6,8 +6,13 @@ import Game from '../pages/Game/Game';
 import Dashboard from '../pages/Dashboard/Dashboard';
 import PrivateRoute from '../router/PrivateRoute';
 import { auth } from '../fire';
+import Spinner from '../components/Spinner';
 
-const AppRouter = () => {
+const AppRouter = (props) => {
+  const displayName = !!sessionStorage.getItem('user')
+    ? JSON.parse(sessionStorage.getItem('user')).displayName
+    : 'No name to display';
+
   useEffect(() => {
     auth.onAuthStateChanged(userAuth => {
       if (userAuth !== JSON.parse(sessionStorage.getItem('user'))) {
@@ -22,25 +27,42 @@ const AppRouter = () => {
   const privateRoutes = () => {
     return (
       <>
-        <PrivateRoute path='/game/:gameId' component={Game} />
-        <PrivateRoute path='/dashboard' component={Dashboard} />
+        <PrivateRoute
+          path='/game/:gameId'
+          component={Game}
+          state={{ player: displayName }}
+        />
+        {
+          props.cards &&
+          <PrivateRoute
+            path='/dashboard'
+            component={Dashboard}
+            state={{ cards: props.cards }}
+          />
+        }
       </>
     )
   }
 
   return (
-    <Router forceRefresh={true}>
-      <Route exact path='/'>
-        {
-          !!sessionStorage.getItem('user')
-          ? <Redirect to={'/dashboard'} />
-          : <Redirect to={'/signin'} />
-        }
-      </Route>
-      <Route path='/admin' component={Admin} />
-      <Route path='/signin' component={() => <Authentication />} />
-      {privateRoutes()}
-    </Router>
+    <>
+      {
+        window.location.pathname.includes('dashboard') && !props.cards &&
+        <Spinner width='5rem' height='5rem' styleImg={{ marginTop: '5rem' }} />
+      }
+      <Router forceRefresh={true}>
+        <Route exact path='/'>
+          {
+            !!sessionStorage.getItem('user')
+              ? <Redirect to={'/dashboard'} />
+              : <Redirect to={'/signin'} />
+          }
+        </Route>
+        <Route path='/admin' component={Admin} />
+        <Route path='/signin' component={() => <Authentication />} />
+        {privateRoutes()}
+      </Router>
+    </>
   );
 }
 

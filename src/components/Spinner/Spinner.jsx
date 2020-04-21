@@ -2,18 +2,18 @@ import React from 'react';
 import './Spinner.scss';
 
 const Spinner = ({
-  width = '50px',
-  height = '50px',
   alt,
+  height = '50px',
+  styleImg,
   text,
-  styleObject,
+  width = '50px',
   ...rest
 }) => {
   return (
     <div className='spinner-div'>
       <img
         className='spinner-img'
-        style={{ width, height, ...styleObject }}
+        style={{ width, height, ...styleImg }}
         src={'/images/spinner3s.gif'}
         alt={alt || 'spinner image'}
         {...rest}

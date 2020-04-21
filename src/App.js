@@ -1,32 +1,39 @@
 import React, { Component } from 'react';
 import AppRouter from './router/AppRouter';
 import Footer from './components/Footer';
-// import { auth } from './fire';
+import { fire } from './fire';
+import answers from './data/cardsAnswers';
+import answersExp from './data/cardsAnswersExp01';
+import questions from './data/cardsQuestions';
+import questionsExp from './data/cardsQuestionsExp01';
 
 class App extends Component {
+  state = {
+    cards: ''
+  }
 
-  // state = {
-  //   user: ''
-  // }
+  db = fire.database();
 
-  // componentDidMount() {
-  //   auth.onAuthStateChanged(userAuth => {
-  //     if (userAuth !== JSON.parse(sessionStorage.getItem('user'))) {
-  //       sessionStorage.setItem('user', JSON.stringify({
-  //         email: userAuth.email,
-  //         displayName: userAuth.displayName
-  //       }));
-  //       this.setState({
-  //         user: sessionStorage.getItem('user')
-  //       });
-  //     }
-  //   });
-  // }
+  componentDidMount() {
+    // this.db.ref('cards').on('value', snap => {
+    //   this.setState({
+    //     cards: snap.val()
+    //   })
+    // });
+    setTimeout(() => {
+      this.setState({
+        cards: {
+          answers: answers.concat(answersExp),
+          questions: questions.concat(questionsExp),
+        }
+      })
+    }, 1000);
+  }
 
   render() {
     return (
       <div style={{ boxSizing: 'border-box', height:'100vh' }}>
-        <AppRouter />
+        <AppRouter cards={this.state.cards} />
         {
           window.location.pathname.includes('dashboard') &&
           <Footer />
