@@ -3,7 +3,6 @@ import './CardsArea.scss';
 import Card from '../Card';
 
 const CardsArea = ({ answers }) => {
-
   return (
     <>
       {

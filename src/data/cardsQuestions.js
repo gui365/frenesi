@@ -362,7 +362,7 @@ export default [
   {
     "id": "Q041",
     "type": "question",
-    "content": "Paso 1: ___________; Paso 2: ___________; Paso 3: Ganancia.",
+    "content": "Paso 1: ___________;\nPaso 2: ___________;\nPaso 3: Ganancia.",
     "package": "basic",
     "drawn": false,
     "owner": null,

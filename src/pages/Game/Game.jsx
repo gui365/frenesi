@@ -15,50 +15,60 @@ import './Game.scss';
 class Game extends Component {
   state = {
     answers: [],
+    answerCards: [],
     currentGame: null,
     errorNoGameIdFound: false,
+    gameHasBeenSet: false,
     gameOver: false,
     players: [],
     questions: [],
     round: 1,
     showSpinner: false,
-    thisPlayer: ''
+    thisPlayer: '',
   }
 
   currentGameId = this.props.match.params.gameId
   db = fire.database();
 
+  // *** FIRST TIME GAME LOADS ***
+  // 1. Set in state: questions, answers, currentGame
+  // 2.
   // 3. From judge's app   ->  Pick a question, set in DB
   // 4. forEach players  ->  Pick 7 cards that haven't been dealt (set in DB when they're drawn)
   // 5.
 
-  // ***   SUBSEQUENT ROUNDS   ***
-  // 1. Pick a judge       ->  Set judge in the DB
-  // 2. From judge's app   ->  Pick a question, set in DB
-  // 3. 
-
   componentDidMount() {
-    console.log('componentDidMount');
-    console.log(!!this.state.currentGame);
     if (!this.state.currentGame) {
-      // *** FIRST TIME GAME LOADS ***
-      console.log('componentDidMount, setting state for first time');
       this.setGameForFirstTime();
     } else {
       // Listen for changes in DB for specific game
-      console.log('componentDidMount, setting state AFTER first time')
       this.listenForDbChanges();
     }
   }
 
+  componentDidUpdate() {
+    this.db.ref(`games`).on('value', snapshot => {
+      const snap = snapshot.val();
+
+      // If game has ended, redirect players to the dashboard
+      if (!snap || (snap && !Object.keys(snap).includes(this.currentGameId))) {
+        this.setState({
+          showSpinner: true
+        })
+        this.redirectToDashboard();
+      }
+    });
+  }
+
   setGameForFirstTime = () => {
-    console.log('*** SETTING STATE FOR THE FIRST TIME ***');
     this.setState({
       showSpinner: true
     })
-    this.db.ref(`games/${this.currentGameId}`).on('value', snapshot => {
+    this.db.ref(`games/${this.currentGameId}`).once('value', snapshot => {
       const snap = snapshot.val();
+
       if (snap) {
+        const allPlayersHaveCards = this.allPlayersHaveCards(Object.values(snap.players));
         // 1. Set in state: questions, answers, currentGame
         this.setState({
           answers: answers.concat(answersExp),
@@ -70,16 +80,45 @@ class Game extends Component {
           questions: questions.concat(questionsExp),
           showSpinner: false
         });
-        if (!this.state.currentQuestion) {
+
+        // If the player is the judge, pick a question
+        if (this.props.player === snap.judge && !this.state.currentQuestion) {
           this.pickOneQuestion();
+        } else {
+          this.db.ref(`games/${this.currentGameId}/currentQuestion`).on('value', snapshot => {
+            this.setState({
+              currentQuestion: snapshot.val()
+            });
+          });
         }
-      } else {
-        this.setState({
-          errorNoGameIdFound: true,
-          showSpinner: false,
-        });
+
+        // If the player is the judge, pick cards for everybody
+        if (this.props.player === snap.judge && !allPlayersHaveCards) {
+          let cards;
+          for (const p in snap.players) {
+            if (!snap.players.cards) {
+              cards = this.pickRandomAnswerCards(p);
+              // console.log('Cards for ', p, cards);
+              this.db.ref(`games/${this.currentGameId}/players/${p}/cards`).set(cards);
+            }
+          }
+        } else {
+          this.db.ref(`games/${this.currentGameId}/players/${this.props.player}/cards`).on('value', snapshot => {
+            this.setState({
+              answerCards: snapshot.val()
+            });
+          });
+        }
       }
     });
+
+    this.setState({
+      gameHasBeenSet: true
+    });
+  }
+
+  allPlayersHaveCards = (playersArray) => {
+    return playersArray.every(player => !!player.cards);
   }
 
   listenForDbChanges = () => {
@@ -90,55 +129,49 @@ class Game extends Component {
   }
 
   pickOneQuestion = () => {
-    // console.log('*** PICKING ONE QUESTION ***');
     if (this.state.questions.length) {
-      // console.log('THIS PLAYER IS THE JUDGE', this.state.thisPlayer === this.state.judge);
-      if (this.state.thisPlayer === this.state.judge) {
-        let index = getRandomNumber(this.state.questions.length);
-        const newQuestionsArray = [...this.state.questions];
-        const q = newQuestionsArray[index];
-        if (q && !q.drawn) {
-          // set newQuestionsArray to state
-          this.setState({
-            currentQuestion: q.content
-          });
-          this.db.ref(`games/${this.currentGameId}/currentQuestion`).update({ value: q.content });
-        } else {
-          this.pickOneQuestion();
-        }
-      } else {
-        this.db.ref(`games/${this.currentGameId}/currentQuestion`).on('value', snap => {
-          this.setState({
-            currentQuestion: snap.val()
-          })
-        });
-      }
+      let index = getRandomNumber(this.state.questions.length);
+      const newQuestionsArray = [...this.state.questions];
+      const q = newQuestionsArray[index];
+      newQuestionsArray.splice(index, 1)
+      this.setState({
+        currentQuestion: q.content,
+        questions: newQuestionsArray
+      });
+      this.db.ref(`games/${this.currentGameId}/currentQuestion`).set(q.content);
     } else {
+      console.log('Game over!');
       this.setState({
         gameOver: true
       })
     }
   }
 
-  pickRandomAnswerCards = () => {
-    let answers = [];
-    for (let i = 0; answers.length < 7; i++) {
+  pickRandomAnswerCards = (player) => {
+    let answerCards = [];
+    for (let i = 0; answerCards.length < 7; i++) {
       const a = this.pickOneAnswer();
       if (a) {
-        answers.push(a);
+        answerCards.push(a);
       }
     }
-    return answers;
+    if (this.state.thisPlayer === player) {
+      this.setState({
+        answerCards
+      });
+    }
+    return answerCards;
   }
 
   pickOneAnswer = () => {
-    let answer = this.state.answers[getRandomNumber(this.state.answers.length)];
-    if (answer && !answer.drawn) {
-      answer.drawn = true;
-      return answer;
-    } else {
-      this.pickOneAnswer();
-    }
+    let index = getRandomNumber(this.state.answers.length);
+    const newAnswersArray = [...this.state.answers];
+    const card = newAnswersArray[index];
+    newAnswersArray.splice(index, 1);
+    this.setState({
+      answers: newAnswersArray
+    })
+    return card;
   }
 
   endGame = () => {
@@ -152,35 +185,40 @@ class Game extends Component {
 
   render() {
     return (
-      <div id='game-container'>
-        <Navbar />
-        <h1 className='page-title'>
+      (
+        this.state.gameHasBeenSet &&
+        <div id='game-container'>
+          <Navbar />
           {
-            this.props.match.params.gameId
-              ? `Partida ${this.props.match.params.gameId}`
-              : null
+            !this.state.showSpinner
+              ? <>
+                <h1 className='page-title'>
+                  {
+                    this.props.match.params.gameId
+                      ? `Partida ${this.props.match.params.gameId}`
+                      : null
+                  }
+                </h1>
+                {
+                  !this.state.errorNoGameIdFound && !this.state.showSpinner &&
+                  <button onClick={this.endGame}>Terminar</button>
+                }
+                {
+                  !!this.state.questions.length
+                  && !this.state.errorNoGameIdFound
+                  && !!this.state.currentQuestion
+                  &&
+                  <PlayArea question={this.state.currentQuestion} />
+                }
+                {
+                  !!this.state.answerCards &&
+                  <CardsArea answers={this.state.answerCards} />
+                }
+              </>
+              : <Spinner styleImg={{ marginTop: '3rem' }} width='100px' height='100px' />
           }
-        </h1>
-        {
-          !this.state.errorNoGameIdFound && !this.state.showSpinner &&
-          <button onClick={this.endGame}>Terminar</button>
-        }
-        {
-          !!this.state.questions.length && !this.state.errorNoGameIdFound && !!this.state.currentQuestion &&
-          <>
-            <PlayArea question={this.state.currentQuestion.value} />
-            <CardsArea answers={this.pickRandomAnswerCards()} />
-          </>
-        }
-        {
-          this.state.errorNoGameIdFound &&
-          this.redirectToDashboard()
-        }
-        {
-          this.state.showSpinner &&
-          <Spinner styleImg={{ marginTop: '3rem' }} width='100px' height='100px' />
-        }
-      </div>
+        </div>
+      )
     );
   }
 }
