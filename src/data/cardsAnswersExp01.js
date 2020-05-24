@@ -143,14 +143,14 @@ export default [
     "drawn": false,
     "owner": null
   },
-  // {
-  //   "id": "E01-A019",
-  //   "type": "answer",
-  //   "content": "",
-  //   "package": "basic",
-  //   "drawn": false,
-  //   "owner": null
-  // },
+  {
+    "id": "E01-A019",
+    "type": "answer",
+    "content": "Una reunión familiar por Skype",
+    "package": "basic",
+    "drawn": false,
+    "owner": null
+  },
   // {
   //   "id": "E01-A020",
   //   "type": "answer",

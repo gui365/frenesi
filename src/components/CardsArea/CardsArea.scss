@@ -1,5 +1,5 @@
 #cardsarea {
-  width: 100vw;
+  // width: 100vw;
   background-color: rgba(0, 0, 0, .1);
   padding: 15px 0;
   box-sizing: border-box;
@@ -7,4 +7,12 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
+}
+
+#message-cards-left {
+  font-size: .6rem;
+  padding: 0 15px;
+  padding-bottom: 13px;
+  width: 100%;
+  text-align: right;
 }

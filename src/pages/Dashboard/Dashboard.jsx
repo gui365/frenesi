@@ -5,15 +5,18 @@ import Navbar from '../../components/Navbar';
 import Button from '../../components/Button';
 import GamesTable from '../../components/GamesTable';
 import { fire } from '../../fire';
-import { getRandomNumber } from '../../utils/utils';
+import { getRandomNumber, shuffle } from '../../utils/utils';
+import answers from '../../data/cardsAnswers';
+import answersExp from '../../data/cardsAnswersExp01';
 
 class Dashboard extends Component {
   state = {
-    maxGameNumber: 0,
-    gameListArray: [],
+    answers: answers.concat(answersExp),
     currentGameId: '',
-    userHasJoined: false,
-    showSpinner: false
+    gameListArray: [],
+    maxGameNumber: 0,
+    showSpinner: false,
+    userHasJoined: false
   }
 
   user = JSON.parse(sessionStorage.getItem('user'));
@@ -74,7 +77,10 @@ class Dashboard extends Component {
   }
 
   joinGame = (id) => {
-    this.db.ref(`games/${id}/players/${this.user.displayName}`).update(this.user);
+    this.db.ref(`games/${id}/players/${this.user.displayName}`).update({
+      ...this.user,
+      wins: 0
+    });
     this.setState({
       userHasJoined: true,
       currentGameId: id
@@ -99,10 +105,25 @@ class Dashboard extends Component {
     
     // IF at least 3 players have joined the game, continue to next step
     if (currentGamePlayers.length >= 1) {
+      let startingIndex = 0;
+      const numCardsPerPlayer = Math.floor(this.state.answers.length / currentGamePlayers.length);
+      const arrCardsperPlayer = [];
+      const shuffledArray = shuffle(this.state.answers);
+      currentGamePlayers.forEach(player => {
+        arrCardsperPlayer.push({
+          [player]: shuffledArray.slice(startingIndex, startingIndex + numCardsPerPlayer)
+        });
+        startingIndex = startingIndex + numCardsPerPlayer;
+      });
+
       // Select a judge, set in DB before history.push
       this.db.ref(`games/${this.state.currentGameId}`).update({
         gameHasStarted: true,
         judge: currentGamePlayers[0]
+      });
+
+      this.db.ref(`games/${this.state.currentGameId}/cards`).update({
+        answers: arrCardsperPlayer
       });
     } else {
       // OTHERWISE set notEnoughPlayersError to true and show error

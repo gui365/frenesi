@@ -1,11 +1,16 @@
 header {
-  background: linear-gradient(200deg, rgba(41, 106, 180, .4), rgba(219, 80, 219, .25));
-  height: 3.8rem;
+  background: linear-gradient(200deg, rgba(41, 106, 180, 0.4), rgba(219, 80, 219, 0.25));
+  min-height: 3.8rem;
   max-width: 100vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 0.5rem;
+
+  &.isGameScreen {
+    padding: 0;
+    justify-content: start;
+  }
 
   #logo-main {
     height: 2.5rem;
@@ -27,7 +32,7 @@ header {
         color: rgb(255, 255, 255);
         border-radius: 5px;
         border: 1px rgb(66, 3, 95) solid;
-        box-shadow: 0 3px 2px rgba(61, 61, 61, .3);
+        box-shadow: 0 3px 2px rgba(61, 61, 61, 0.3);
       }
     }
   }
@@ -36,12 +41,67 @@ header {
     width: 30px;
     background-color: rgba(250, 239, 255, 0.7);
     border-radius: 50%;
-    margin: 0 3px;
+    margin: 3px;
 
     &:hover {
       background-color: rgb(255, 255, 255);
       box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3);
     }
+  }
+
+  .scores {
+    flex-wrap: wrap;
+    max-height: 80px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .player-points,
+  .a-left, .q-left {
+    background-color: rgb(48, 48, 48);
+    justify-content: space-evenly;
+    margin: 2px 4px;
+    padding: 5px;
+    border-radius: 8px;
+  }
+
+  .a-left-number,
+  .q-left-number {
+    font-weight: bold;
+    font-size: 1rem;
+  }
+
+  .player-points {
+    font-size: .6rem;
+    padding: 3px 5px;
+    margin: 2px 3px;
+    color: #fff;
+    min-height: 0;
+  }
+
+  .a-left,
+  .q-left {
+    background-color: #fff;
+    min-width: 30px;
+    height: 40px;
+    margin: 0 8px;
+    box-shadow: 0 3px 3px rgba(0, 0, 0, .3);
+
+    // .a-left-name,
+    // .q-left-name {
+    //   font-size: 0.8rem;
+    //   color: #000;
+    //   border-bottom: 1px solid #ddd;
+    //   padding-bottom: 5px;
+    // }
+  }
+  
+  .q-left {
+    background-color: rgba(111, 29, 136, 0.8);
+    color: white;
+    // margin: 0;
+    margin-right: 12px;
   }
 }
 
