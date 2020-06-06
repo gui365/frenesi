@@ -4,14 +4,17 @@ import Card from '../Card';
 
 const CardsArea = ({ answers, handlePlayCard, answersRequired }) => {
   const [answerCards, setAnswerCards] = useState([]);
+  const [numCardsPlayed, setNumCardsPlayed] = useState(0);
+  const [cardsPlayed, setCardsPlayed] = useState([]);
 
   useEffect(() => {
     setAnswerCards(answers);
   }, [answers]);
 
   const handleSelectCard = card => {
-    console.log(card);
-    
+    setNumCardsPlayed(numCardsPlayed + 1);
+    setNumCardsPlayed(cardsPlayed.push(card.content));
+    handlePlayCard(answerCards, card);
   }
 
   return (
@@ -19,9 +22,13 @@ const CardsArea = ({ answers, handlePlayCard, answersRequired }) => {
       {
         answerCards && (
           <div id='cardsarea'>
-            <p id="message-cards-left">Quedan <span style={{ fontWeight: 'bold' }}>{answerCards.length - 7}</span> cartas por jugador</p>
+            <p className="message-small">Quedan <span style={{ fontWeight: 'bold' }}>{answerCards.length - 7}</span> cartas por jugador</p>
             {
-              !!answerCards.length && answerCards.length !== answerCards.length - answersRequired
+              numCardsPlayed === answersRequired &&
+              <p className="message-large"><span className="bold">Jugaste:</span> {cardsPlayed.join(" | ")}</p>
+            }
+            {
+              !!answerCards.length && numCardsPlayed !== answersRequired
                 ? 
                 answerCards.slice(0, 7).map(card => {
                   return (
@@ -29,12 +36,12 @@ const CardsArea = ({ answers, handlePlayCard, answersRequired }) => {
                       content={card.content}
                       type='answer'
                       key={card.id}
-                      // onClick={() => { handlePlayCard(answerCards, card) }}
                       onClick={() => { handleSelectCard(card) }}
+                      // onClick={() => { handleSelectCard(card) }}
                     />
                   )
                 })
-                : <p>Esperando a que todos jueguen</p>
+                : <p className="message-large bold">Esperando a que todos jueguen</p>
             }
           </div>
         )

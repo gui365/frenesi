@@ -7,12 +7,18 @@
   flex-wrap: wrap;
   justify-content: center;
   align-items: flex-start;
+
+  .message-small {
+    font-size: .6rem;
+    padding: 0 15px;
+    padding-bottom: 13px;
+    width: 100%;
+    text-align: right;
+  }
+
+  .message-large {
+    margin: 1rem;
+    text-align: center;
+  }
 }
 
-#message-cards-left {
-  font-size: .6rem;
-  padding: 0 15px;
-  padding-bottom: 13px;
-  width: 100%;
-  text-align: right;
-}

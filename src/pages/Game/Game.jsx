@@ -5,6 +5,7 @@ import PlayArea from '../../components/PlayArea/PlayArea';
 import CardsArea from '../../components/CardsArea/CardsArea';
 import JudgeArea from '../../components/JudgeArea/JudgeArea';
 import Spinner from '../../components/Spinner/Spinner';
+import Modal from '../../components/Modal/Modal';
 // import answers from '../../data/cardsAnswers';
 // import answersExp from '../../data/cardsAnswersExp01';
 import questions from '../../data/cardsQuestions';
@@ -16,29 +17,23 @@ import './Game.scss';
 class Game extends Component {
   state = {
     answers: [],
-    // answerCards: [],
     answersRequired: null,
+    currentAnswers: [],
     currentGame: null,
     errorNoGameIdFound: false,
     gameHasBeenSet: false,
     gameOver: false,
     playedCards: [],
-    players: [],
+    players: null,
     questions: [],
     round: null,
     showSpinner: false,
+    showWinnerModal: null,
     thisPlayer: '',
   }
 
   currentGameId = this.props.match.params.gameId
   db = fire.database();
-
-  // *** FIRST TIME GAME LOADS ***
-  // 1. Set in state: questions, answers, currentGame
-  // 2.
-  // 3. From judge's app   ->  Pick a question, set in DB
-  // 4. forEach players  ->  Pick 7 cards that haven't been dealt (set in DB when they're drawn)
-  // 5.
 
   componentDidMount() {
     if (!this.state.currentGame) {
@@ -61,12 +56,46 @@ class Game extends Component {
         this.redirectToDashboard();
       }
 
-      // If the number of answers in the DB has changed, set the new array of answers to state 
-      // if (snap && this.state.answers && (snap[this.currentGameId].cards.answers.length !== this.state.answers.length)) {
-      //   this.setState({
-      //     answers: snap[this.currentGameId].answers
-      //   })
-      // }
+      if (!!snap[this.currentGameId].currentAnswers &&
+        this.state.currentAnswers.length !== snap[this.currentGameId].currentAnswers.length) {
+        this.setState({
+          currentAnswers: snap[this.currentGameId].currentAnswers
+        })
+      }
+
+      // If there is a winner in the DB, display the winner modal
+      if (!this.state.showWinnerModal && !!snap[this.currentGameId].winner) {
+        this.setState({
+          players: snap[this.currentGameId].players,
+          showWinnerModal: snap[this.currentGameId].winner
+        });
+
+        // Reset the currentAnswers (set to null)
+        this.db.ref(`games/${this.currentGameId}/currentAnswers`).set(null);
+
+        setTimeout(() => {
+          if (!!snap[this.currentGameId].winner) {
+            // Reset the winner (set to null)
+            this.db.ref(`games/${this.currentGameId}/winner`).set(null);
+
+            // Pick another judge only if it hasn't been picked yet
+            if (this.state.judge === snap[this.currentGameId].judge) {
+              const newJudge = this.pickAnotherJudge();
+              this.db.ref(`games/${this.currentGameId}/judge`).set(newJudge);
+              this.setState({
+                judge: newJudge
+              });
+            }
+
+            // Get rid of the modal showing the winner
+            this.setState({
+              showWinnerModal: null,
+              currentAnswers: []
+            });
+          }
+        }, 5000);
+      }
+
     });
   }
 
@@ -105,30 +134,8 @@ class Game extends Component {
             });
           });
         }
-
-        // If the player is the judge, pick cards for everybody
-        // if (this.playerIsJudge() && !allPlayersHaveCards) {
-        //   let cards;
-        //   for (const p in snap.players) {
-        //     if (!snap.players.cards) {
-        //       cards = this.pickRandomAnswerCards(p);
-        //       this.db.ref(`games/${this.currentGameId}/players/${p}`).update({
-        //         cards,
-        //       });
-        //     }
-        //   }
-        //   this.db.ref(`games/${this.currentGameId}/cards/answers`).update(this.state.answers);
-        // } else {
-        //   this.db.ref(`games/${this.currentGameId}`).on('value', snapshot => {
-        //     this.setState({
-        //       answerCards: snapshot.val().players[this.props.player].cards,
-        //       wins: snapshot.val().players[this.props.player].wins,
-        //     });
-        //   });
-        // }
       }
     });
-
     this.setState({
       gameHasBeenSet: true
     });
@@ -142,11 +149,17 @@ class Game extends Component {
     return this.props.player === this.state.judge;
   }
 
-  listenForDbChanges = () => {
-    console.log('listening for changes')
-    this.db.ref(`games/${this.currentGameId}`).on('value', snapshot => {
-      console.log('Value changed for game ' + this.currentGameId);
-    });
+  pickAnotherJudge = () => {
+    const playersArray = Object.keys(this.state.players);
+    let newJudge = playersArray[0];
+
+    for (let i = 0; i < playersArray.length; i++) {
+      if (this.state.judge === playersArray[i] && i + 1 !== playersArray.length) {
+        newJudge = playersArray[i + 1];
+      }
+    }
+    // console.log('New judge is ', newJudge)
+    return newJudge;
   }
 
   pickOneQuestion = () => {
@@ -155,7 +168,7 @@ class Game extends Component {
       const newQuestionsArray = [...this.state.questions];
       const q = newQuestionsArray[index];
       newQuestionsArray.splice(index, 1);
-      console.log('cards required', q.requiresCards)
+      // console.log('cards required', q.requiresCards)
       this.setState({
         answersRequired: q.requiresCards,
         currentQuestion: q.content,
@@ -165,40 +178,12 @@ class Game extends Component {
       this.db.ref(`games/${this.currentGameId}/answersRequired`).set(q.requiresCards);
       this.db.ref(`games/${this.currentGameId}/cards/questions`).set(newQuestionsArray);
     } else {
-      console.log('Game over!');
+      // console.log('Game over!');
       this.setState({
         gameOver: true
       })
     }
   }
-
-  // pickRandomAnswerCards = (player) => {
-  //   let answerCards = [];
-  //   for (let i = 0; answerCards.length < 7; i++) {
-  //     const a = this.pickOneAnswer(player);
-  //     if (a) {
-  //       answerCards.push(a);
-  //     }
-  //   }
-  //   if (this.state.thisPlayer === player) {
-  //     this.setState({
-  //       answerCards
-  //     });
-  //   }
-  //   return answerCards;
-  // }
-
-  // pickOneAnswer = (player) => {
-  //   let index = getRandomNumber(this.state.answers.length);
-  //   const newAnswersArray = [...this.state.answers];
-  //   const card = newAnswersArray[index];
-  //   newAnswersArray.splice(index, 1);
-  //   this.setState({
-  //     answers: newAnswersArray
-  //   })
-  //   card.owner = player;
-  //   return card;
-  // }
 
   endGame = () => {
     this.db.ref(`/games/${this.state.currentGame.gameId}`).remove();
@@ -210,14 +195,48 @@ class Game extends Component {
   }
 
   handlePlayCard = (answers, card) => {
-    // Set the owner property to know who played the card
-    card.owner = this.props.player;
+    // TODO:
+    // Handle play more than 1 answer card
+
     // Remove the card from the answers deck and set to state
     const newAnswers = answers.filter(a => a.id !== card.id);
+    // console.log(this.state.currentAnswers)
+    const newCurrentAnswers = Object.entries(this.state.currentAnswers);
     this.setState({
-      answers: newAnswers
-    })
-    console.log(card);
+      answers: newAnswers,
+      currentAnswers: newCurrentAnswers.push({
+        content: card.content,
+        owner: card.owner
+      })
+    });
+    this.db.ref(`/games/${this.state.currentGame.gameId}/currentAnswers`).push({
+      content: card.content,
+      owner: card.owner
+    });
+  }
+
+  handlePickWinner = card => {
+    // Give the onwer of the card 1 point, set to state and DB
+    const newPlayers = { ...this.state.players };
+
+    for (const key in newPlayers) {
+      if (key === card.owner) {
+        newPlayers[key].wins++;
+      }
+    }
+
+    this.setState({
+      showWinnerModal: card.owner,
+      players: newPlayers
+    });
+
+    this.db.ref(`/games/${this.state.currentGame.gameId}/players/${card.owner}`).update({
+      wins: newPlayers[card.owner].wins
+    });
+
+    this.db.ref(`/games/${this.state.currentGame.gameId}/winner`).set(card.owner);
+
+    // Reset game -> new judge, new question
   }
 
   render() {
@@ -228,6 +247,10 @@ class Game extends Component {
         && this.state.questions
         &&
         <div id='game-container'>
+          {
+            !!this.state.showWinnerModal &&
+            <Modal winner={this.state.showWinnerModal} />
+          }
           <Navbar
             players={this.state.players}
             answersLeft={this.state.answers.length}
@@ -244,7 +267,7 @@ class Game extends Component {
                   }
                 </h1>
                 {
-                  !this.state.errorNoGameIdFound && !this.state.showSpinner &&
+                  !this.state.errorNoGameIdFound && !this.state.showSpinner && this.props.player === 'Guille' &&
                   <button onClick={this.endGame}>Terminar</button>
                 }
                 {
@@ -265,13 +288,16 @@ class Game extends Component {
                         answersRequired={this.state.answersRequired}
                       />
                       : <JudgeArea playedCards={
-                        [
-                          { content: 'Tomar sopa en Diciembre' },
-                          { content: 'La cancion de colchones Cannon sonando ininterrumpidamente por el resto de la eternidad' },
-                          { content: 'Que Argentina gane el Mundial' },
-                          { content: 'Pasos de baile' }
-                        ]
+                        // [
+                        //   { content: 'Tomar sopa en Diciembre' },
+                        //   { content: 'La cancion de colchones Cannon sonando ininterrumpidamente por el resto de la eternidad' },
+                        //   { content: 'Que Argentina gane el Mundial' },
+                        //   { content: 'Pasos de baile' }
+                        // ]
+                        this.state.currentAnswers
                       }
+                        players={this.state.players}
+                        handlePickWinner={this.handlePickWinner}
                       />
                     : null
                 }

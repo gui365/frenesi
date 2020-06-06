@@ -102,7 +102,7 @@ class Dashboard extends Component {
   startGame = () => {
     const { gameListObject, currentGameId } = this.state;
     const currentGamePlayers = Object.keys(gameListObject[currentGameId].players);
-    
+
     // IF at least 3 players have joined the game, continue to next step
     if (currentGamePlayers.length >= 1) {
       let startingIndex = 0;
@@ -110,8 +110,9 @@ class Dashboard extends Component {
       const arrCardsperPlayer = [];
       const shuffledArray = shuffle(this.state.answers);
       currentGamePlayers.forEach(player => {
+        const deck = shuffledArray.slice(startingIndex, startingIndex + numCardsPerPlayer);
         arrCardsperPlayer.push({
-          [player]: shuffledArray.slice(startingIndex, startingIndex + numCardsPerPlayer)
+          [player]: deck.map(card => { return { ...card, owner: player } })
         });
         startingIndex = startingIndex + numCardsPerPlayer;
       });

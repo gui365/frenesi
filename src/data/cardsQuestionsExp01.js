@@ -1,13 +1,13 @@
 export default [
-  {
-    "id": "E01-Q001",
-    "type": "question",
-    "content": "Trifi se enfermó. Ahora el carrito lo empuja ___________ y lleva ___________.",
-    "package": "basic",
-    "drawn": false,
-    "owner": null,
-    "requiresCards": 2
-  },
+  // {
+  //   "id": "E01-Q001",
+  //   "type": "question",
+  //   "content": "Trifi se enfermó. Ahora el carrito lo empuja ___________ y lleva ___________.",
+  //   "package": "basic",
+  //   "drawn": false,
+  //   "owner": null,
+  //   "requiresCards": 2
+  // },
   {
     "id": "E01-Q002",
     "type": "question",
@@ -17,15 +17,15 @@ export default [
     "owner": null,
     "requiresCards": 1
   },
-  {
-    "id": "E01-Q003",
-    "type": "question",
-    "content": "Y el Oscar a la Mejor Película es para ___________, director ___________.",
-    "package": "basic",
-    "drawn": false,
-    "owner": null,
-    "requiresCards": 2
-  },
+  // {
+  //   "id": "E01-Q003",
+  //   "type": "question",
+  //   "content": "Y el Oscar a la Mejor Película es para ___________, director ___________.",
+  //   "package": "basic",
+  //   "drawn": false,
+  //   "owner": null,
+  //   "requiresCards": 2
+  // },
   {
     "id": "E01-Q004",
     "type": "question",
@@ -98,24 +98,24 @@ export default [
     "owner": null,
     "requiresCards": 1
   },
-  {
-    "id": "E01-Q012",
-    "type": "question",
-    "content": "El 88% de la clase votó por ___________. El 12% restante prefirió ___________.",
-    "package": "basic",
-    "drawn": false,
-    "owner": null,
-    "requiresCards": 2
-  },
-  {
-    "id": "E01-Q013",
-    "type": "question",
-    "content": "McDonald's anunció que su nueva hamburguesa se llamará Mc___________, 100% carne de ___________.",
-    "package": "basic",
-    "drawn": false,
-    "owner": null,
-    "requiresCards": 2
-  },
+  // {
+  //   "id": "E01-Q012",
+  //   "type": "question",
+  //   "content": "El 88% de la clase votó por ___________. El 12% restante prefirió ___________.",
+  //   "package": "basic",
+  //   "drawn": false,
+  //   "owner": null,
+  //   "requiresCards": 2
+  // },
+  // {
+  //   "id": "E01-Q013",
+  //   "type": "question",
+  //   "content": "McDonald's anunció que su nueva hamburguesa se llamará Mc___________, 100% carne de ___________.",
+  //   "package": "basic",
+  //   "drawn": false,
+  //   "owner": null,
+  //   "requiresCards": 2
+  // },
   {
     "id": "E01-Q014",
     "type": "question",
