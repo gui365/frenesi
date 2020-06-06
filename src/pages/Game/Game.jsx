@@ -8,8 +8,8 @@ import Spinner from '../../components/Spinner/Spinner';
 import Modal from '../../components/Modal/Modal';
 // import answers from '../../data/cardsAnswers';
 // import answersExp from '../../data/cardsAnswersExp01';
-import questions from '../../data/cardsQuestions';
-import questionsExp from '../../data/cardsQuestionsExp01';
+// import questions from '../../data/cardsQuestions';
+// import questionsExp from '../../data/cardsQuestionsExp01';
 import { getRandomNumber } from '../../utils/utils';
 import { fire } from '../../fire';
 import './Game.scss';
@@ -47,7 +47,11 @@ class Game extends Component {
   componentDidUpdate() {
     this.db.ref(`games`).on('value', snapshot => {
       const snap = snapshot.val();
+      const thisGameData = snap[this.currentGameId];
 
+      // **************************
+      // ******** END GAME ********
+      // **************************
       // If game has ended, redirect players to the dashboard
       if (!snap || (snap && !Object.keys(snap).includes(this.currentGameId))) {
         this.setState({
@@ -56,35 +60,55 @@ class Game extends Component {
         this.redirectToDashboard();
       }
 
-      if (!!snap[this.currentGameId].currentAnswers &&
-        this.state.currentAnswers.length !== snap[this.currentGameId].currentAnswers.length) {
+      // **************************
+      // *  UPDATE PLAYED ANSWERS *
+      // **************************
+      if (!!thisGameData.currentAnswers &&
+        this.state.currentAnswers.length !== thisGameData.currentAnswers.length) {
         this.setState({
-          currentAnswers: snap[this.currentGameId].currentAnswers
+          currentAnswers: thisGameData.currentAnswers
         })
       }
 
-      // If there is a winner in the DB, display the winner modal
-      if (!this.state.showWinnerModal && !!snap[this.currentGameId].winner) {
+      if (this.state.currentQuestion !== thisGameData.currentQuestion) {
         this.setState({
-          players: snap[this.currentGameId].players,
-          showWinnerModal: snap[this.currentGameId].winner
+          currentQuestion: thisGameData.currentQuestion
+        })
+      }
+
+      // **************************
+      // ******* RESET GAME *******
+      // **************************
+      // If there is a winner in the DB, display the winner modal
+      if (!this.state.showWinnerModal && !!thisGameData.winner) {
+        this.setState({
+          players: thisGameData.players,
+          showWinnerModal: thisGameData.winner,
+          currentQuestion: null
         });
 
         // Reset the currentAnswers (set to null)
-        this.db.ref(`games/${this.currentGameId}/currentAnswers`).set(null);
+        if (!!thisGameData.currentAnswers) {
+          this.db.ref(`games/${this.currentGameId}/currentAnswers`).set(null);
+        }
 
         setTimeout(() => {
-          if (!!snap[this.currentGameId].winner) {
+          if (!!thisGameData.winner) {
             // Reset the winner (set to null)
             this.db.ref(`games/${this.currentGameId}/winner`).set(null);
 
             // Pick another judge only if it hasn't been picked yet
-            if (this.state.judge === snap[this.currentGameId].judge) {
+            if (this.state.judge === thisGameData.judge) {
               const newJudge = this.pickAnotherJudge();
               this.db.ref(`games/${this.currentGameId}/judge`).set(newJudge);
               this.setState({
                 judge: newJudge
               });
+
+              if (this.props.player === thisGameData.judge) {
+                // Pick a new question
+                this.pickOneQuestion();
+              }
             }
 
             // Get rid of the modal showing the winner
@@ -117,7 +141,8 @@ class Game extends Component {
           judge: snap.judge,
           thisPlayer: this.props.player,
           players: snap.players, // This is an object! Player names are keys
-          questions: questions.concat(questionsExp),
+          // questions: questions.concat(questionsExp),
+          questions: snap.cards.questions,
           round: 1,
           showSpinner: false
         });
@@ -169,6 +194,7 @@ class Game extends Component {
       const q = newQuestionsArray[index];
       newQuestionsArray.splice(index, 1);
       // console.log('cards required', q.requiresCards)
+      console.log('card content', q.content)
       this.setState({
         answersRequired: q.requiresCards,
         currentQuestion: q.content,
@@ -178,7 +204,7 @@ class Game extends Component {
       this.db.ref(`games/${this.currentGameId}/answersRequired`).set(q.requiresCards);
       this.db.ref(`games/${this.currentGameId}/cards/questions`).set(newQuestionsArray);
     } else {
-      // console.log('Game over!');
+      console.log('Game over!');
       this.setState({
         gameOver: true
       })
@@ -298,6 +324,7 @@ class Game extends Component {
                       }
                         players={this.state.players}
                         handlePickWinner={this.handlePickWinner}
+                        showWinnerModal={this.state.showWinnerModal}
                       />
                     : null
                 }

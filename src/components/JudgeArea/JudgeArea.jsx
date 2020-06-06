@@ -1,7 +1,7 @@
 import React from 'react';
 import './JudgeArea.scss';
 
-const JudgeArea = ({ players, playedCards, handlePickWinner }) => {
+const JudgeArea = ({ players, playedCards, handlePickWinner, showWinnerModal }) => {
   return (
     <div id='judgearea'>
       <img id='icon-referee' src='/images/icon-referee.png' alt='referee icon' />
@@ -12,13 +12,15 @@ const JudgeArea = ({ players, playedCards, handlePickWinner }) => {
           <>
             <p className='message-judge'>Elegi la carta ganadora</p>
             {Object.values(playedCards).map((card, index) => {
-              return <p
-                className='played-card'
+              return <button
+                className={showWinnerModal ? 'played-card disabled' : 'played-card'}
                 key={`played-card-${index}`}
+                type='button'
+                disabled={!!showWinnerModal}
                 onClick={() => { handlePickWinner(card) }}
                 >
                 {card.content}
-              </p>
+              </button>
             })}
           </>
       }
