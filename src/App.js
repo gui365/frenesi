@@ -4,8 +4,10 @@ import Footer from './components/Footer';
 import { fire } from './fire';
 import answers from './data/cardsAnswers';
 import answersExp from './data/cardsAnswersExp01';
+import answersExp2 from './data/cardsAnswersExp02';
 import questions from './data/cardsQuestions';
 import questionsExp from './data/cardsQuestionsExp01';
+import questionsExp2 from './data/cardsQuestionsExp02';
 
 class App extends Component {
   state = {
@@ -23,8 +25,8 @@ class App extends Component {
     setTimeout(() => {
       this.setState({
         cards: {
-          answers: answers.concat(answersExp),
-          questions: questions.concat(questionsExp),
+          answers: answers.concat(answersExp, answersExp2),
+          questions: questions.concat(questionsExp, questionsExp2),
         }
       })
     }, 1000);

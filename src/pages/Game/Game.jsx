@@ -194,7 +194,7 @@ class Game extends Component {
       const q = newQuestionsArray[index];
       newQuestionsArray.splice(index, 1);
       // console.log('cards required', q.requiresCards)
-      console.log('card content', q.content)
+      // console.log('card content', q.content)
       this.setState({
         answersRequired: q.requiresCards,
         currentQuestion: q.content,
