@@ -104,7 +104,7 @@ class Dashboard extends Component {
     const currentGamePlayers = Object.keys(gameListObject[currentGameId].players);
 
     // IF at least 3 players have joined the game, continue to next step
-    if (currentGamePlayers.length >= 1) {
+    if (currentGamePlayers.length >= 3) {
       let startingIndex = 0;
       const numCardsPerPlayer = Math.floor(this.state.answers.length / currentGamePlayers.length);
       const arrCardsperPlayer = [];
