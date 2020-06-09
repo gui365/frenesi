@@ -117,7 +117,7 @@ class Game extends Component {
               currentAnswers: []
             });
           }
-        }, 5000);
+        }, 6000);
       }
 
     });
@@ -226,6 +226,7 @@ class Game extends Component {
 
     // Remove the card from the answers deck and set to state
     const newAnswers = answers.filter(a => a.id !== card.id);
+    
     // console.log(this.state.currentAnswers)
     const newCurrentAnswers = Object.entries(this.state.currentAnswers);
     this.setState({
@@ -275,7 +276,10 @@ class Game extends Component {
         <div id='game-container'>
           {
             !!this.state.showWinnerModal &&
-            <Modal winner={this.state.showWinnerModal} />
+            <Modal
+              winner={this.state.showWinnerModal}
+              playedCards={Object.values(this.state.currentAnswers)}
+            />
           }
           <Navbar
             players={this.state.players}
@@ -313,15 +317,8 @@ class Game extends Component {
                         handlePlayCard={this.handlePlayCard}
                         answersRequired={this.state.answersRequired}
                       />
-                      : <JudgeArea playedCards={
-                        // [
-                        //   { content: 'Tomar sopa en Diciembre' },
-                        //   { content: 'La cancion de colchones Cannon sonando ininterrumpidamente por el resto de la eternidad' },
-                        //   { content: 'Que Argentina gane el Mundial' },
-                        //   { content: 'Pasos de baile' }
-                        // ]
-                        this.state.currentAnswers
-                      }
+                      : <JudgeArea
+                        playedCards={this.state.currentAnswers}
                         players={this.state.players}
                         handlePickWinner={this.handlePickWinner}
                         showWinnerModal={this.state.showWinnerModal}

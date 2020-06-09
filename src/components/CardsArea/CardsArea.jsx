@@ -13,7 +13,7 @@ const CardsArea = ({ answers, handlePlayCard, answersRequired }) => {
 
   const handleSelectCard = card => {
     setNumCardsPlayed(numCardsPlayed + 1);
-    setNumCardsPlayed(cardsPlayed.push(card.content));
+    setCardsPlayed([...cardsPlayed, card.content]);
     handlePlayCard(answerCards, card);
   }
 
@@ -25,7 +25,7 @@ const CardsArea = ({ answers, handlePlayCard, answersRequired }) => {
             <p className="message-small">Quedan <span style={{ fontWeight: 'bold' }}>{answerCards.length - 7}</span> cartas por jugador</p>
             {
               numCardsPlayed === answersRequired &&
-              <p className="message-large"><span className="bold">Jugaste:</span> {cardsPlayed.join(" | ")}</p>
+              <p className="message-large"><span className="bold">Jugaste:</span> {cardsPlayed.length > 1 ? cardsPlayed.join(" | ") : cardsPlayed[0]}</p>
             }
             {
               !!answerCards.length && numCardsPlayed !== answersRequired

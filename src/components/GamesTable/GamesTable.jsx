@@ -93,7 +93,7 @@ const GamesTable = (props) => {
             <tbody>
               {gameListArray.map(game => {
                 return (
-                  <tr className='data-row' key={game.gameId}>
+                  <tr className='data-row' key={`game-${game.gameId}`}>
                     <td>{game.gameId}</td>
                     <td>{game.createdBy}</td>
                     <td>{game.createdOn}</td>

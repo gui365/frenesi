@@ -5,10 +5,9 @@
 }
 
 #modal-winner {
-  // position: absolute;
+  padding: 2rem;
   align-self: center;
   background-color: rgba(0, 0, 0, 0.85);
-  // color: #fff;
   width: 90%;
   min-height: 200px;
   text-align: center;
@@ -27,7 +26,13 @@
 }
 
 .winner-name {
-  font-size: 2rem;
+  font-size: 1.2rem;
+}
+
+.winner-content {
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  color: rgb(99, 29, 139);
 }
 
 // ANIMATIONS
