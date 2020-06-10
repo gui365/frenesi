@@ -37,10 +37,12 @@ class Game extends Component {
 
   componentDidMount() {
     if (!this.state.currentGame) {
-      this.setGameForFirstTime();
-    } else {
-      // Listen for changes in DB for specific game
-      this.listenForDbChanges();
+      this.db.ref(`games`).on('value', snapshot => {
+        const snap = snapshot.val();
+        if (!snap || (snap && Object.keys(snap).includes(this.currentGameId))) {
+          this.setGameForFirstTime();
+        }
+      });
     }
   }
 
@@ -64,7 +66,7 @@ class Game extends Component {
       // *  UPDATE PLAYED ANSWERS *
       // **************************
       if (!!thisGameData.currentAnswers &&
-        this.state.currentAnswers.length !== thisGameData.currentAnswers.length) {
+        Object.values(this.state.currentAnswers).length !== Object.values(thisGameData.currentAnswers).length) {
         this.setState({
           currentAnswers: thisGameData.currentAnswers
         })
@@ -226,7 +228,7 @@ class Game extends Component {
 
     // Remove the card from the answers deck and set to state
     const newAnswers = answers.filter(a => a.id !== card.id);
-    
+
     // console.log(this.state.currentAnswers)
     const newCurrentAnswers = Object.entries(this.state.currentAnswers);
     this.setState({
