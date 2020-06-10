@@ -6,10 +6,6 @@ import CardsArea from '../../components/CardsArea/CardsArea';
 import JudgeArea from '../../components/JudgeArea/JudgeArea';
 import Spinner from '../../components/Spinner/Spinner';
 import Modal from '../../components/Modal/Modal';
-// import answers from '../../data/cardsAnswers';
-// import answersExp from '../../data/cardsAnswersExp01';
-// import questions from '../../data/cardsQuestions';
-// import questionsExp from '../../data/cardsQuestionsExp01';
 import { getRandomNumber } from '../../utils/utils';
 import { fire } from '../../fire';
 import './Game.scss';
@@ -39,8 +35,7 @@ class Game extends Component {
     if (!this.state.currentGame) {
       this.db.ref(`games`).on('value', snapshot => {
         const snap = snapshot.val();
-        if (!snap || (snap && Object.keys(snap).includes(this.currentGameId))) {
-          // console.log(Object.keys(snap).includes(this.currentGameId));
+        if (snap && Object.keys(snap).includes(this.currentGameId)) {
           this.setGameForFirstTime();
         } else {
           // TODO: this is not working
@@ -57,22 +52,11 @@ class Game extends Component {
         const thisGameData = snap[this.currentGameId];
 
         // **************************
-        // ******** END GAME ********
-        // **************************
-        // If game has ended, redirect players to the dashboard
-        if (!snap || (snap && !Object.keys(snap).includes(this.currentGameId))) {
-          this.setState({
-            showSpinner: true
-          })
-          this.redirectToDashboard();
-        }
-
-        // **************************
         // *  UPDATE PLAYED ANSWERS *
         // **************************
         if (!!thisGameData.currentAnswers &&
           Object.values(this.state.currentAnswers).length !== Object.values(thisGameData.currentAnswers).length) {
-          this.setState({
+            this.setState({
             currentAnswers: thisGameData.currentAnswers
           })
         }
