@@ -129,14 +129,14 @@ class Game extends Component {
           // 1. Set in state: questions, answers, currentGame
           this.setState({
             answers: Object.values(answers[0])[0],
+            createdBy: snap.createdBy,
             currentGame: snap,
             judge: snap.judge,
-            thisPlayer: this.props.player,
             players: snap.players, // This is an object! Player names are keys
-            // questions: questions.concat(questionsExp),
             questions: snap.cards.questions,
             round: 1,
-            showSpinner: false
+            showSpinner: false,
+            thisPlayer: this.props.player
           });
 
           // If the player is the judge, pick a question
@@ -296,7 +296,7 @@ class Game extends Component {
                   }
                 </h1>
                 {
-                  !this.state.errorNoGameIdFound && !this.state.showSpinner && this.props.player === 'Guille' &&
+                  !this.state.errorNoGameIdFound && !this.state.showSpinner && this.props.player === this.state.createdBy &&
                   <button onClick={this.endGame}>Terminar</button>
                 }
                 {

@@ -6,12 +6,10 @@ import Button from '../../components/Button';
 import GamesTable from '../../components/GamesTable';
 import { fire } from '../../fire';
 import { getRandomNumber, shuffle } from '../../utils/utils';
-import answers from '../../data/cardsAnswers';
-import answersExp from '../../data/cardsAnswersExp01';
 
 class Dashboard extends Component {
   state = {
-    answers: answers.concat(answersExp),
+    answers: this.props.cards,
     currentGameId: '',
     gameListArray: [],
     maxGameNumber: 0,
