@@ -40,7 +40,11 @@ class Game extends Component {
       this.db.ref(`games`).on('value', snapshot => {
         const snap = snapshot.val();
         if (!snap || (snap && Object.keys(snap).includes(this.currentGameId))) {
+          // console.log(Object.keys(snap).includes(this.currentGameId));
           this.setGameForFirstTime();
+        } else {
+          // TODO: this is not working
+          this.redirectToDashboard();
         }
       });
     }
@@ -48,80 +52,81 @@ class Game extends Component {
 
   componentDidUpdate() {
     this.db.ref(`games`).on('value', snapshot => {
-      const snap = snapshot.val();
-      const thisGameData = snap[this.currentGameId];
+      if (snapshot.val()) {
+        const snap = snapshot.val();
+        const thisGameData = snap[this.currentGameId];
 
-      // **************************
-      // ******** END GAME ********
-      // **************************
-      // If game has ended, redirect players to the dashboard
-      if (!snap || (snap && !Object.keys(snap).includes(this.currentGameId))) {
-        this.setState({
-          showSpinner: true
-        })
-        this.redirectToDashboard();
-      }
-
-      // **************************
-      // *  UPDATE PLAYED ANSWERS *
-      // **************************
-      if (!!thisGameData.currentAnswers &&
-        Object.values(this.state.currentAnswers).length !== Object.values(thisGameData.currentAnswers).length) {
-        this.setState({
-          currentAnswers: thisGameData.currentAnswers
-        })
-      }
-
-      if (this.state.currentQuestion !== thisGameData.currentQuestion) {
-        this.setState({
-          currentQuestion: thisGameData.currentQuestion
-        })
-      }
-
-      // **************************
-      // ******* RESET GAME *******
-      // **************************
-      // If there is a winner in the DB, display the winner modal
-      if (!this.state.showWinnerModal && !!thisGameData.winner) {
-        this.setState({
-          players: thisGameData.players,
-          showWinnerModal: thisGameData.winner,
-          currentQuestion: null
-        });
-
-        // Reset the currentAnswers (set to null)
-        if (!!thisGameData.currentAnswers) {
-          this.db.ref(`games/${this.currentGameId}/currentAnswers`).set(null);
+        // **************************
+        // ******** END GAME ********
+        // **************************
+        // If game has ended, redirect players to the dashboard
+        if (!snap || (snap && !Object.keys(snap).includes(this.currentGameId))) {
+          this.setState({
+            showSpinner: true
+          })
+          this.redirectToDashboard();
         }
 
-        setTimeout(() => {
-          if (!!thisGameData.winner) {
-            // Reset the winner (set to null)
-            this.db.ref(`games/${this.currentGameId}/winner`).set(null);
+        // **************************
+        // *  UPDATE PLAYED ANSWERS *
+        // **************************
+        if (!!thisGameData.currentAnswers &&
+          Object.values(this.state.currentAnswers).length !== Object.values(thisGameData.currentAnswers).length) {
+          this.setState({
+            currentAnswers: thisGameData.currentAnswers
+          })
+        }
 
-            // Pick another judge only if it hasn't been picked yet
-            if (this.state.judge === thisGameData.judge) {
-              const newJudge = this.pickAnotherJudge();
-              this.db.ref(`games/${this.currentGameId}/judge`).set(newJudge);
-              this.setState({
-                judge: newJudge
-              });
+        if (this.state.currentQuestion !== thisGameData.currentQuestion) {
+          this.setState({
+            currentQuestion: thisGameData.currentQuestion
+          })
+        }
 
-              if (this.props.player === thisGameData.judge) {
-                // Pick a new question
-                this.pickOneQuestion();
-              }
-            }
+        // **************************
+        // ******* RESET GAME *******
+        // **************************
+        // If there is a winner in the DB, display the winner modal
+        if (!this.state.showWinnerModal && !!thisGameData.winner) {
+          this.setState({
+            players: thisGameData.players,
+            showWinnerModal: thisGameData.winner,
+            currentQuestion: null
+          });
 
-            // Get rid of the modal showing the winner
-            this.setState({
-              showWinnerModal: null,
-              currentAnswers: []
-            });
+          // Reset the currentAnswers (set to null)
+          if (!!thisGameData.currentAnswers) {
+            this.db.ref(`games/${this.currentGameId}/currentAnswers`).set(null);
           }
-        }, 6000);
-      }
 
+          setTimeout(() => {
+            if (!!thisGameData.winner) {
+              // Reset the winner (set to null)
+              this.db.ref(`games/${this.currentGameId}/winner`).set(null);
+
+              // Pick another judge only if it hasn't been picked yet
+              if (this.state.judge === thisGameData.judge) {
+                const newJudge = this.pickAnotherJudge();
+                this.db.ref(`games/${this.currentGameId}/judge`).set(newJudge);
+                this.setState({
+                  judge: newJudge
+                });
+
+                if (this.props.player === thisGameData.judge) {
+                  // Pick a new question
+                  this.pickOneQuestion();
+                }
+              }
+
+              // Get rid of the modal showing the winner
+              this.setState({
+                showWinnerModal: null,
+                currentAnswers: []
+              });
+            }
+          }, 6000);
+        }
+      }
     });
   }
 
@@ -129,43 +134,50 @@ class Game extends Component {
     this.setState({
       showSpinner: true
     })
-    this.db.ref(`games/${this.currentGameId}`).once('value', snapshot => {
-      const snap = snapshot.val();
-      const answers = snap.cards.answers.filter(deck => Object.keys(deck)[0] === this.props.player);
+    if (!this.state.answers.length && !this.state.currentGame) {
+      this.db.ref(`games/${this.currentGameId}`).once('value', snapshot => {
+        const snap = snapshot.val();
+        const answers = snap.cards.answers.filter(deck => Object.keys(deck)[0] === this.props.player);
 
-      if (snap) {
-        // const allPlayersHaveCards = this.allPlayersHaveCards(Object.values(snap.players));
+        if (snap) {
+          // const allPlayersHaveCards = this.allPlayersHaveCards(Object.values(snap.players));
 
-        // 1. Set in state: questions, answers, currentGame
-        this.setState({
-          answers: Object.values(answers[0])[0],
-          currentGame: snap,
-          judge: snap.judge,
-          thisPlayer: this.props.player,
-          players: snap.players, // This is an object! Player names are keys
-          // questions: questions.concat(questionsExp),
-          questions: snap.cards.questions,
-          round: 1,
-          showSpinner: false
-        });
-
-        // If the player is the judge, pick a question
-        if (this.playerIsJudge() && !snap.currentQuestion) {
-          this.pickOneQuestion();
-        } else {
-          this.db.ref(`games/${this.currentGameId}`).on('value', snapshot => {
-            this.setState({
-              questions: snapshot.val().cards.questions,
-              currentQuestion: snapshot.val().currentQuestion,
-              answersRequired: snapshot.val().answersRequired
-            });
+          // 1. Set in state: questions, answers, currentGame
+          this.setState({
+            answers: Object.values(answers[0])[0],
+            currentGame: snap,
+            judge: snap.judge,
+            thisPlayer: this.props.player,
+            players: snap.players, // This is an object! Player names are keys
+            // questions: questions.concat(questionsExp),
+            questions: snap.cards.questions,
+            round: 1,
+            showSpinner: false
           });
+
+          // If the player is the judge, pick a question
+          if (this.playerIsJudge() && !snap.currentQuestion) {
+            this.pickOneQuestion();
+          } else {
+            this.db.ref(`games/${this.currentGameId}`).on('value', snapshot => {
+              this.setState({
+                questions: snapshot.val().cards.questions,
+                currentQuestion: snapshot.val().currentQuestion,
+                answersRequired: snapshot.val().answersRequired
+              });
+            });
+          }
         }
-      }
-    });
-    this.setState({
-      gameHasBeenSet: true
-    });
+      });
+
+      this.setState({
+        gameHasBeenSet: true
+      });
+    } else {
+      this.setState({
+        showSpinner: false
+      })
+    }
   }
 
   allPlayersHaveCards = (playersArray) => {
@@ -219,6 +231,7 @@ class Game extends Component {
   }
 
   redirectToDashboard = () => {
+    console.log('Redirecting to Dashboard');
     this.props.history.push('/dashboard');
   }
 
@@ -228,9 +241,8 @@ class Game extends Component {
 
     // Remove the card from the answers deck and set to state
     const newAnswers = answers.filter(a => a.id !== card.id);
-
-    // console.log(this.state.currentAnswers)
     const newCurrentAnswers = Object.entries(this.state.currentAnswers);
+
     this.setState({
       answers: newAnswers,
       currentAnswers: newCurrentAnswers.push({
@@ -238,6 +250,7 @@ class Game extends Component {
         owner: card.owner
       })
     });
+
     this.db.ref(`/games/${this.state.currentGame.gameId}/currentAnswers`).push({
       content: card.content,
       owner: card.owner

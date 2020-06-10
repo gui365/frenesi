@@ -29,7 +29,7 @@ const CardsArea = ({ answers, handlePlayCard, answersRequired }) => {
             }
             {
               !!answerCards.length && numCardsPlayed !== answersRequired
-                ? 
+                ?
                 answerCards.slice(0, 7).map(card => {
                   return (
                     <Card
@@ -37,7 +37,6 @@ const CardsArea = ({ answers, handlePlayCard, answersRequired }) => {
                       type='answer'
                       key={card.id}
                       onClick={() => { handleSelectCard(card) }}
-                      // onClick={() => { handleSelectCard(card) }}
                     />
                   )
                 })
