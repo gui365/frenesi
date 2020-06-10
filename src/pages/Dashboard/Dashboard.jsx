@@ -104,10 +104,10 @@ class Dashboard extends Component {
     // IF at least 3 players have joined the game, continue to next step
     if (currentGamePlayers.length >= 3) {
       let startingIndex = 0;
-      const numCardsPerPlayer = Math.floor(this.state.answers.length / currentGamePlayers.length);
+      const numCardsPerPlayer = Math.floor(this.state.answers.answers.length / currentGamePlayers.length);
       const arrCardsperPlayer = [];
       const shuffledArray = shuffle(this.state.answers.answers);
-      console.log(shuffledArray)
+      
       currentGamePlayers.forEach(player => {
         const deck = shuffledArray.slice(startingIndex, startingIndex + numCardsPerPlayer);
         arrCardsperPlayer.push({
