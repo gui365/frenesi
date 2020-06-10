@@ -106,7 +106,8 @@ class Dashboard extends Component {
       let startingIndex = 0;
       const numCardsPerPlayer = Math.floor(this.state.answers.length / currentGamePlayers.length);
       const arrCardsperPlayer = [];
-      const shuffledArray = shuffle(this.state.answers);
+      const shuffledArray = shuffle(this.state.answers.answers);
+      console.log(shuffledArray)
       currentGamePlayers.forEach(player => {
         const deck = shuffledArray.slice(startingIndex, startingIndex + numCardsPerPlayer);
         arrCardsperPlayer.push({

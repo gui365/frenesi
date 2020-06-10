@@ -28,6 +28,7 @@ const CardsArea = ({ answers, handlePlayCard, answersRequired }) => {
               <p className="message-large"><span className="bold">Jugaste:</span> {cardsPlayed.length > 1 ? cardsPlayed.join(" | ") : cardsPlayed[0]}</p>
             }
             {
+              // This may not be working properly every time...
               !!answerCards.length && numCardsPlayed !== answersRequired
                 ?
                 answerCards.slice(0, 7).map(card => {
