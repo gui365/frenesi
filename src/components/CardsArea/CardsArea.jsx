@@ -22,7 +22,9 @@ const CardsArea = ({ answers, handlePlayCard, answersRequired }) => {
       {
         answerCards && (
           <div id='cardsarea'>
-            <p className="message-small">Quedan <span style={{ fontWeight: 'bold' }}>{answerCards.length - 7}</span> cartas por jugador</p>
+            { answerCards.length &&
+              <p className="message-small">Quedan <span style={{ fontWeight: 'bold' }}>{answerCards.length - 7}</span> cartas por jugador</p>
+            }
             {
               numCardsPlayed === answersRequired &&
               <p className="message-large"><span className="bold">Jugaste:</span> {cardsPlayed.length > 1 ? cardsPlayed.join(" | ") : cardsPlayed[0]}</p>

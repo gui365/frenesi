@@ -56,7 +56,7 @@ class Game extends Component {
         // **************************
         if (!!thisGameData.currentAnswers &&
           Object.values(this.state.currentAnswers).length !== Object.values(thisGameData.currentAnswers).length) {
-            this.setState({
+          this.setState({
             currentAnswers: thisGameData.currentAnswers
           })
         }
@@ -80,7 +80,13 @@ class Game extends Component {
 
           // Reset the currentAnswers (set to null)
           if (!!thisGameData.currentAnswers) {
-            this.db.ref(`games/${this.currentGameId}/currentAnswers`).set(null);
+            if (this.state.currentAnswers.length) {
+              console.log('REMOVE CURRENT ANSWERS');
+              this.db.ref(`games/${this.currentGameId}/currentAnswers`).remove();
+              this.setState({
+                currentAnswers: []
+              })
+            }
           }
 
           setTimeout(() => {
