@@ -32,6 +32,10 @@ const AppRouter = (props) => {
           component={Game}
           state={{ player: displayName }}
         />
+        <PrivateRoute
+          path='/admin'
+          component={Admin}
+        />
         {
           props.cards &&
           <PrivateRoute
@@ -58,7 +62,6 @@ const AppRouter = (props) => {
               : <Redirect to={'/signin'} />
           }
         </Route>
-        <Route path='/admin' component={Admin} />
         <Route path='/signin' component={() => <Authentication />} />
         {privateRoutes()}
       </Router>
