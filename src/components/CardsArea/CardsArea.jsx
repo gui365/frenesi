@@ -22,7 +22,7 @@ const CardsArea = ({ answers, handlePlayCard, answersRequired }) => {
       {
         answerCards && (
           <div id='cardsarea'>
-            { answerCards.length &&
+            {answerCards.length &&
               <p className="message-small">Quedan <span style={{ fontWeight: 'bold' }}>{answerCards.length - 7}</span> cartas por jugador</p>
             }
             {

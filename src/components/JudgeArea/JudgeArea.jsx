@@ -1,5 +1,6 @@
 import React from 'react';
 import './JudgeArea.scss';
+import { shuffle } from '../../utils/utils';
 
 const JudgeArea = ({ players, playedCards, handlePickWinner, showWinnerModal }) => {
   return (
@@ -11,14 +12,14 @@ const JudgeArea = ({ players, playedCards, handlePickWinner, showWinnerModal }) 
           :
           <>
             <p className='message-judge'>Elegi la carta ganadora</p>
-            {Object.values(playedCards).map((card, index) => {
+            {shuffle(Object.values(playedCards)).map((card, index) => {
               return <button
                 className={showWinnerModal ? 'played-card disabled' : 'played-card'}
                 key={`played-card-${index}`}
                 type='button'
                 disabled={!!showWinnerModal}
                 onClick={() => { handlePickWinner(card) }}
-                >
+              >
                 {card.content}
               </button>
             })}
