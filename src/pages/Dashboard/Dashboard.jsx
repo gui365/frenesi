@@ -119,7 +119,8 @@ class Dashboard extends Component {
       // Select a judge, set in DB before history.push
       this.db.ref(`games/${this.state.currentGameId}`).update({
         gameHasStarted: true,
-        judge: currentGamePlayers[0]
+        judge: currentGamePlayers[0],
+        round: 1
       });
 
       this.db.ref(`games/${this.state.currentGameId}/cards`).update({

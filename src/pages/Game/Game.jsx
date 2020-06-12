@@ -45,8 +45,8 @@ class Game extends Component {
     }
   }
 
-  componentDidUpdate() {
-    this.db.ref(`games`).on('value', snapshot => {
+  componentWillUpdate() {
+    this.db.ref(`games`).once('value', snapshot => {
       if (snapshot.val()) {
         const snap = snapshot.val();
         const thisGameData = snap[this.currentGameId];
@@ -75,24 +75,20 @@ class Game extends Component {
           this.setState({
             players: thisGameData.players,
             showWinnerModal: thisGameData.winner,
-            currentQuestion: null
+            currentQuestion: null,
+            currentAnswers: []
           });
-
-          // Reset the currentAnswers (set to null)
-          if (!!thisGameData.currentAnswers) {
-            if (this.state.currentAnswers.length) {
-              console.log('REMOVE CURRENT ANSWERS');
-              this.db.ref(`games/${this.currentGameId}/currentAnswers`).remove();
-              this.setState({
-                currentAnswers: []
-              })
-            }
-          }
 
           setTimeout(() => {
             if (!!thisGameData.winner) {
               // Reset the winner (set to null)
               this.db.ref(`games/${this.currentGameId}/winner`).set(null);
+              this.db.ref(`games/${this.currentGameId}/round`).set(this.state.round + 1);
+
+              // Reset the currentAnswers (set to null)
+              if (!!thisGameData.currentAnswers) {
+                this.db.ref(`games/${this.currentGameId}/currentAnswers`).remove();
+              }
 
               // Pick another judge only if it hasn't been picked yet
               if (this.state.judge === thisGameData.judge) {
@@ -111,7 +107,8 @@ class Game extends Component {
               // Get rid of the modal showing the winner
               this.setState({
                 showWinnerModal: null,
-                currentAnswers: []
+                currentAnswers: [],
+                round: this.state.round + 1
               });
             }
           }, 6000);
