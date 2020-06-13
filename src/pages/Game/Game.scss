@@ -7,3 +7,19 @@
   min-height: 100vh;
   background: linear-gradient(120deg, rgb(147, 217, 245), rgb(220, 250, 255), rgb(253, 230, 255), rgb(200, 150, 219));
 }
+
+.end-game-div {
+  box-sizing: border-box;
+  width: 100%;
+  text-align: right;
+  padding: 0 3vw;
+
+  #end-game-button {
+    background-color: rgb(165, 10, 10);
+    color: #fff;
+    border: none;
+    padding: 5px 15px;
+    margin-top: 10px;
+    border-radius: 5px;
+  }
+}

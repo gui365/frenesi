@@ -63,12 +63,17 @@ body {
   margin-bottom: 2rem;
 }
 
+.m-t-03rem {
+  margin-top: .3rem;
+}
+
 .m-03rem {
   margin: .3rem;
 }
 
-.m-t-03rem {
-  margin-top: .3rem;
+.m-y-1rem {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 /* PADDING */

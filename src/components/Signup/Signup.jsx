@@ -43,10 +43,6 @@ class Signup extends Component {
     });
   }
 
-  // ma, michiquita
-  // ga, pa, matucampeon
-  // lo, julicampeon
-
   handleSubmit = (event) => {
     event.preventDefault();
     if (this.state.password === this.state.passwordRepeat) {

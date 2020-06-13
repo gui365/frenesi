@@ -20,22 +20,6 @@ class Admin extends Component {
   //   // this.db.ref('cards/questions').set(questions.concat(questionsExp));
   // }
 
-  // componentDidMount() {
-  //   this.db.ref('cards/answers').on('value', snapshot => {
-  //     this.setState({
-  //       answers: snapshot.val(),
-  //     });
-  //   });
-
-  //   this.db.ref('cards/questions').on('value', snapshot => {
-  //     const answers = this.pickRandomAnswerCards();
-  //     this.setState({
-  //       cardsAnswers: answers,
-  //       questions: snapshot.val(),
-  //     });
-  //   });
-  // }
-
   handleNavClick = (event) => {
     const section = event.target.getAttribute('name');
     const currentState = this.state.section;

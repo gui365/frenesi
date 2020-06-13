@@ -1,0 +1,45 @@
+#user-info-container, #user-achievements-container {
+  padding-top: .1rem;
+  height: 100vh;
+  background: linear-gradient(120deg, rgb(147, 217, 245), rgb(220, 250, 255), rgb(253, 230, 255), rgb(200, 150, 219));
+  box-sizing: border-box;
+
+  #user-info-container-options, #user-achievements-container-options {
+    section {
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      margin: 0 20px;
+      padding: 20px 0;
+    }
+
+    .user-section-title {
+      background-color: rgba(255, 255, 255, 0.5);
+      margin: 0 20px;
+
+      &:first-of-type {
+        border-radius: 15px 15px 0 0;
+      }
+
+      &:last-of-type {
+        border-radius: 0 0 15px 15px;
+      }
+
+      button {
+        padding: 10px;
+        margin-left: 1rem;
+        background: none;
+        border: none;
+        outline: none;
+      }
+
+      .button-icon {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    #container-signup {
+      background: none;
+      padding: 10px;
+    }
+  }
+}

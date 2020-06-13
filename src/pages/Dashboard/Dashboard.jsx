@@ -143,7 +143,7 @@ class Dashboard extends Component {
   render() {
     return (
       <div id='container' >
-        <Navbar logout={true} />
+        <Navbar optionLogout={true} />
         {/* <h1 className='page-title'>{`userJoined ${userHasJoined} gameId ${this.state.currentGameId}`}</h1> */}
         <h1 className='page-title' >Menu</h1>
         <main id='dashboard-content'>

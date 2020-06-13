@@ -3,11 +3,12 @@ import Navbar from '../../components/Navbar';
 import './Help.scss';
 
 class Help extends Component {
+
   render() {
     return (
       <div id='container' >
-        <Navbar logout={true} />
-        <h1 className='page-title' >Reglas</h1>
+        <Navbar optionBack={true} />
+        <h1 className='page-title'>Reglas</h1>
         <main id='dashboard-content'>
           <section id='rules-section'>
             <ol>

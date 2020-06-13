@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Navbar.scss';
 import Logout from '../Logout';
 
-const Navbar = ({ players, answersLeft, questionsLeft }) => {
+const Navbar = ({ players, answersLeft, questionsLeft, optionLogout, optionBack }) => {
   const user = JSON.parse(sessionStorage.getItem('user'));
   const isGameScreen = window.location.pathname.includes('game');
   const [playerList, setPlayerList] = useState(null);
@@ -27,15 +27,30 @@ const Navbar = ({ players, answersLeft, questionsLeft }) => {
               <img id='logo-main' src='/images/logo.png' alt='Frenesi logo' />
             </div>
             <div className='navbar-div navbar-options'>
-              <Link to='/user' className='navbar-link align-center m-03rem'>
-                <img className='navbar-icon' id='icon-user' title='Usuario' src='/images/icon-user.png' alt='user icon' />
-                <p className='navbar-caption'>Usuario</p>
-              </Link>
-              <Link to='/help' className='navbar-link align-center m-03rem'>
-                <img className='navbar-icon' id='icon-help' title='Reglas' src='/images/icon-help.png' alt='help icon' />
-                <p className='navbar-caption'>Reglas</p>
-              </Link>
-              <Logout />
+              {
+                window.location.pathname.includes('dashboard') &&
+                <>
+                  <Link to='/user' className='navbar-link align-center m-03rem'>
+                    <img className='navbar-icon' id='icon-user' title='Usuario' src='/images/icon-user.png' alt='user icon' />
+                    <p className='navbar-caption'>Usuario</p>
+                  </Link>
+                  <Link to='/help' className='navbar-link align-center m-03rem'>
+                    <img className='navbar-icon' id='icon-help' title='Reglas' src='/images/icon-help.png' alt='help icon' />
+                    <p className='navbar-caption'>Reglas</p>
+                  </Link>
+                </>
+              }
+              {
+                optionBack &&
+                <Link to='/dashboard' className='navbar-link align-center m-03rem'>
+                  <img className='navbar-icon' id='icon-back' title='Volver' src='/images/icon-back.png' alt='back icon' />
+                  <p className='navbar-caption'>Volver</p>
+                </Link>
+              }
+              {
+                optionLogout &&
+                <Logout />
+              }
               <span id='navbar-greeting'>{!isGameScreen ? 'Hola,' : null} {user.displayName ? user.displayName : user.email}</span>
             </div>
           </>

@@ -311,7 +311,9 @@ class Game extends Component {
                 </h1>
                 {
                   !this.state.errorNoGameIdFound && !this.state.showSpinner && this.props.player === this.state.createdBy &&
-                  <button onClick={this.endGame}>Terminar</button>
+                  <div className='end-game-div'>
+                    <button id='end-game-button' onClick={this.endGame}>Terminar</button>
+                  </div>
                 }
                 {
                   !!this.state.questions.length
