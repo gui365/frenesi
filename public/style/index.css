@@ -35,6 +35,25 @@ body {
   padding: 8px;
 }
 
+.page-subtitle {
+  width: 100%;
+  background-color: rgb(196, 0, 214);
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  box-sizing: border-box;
+  margin: 0;
+  margin-top: 8px;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.page-subtitle-section {
+  width: 100%;
+  font-weight: bold;
+  box-sizing: border-box;
+  margin: 8px 0;
+}
+
 /* MARGIN */
 .m-b-1rem {
   margin-bottom: 1rem;
@@ -44,9 +63,21 @@ body {
   margin-bottom: 2rem;
 }
 
+.m-03rem {
+  margin: .3rem;
+}
+
+.m-t-03rem {
+  margin-top: .3rem;
+}
+
 /* PADDING */
 .px-1rem {
   padding: 0 1rem;
+}
+
+.p-05rem {
+  padding: .5rem;
 }
 
 /* ALIGNMENT */

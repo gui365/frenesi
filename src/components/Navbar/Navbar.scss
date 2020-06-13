@@ -35,13 +35,23 @@ header {
         box-shadow: 0 3px 2px rgba(61, 61, 61, 0.3);
       }
     }
+
+    .navbar-caption {
+      font-size: 0.7rem;
+      margin-top: 4px;
+      color: #000;
+    }
+
+    .navbar-link {
+      text-decoration: none;
+    }
   }
 
   .navbar-icon {
     width: 30px;
     background-color: rgba(250, 239, 255, 0.7);
     border-radius: 50%;
-    margin: 3px;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.3);
 
     &:hover {
       background-color: rgb(255, 255, 255);
@@ -58,7 +68,8 @@ header {
   }
 
   .player-points,
-  .a-left, .q-left {
+  .a-left,
+  .q-left {
     background-color: rgb(48, 48, 48);
     justify-content: space-evenly;
     margin: 2px 4px;
@@ -73,7 +84,7 @@ header {
   }
 
   .player-points {
-    font-size: .6rem;
+    font-size: 0.6rem;
     padding: 3px 5px;
     margin: 2px 3px;
     color: #fff;
@@ -86,7 +97,7 @@ header {
     min-width: 30px;
     height: 40px;
     margin: 0 8px;
-    box-shadow: 0 3px 3px rgba(0, 0, 0, .3);
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
 
     // .a-left-name,
     // .q-left-name {
@@ -96,7 +107,7 @@ header {
     //   padding-bottom: 5px;
     // }
   }
-  
+
   .q-left {
     background-color: rgba(111, 29, 136, 0.8);
     color: white;

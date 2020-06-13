@@ -16,13 +16,17 @@ const Logout = (props) => {
   }
 
   return (
-    <img
-      onClick={logout}
-      className='navbar-icon'
-      id='icon-exit'
-      src='/images/icon-exit.png'
-      alt='exit icon'
-    />
+    <div className='align-center m-03rem'>
+      <img
+        onClick={logout}
+        className='navbar-icon'
+        id='icon-exit'
+        src='/images/icon-exit.png'
+        alt='exit icon'
+        title='Salir'
+      />
+      <p className='navbar-caption'>Salir</p>
+    </div>
   )
 }
 

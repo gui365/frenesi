@@ -1,0 +1,46 @@
+.rules-text {
+  text-align: justify;
+  text-indent: 10px;
+  line-height: 1.3;
+}
+
+ol {
+  padding-top: 0 !important;
+}
+
+.page-subtitle-section {
+  margin-top: 15px !important;
+}
+
+thead, tbody {
+  text-align: left;
+}
+
+th {
+  padding: 5px !important;
+  background-color: rgb(252, 228, 255);
+  font-size: .9rem;
+  color: rgb(61, 61, 61);
+  border: 3px #fff solid;
+  border-radius: 10px;
+}
+
+tr {
+  td {
+    padding: 8px !important;
+    vertical-align: top !important;
+    &:first-of-type {
+      text-align: center;
+      font-size: .8rem;
+    }
+  }
+}
+
+tr {
+  border-bottom: 1px solid rgb(255, 203, 255);
+}
+
+.dice-side {
+  width: 80px;
+  border-radius: 15px;
+}

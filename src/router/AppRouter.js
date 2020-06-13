@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import Authentication from '../pages/Authentication/Authentication';
 import Admin from '../pages/Admin/Admin';
 import Game from '../pages/Game/Game';
+import User from '../pages/User/User';
+import Help from '../pages/Help/Help';
 import Dashboard from '../pages/Dashboard/Dashboard';
 import PrivateRoute from '../router/PrivateRoute';
 import { auth } from '../fire';
@@ -35,6 +37,14 @@ const AppRouter = (props) => {
         <PrivateRoute
           path='/admin'
           component={Admin}
+        />
+        <PrivateRoute
+          path='/user'
+          component={User}
+        />
+        <PrivateRoute
+          path='/help'
+          component={Help}
         />
         {
           props.cards &&
