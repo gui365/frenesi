@@ -72,11 +72,20 @@ class Game extends Component {
         // **************************
         // If there is a winner in the DB, display the winner modal
         if (!this.state.showWinnerModal && !!thisGameData.winner) {
+          const winnerCardContent = Object.values(this.state.currentAnswers).map(card => {
+            let cardContent;
+            if (card.owner === thisGameData.winner) {
+              cardContent = card.content;
+            }
+            return cardContent;
+          })
+          
           this.setState({
             players: thisGameData.players,
             showWinnerModal: thisGameData.winner,
             currentQuestion: null,
-            currentAnswers: []
+            currentAnswers: [],
+            winnerCardContent
           });
 
           setTimeout(() => {
@@ -108,10 +117,11 @@ class Game extends Component {
               this.setState({
                 showWinnerModal: null,
                 currentAnswers: [],
-                round: this.state.round + 1
+                round: this.state.round + 1,
+                winnerCardContent: null
               });
             }
-          }, 6000);
+          }, 5000);
         }
       }
     });
@@ -281,6 +291,7 @@ class Game extends Component {
             <Modal
               winner={this.state.showWinnerModal}
               playedCards={Object.values(this.state.currentAnswers)}
+              winnerCardContent={this.state.winnerCardContent}
             />
           }
           <Navbar
