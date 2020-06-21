@@ -80,7 +80,7 @@ const GamesTable = (props) => {
       }
       {
         gameListArray.length ?
-          <table className={userHasJoined && currentGameId ? 'opacity02' : null}>
+          <table id='games-table' className={userHasJoined && currentGameId ? 'opacity02' : null}>
             <thead>
               <tr>
                 <th>Codigo</th>

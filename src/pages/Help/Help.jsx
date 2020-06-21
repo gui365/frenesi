@@ -51,7 +51,7 @@ class Help extends Component {
                   </li>
                   <li>
                     <h3 className='page-subtitle-section'>Caras del dado</h3>
-                    <table>
+                    <table id='help-dice-table'>
                       <thead>
                         <tr>
                           <th>Símbolo</th>

@@ -12,32 +12,33 @@ ol {
   margin-top: 15px !important;
 }
 
-thead, tbody {
-  text-align: left;
-}
+#help-dice-table {
+  thead,
+  tbody {
+    text-align: left;
 
-th {
-  padding: 5px !important;
-  background-color: rgb(252, 228, 255);
-  font-size: .9rem;
-  color: rgb(61, 61, 61);
-  border: 3px #fff solid;
-  border-radius: 10px;
-}
+    th {
+      padding: 5px !important;
+      background-color: rgb(252, 228, 255);
+      font-size: 0.9rem;
+      color: rgb(61, 61, 61);
+      border: 3px #fff solid;
+      border-radius: 10px;
+    }
 
-tr {
-  td {
-    padding: 8px !important;
-    vertical-align: top !important;
-    &:first-of-type {
-      text-align: center;
-      font-size: .8rem;
+    tr {
+      border-bottom: 1px solid rgb(255, 203, 255);
+
+      td {
+        padding: 8px !important;
+        vertical-align: top !important;
+        &:first-of-type {
+          text-align: center;
+          font-size: 0.8rem;
+        }
+      }
     }
   }
-}
-
-tr {
-  border-bottom: 1px solid rgb(255, 203, 255);
 }
 
 .dice-side {
