@@ -105,14 +105,12 @@ class Dashboard extends Component {
     if (currentGamePlayers.length >= 3) {
       let startingIndex = 0;
       const numCardsPerPlayer = Math.floor(this.state.answers.answers.length / currentGamePlayers.length);
-      const arrCardsperPlayer = [];
+      const arrCardsperPlayer = {};
       const shuffledArray = shuffle(this.state.answers.answers);
-      
+
       currentGamePlayers.forEach(player => {
         const deck = shuffledArray.slice(startingIndex, startingIndex + numCardsPerPlayer);
-        arrCardsperPlayer.push({
-          [player]: deck.map(card => { return { ...card, owner: player } })
-        });
+        arrCardsperPlayer[player] = deck.map(card => { return { ...card, owner: player } });
         startingIndex = startingIndex + numCardsPerPlayer;
       });
 

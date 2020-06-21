@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Button from '../Button';
-import Input from '../Input';
 import { fire } from '../../fire';
 import '../Login/Login.scss';
 import './ResetPassword.scss';

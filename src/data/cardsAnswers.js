@@ -15,14 +15,14 @@ export default [
     "drawn": false,
     "owner": null
   },
-  {
-    "id": "A003",
-    "type": "answer",
-    "content": "La ruedita de Ofi",
-    "package": "basic",
-    "drawn": false,
-    "owner": null
-  },
+  // {
+  //   "id": "A003",
+  //   "type": "answer",
+  //   "content": "La ruedita de Ofi",
+  //   "package": "basic",
+  //   "drawn": false,
+  //   "owner": null
+  // },
   {
     "id": "A004",
     "type": "answer",

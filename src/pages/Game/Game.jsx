@@ -79,7 +79,7 @@ class Game extends Component {
             }
             return cardContent;
           })
-          
+
           this.setState({
             players: thisGameData.players,
             showWinnerModal: thisGameData.winner,
@@ -134,14 +134,14 @@ class Game extends Component {
     if (!this.state.answers.length && !this.state.currentGame) {
       this.db.ref(`games/${this.currentGameId}`).once('value', snapshot => {
         const snap = snapshot.val();
-        const answers = snap.cards.answers.filter(deck => Object.keys(deck)[0] === this.props.player);
-
+        const answers = snap.cards.answers[this.props.player];
+        
         if (snap) {
           // const allPlayersHaveCards = this.allPlayersHaveCards(Object.values(snap.players));
 
           // 1. Set in state: questions, answers, currentGame
           this.setState({
-            answers: Object.values(answers[0])[0],
+            answers,
             createdBy: snap.createdBy,
             currentGame: snap,
             judge: snap.judge,
@@ -239,7 +239,7 @@ class Game extends Component {
     // Remove the card from the answers deck and set to state
     const newAnswers = answers.filter(a => a.id !== card.id);
     const newCurrentAnswers = Object.entries(this.state.currentAnswers);
-
+    
     this.setState({
       answers: newAnswers,
       currentAnswers: newCurrentAnswers.push({
@@ -251,6 +251,10 @@ class Game extends Component {
     this.db.ref(`/games/${this.state.currentGame.gameId}/currentAnswers`).push({
       content: card.content,
       owner: card.owner
+    });
+
+    this.db.ref(`/games/${this.state.currentGame.gameId}/cards/answers`).update({
+      [this.props.player]: newAnswers
     });
   }
 

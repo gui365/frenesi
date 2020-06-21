@@ -407,7 +407,7 @@ export default [
   {
     "id": "Q046",
     "type": "question",
-    "content": "Lo que más recuerdo de mi viaje a India es ___________.",
+    "content": "Lo que más recuerdo de mi viaje a la India es ___________.",
     "package": "basic",
     "drawn": false,
     "owner": null,
