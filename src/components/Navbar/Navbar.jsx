@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Navbar.scss';
 import Logout from '../Logout';
 
-const Navbar = ({ players, answersLeft, questionsLeft, optionLogout, optionBack }) => {
+const Navbar = ({ judge, players, answersLeft, questionsLeft, optionLogout, optionBack }) => {
   const user = JSON.parse(sessionStorage.getItem('user'));
   const isGameScreen = window.location.pathname.includes('game');
   const [playerList, setPlayerList] = useState(null);
@@ -66,7 +66,7 @@ const Navbar = ({ players, answersLeft, questionsLeft, optionLogout, optionBack 
                   {
                     playerList.map(p => {
                       return (
-                        <div key={`score-card-${p[0]}`} className='player-points d-flex a-center j-center'>
+                        <div key={`score-card-${p[0]}`} className={`player-points d-flex a-center j-center ${judge === p[0] ? 'player-judge' : ''}`}>
                           <span className='player-name'>{p[0]}</span>
                           <img style={{ width: '15px', margin: '0 1px' }} src='/images/star.ico' alt='star' />
                           <span className='player-score bold'>{p[1].wins}</span>

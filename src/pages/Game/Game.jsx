@@ -295,6 +295,7 @@ class Game extends Component {
             />
           }
           <Navbar
+            judge={this.state.judge}
             players={this.state.players}
             answersLeft={this.state.answers.length}
             questionsLeft={this.state.questions.length}
