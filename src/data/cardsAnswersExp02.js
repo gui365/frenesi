@@ -102,5 +102,37 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null
+  },
+  {
+    "id": "E02-A014",
+    "type": "answer",
+    "content": "Mirtha Legrand",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A015",
+    "type": "answer",
+    "content": "Susana Giménez",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A015",
+    "type": "answer",
+    "content": "Un dinosaurio vivo",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A016",
+    "type": "answer",
+    "content": "La cuarentena",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
   }
 ]
