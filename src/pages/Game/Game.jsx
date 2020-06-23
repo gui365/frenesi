@@ -94,7 +94,7 @@ class Game extends Component {
             if (!!thisGameData.winner) {
               // Reset the winner (set to null)
               this.db.ref(`games/${this.currentGameId}/winner`).set(null);
-              this.db.ref(`games/${this.currentGameId}/readyForNextRound`).set(null);
+              console.log('Setting readyForNextRound to null');
               this.db.ref(`games/${this.currentGameId}/round`).set(this.state.round + 1);
 
               // Reset the currentAnswers (set to null)
