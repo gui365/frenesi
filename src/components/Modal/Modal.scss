@@ -4,7 +4,7 @@
   height: 100%;
 }
 
-#modal-winner {
+#modal-winner, #modal-loading {
   padding: 2rem;
   align-self: center;
   background-color: rgba(0, 0, 0, 0.85);
@@ -21,6 +21,14 @@
   animation: background-animation 15s alternate-reverse infinite;
 }
 
+#modal-loading {
+  background: #fff;
+  height: 100%;
+  box-sizing: border-box;
+  border-radius: 0;
+  width: 100%;
+}
+
 .winner-title {
   margin-bottom: 1rem;
 }
@@ -33,6 +41,10 @@
   margin-bottom: 1rem;
   font-size: 1.5rem;
   color: rgb(99, 29, 139);
+}
+
+.loading-message {
+  margin-bottom: 1rem;
 }
 
 // ANIMATIONS

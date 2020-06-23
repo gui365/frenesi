@@ -8,6 +8,7 @@ import Spinner from '../../components/Spinner/Spinner';
 import Modal from '../../components/Modal/Modal';
 import { getRandomNumber } from '../../utils/utils';
 import { fire } from '../../fire';
+import { ModalType } from '../../constants/modalType';
 import './Game.scss';
 
 class Game extends Component {
@@ -89,7 +90,70 @@ class Game extends Component {
             questions: thisGameData.cards.questions
           });
 
-          this.resetGame(thisGameData);
+          setTimeout(() => {
+            if (!!thisGameData.winner) {
+              // Reset the winner (set to null)
+              this.db.ref(`games/${this.currentGameId}/winner`).set(null);
+              this.db.ref(`games/${this.currentGameId}/readyForNextRound`).set(null);
+              this.db.ref(`games/${this.currentGameId}/round`).set(this.state.round + 1);
+
+              // Reset the currentAnswers (set to null)
+              if (!!thisGameData.currentAnswers) {
+                this.db.ref(`games/${this.currentGameId}/currentAnswers`).remove();
+              }
+
+              // Pick another judge only if it hasn't been picked yet
+              if (this.state.judge === thisGameData.judge) {
+                const newJudge = this.pickAnotherJudge();
+                this.db.ref(`games/${this.currentGameId}/judge`).set(newJudge);
+                this.setState({
+                  judge: newJudge
+                });
+
+                if (this.props.player === thisGameData.judge) {
+                  // Pick a new question
+                  this.pickOneQuestion();
+                }
+              }
+
+              // Get rid of the modal showing the winner
+              this.setState({
+                showWinnerModal: null,
+                currentAnswers: [],
+                round: this.state.round + 1,
+                winnerCardContent: null,
+                showLoadingModal: true
+              });
+
+              this.db.ref(`games/${this.currentGameId}/readyForNextRound`).on('value', snapshot => {
+                const snap = snapshot.val();
+
+                if (!snap || (snap && !snap.includes(this.props.player))) {
+                  const existingString = snap ? snap : '';
+
+                  this.db.ref(`games/${this.currentGameId}`).update({
+                    readyForNextRound: existingString + this.props.player
+                  })
+                }
+
+                if (snap) {
+                  const allPlayersReadyForNextRound = Object.keys(this.state.players).every(player => {
+                    return snap.includes(player);
+                  });
+
+                  if (allPlayersReadyForNextRound) {
+                    this.setState({
+                      showLoadingModal: false
+                    });
+
+                    this.db.ref(`games/${this.currentGameId}/readyForNextRound`).off();
+                  }
+                }
+              });
+            }
+          }, 5000);
+
+          this.db.ref(`games/${this.currentGameId}/readyForNextRound`).set(null);
         }
       }
     });
@@ -143,48 +207,6 @@ class Game extends Component {
         showSpinner: false
       })
     }
-  }
-
-  resetGame = (thisGameData) => {
-    setTimeout(() => {
-      if (!!thisGameData.winner) {
-        // Reset the winner (set to null)
-        this.db.ref(`games/${this.currentGameId}/winner`).set(null);
-        this.db.ref(`games/${this.currentGameId}/readyForNextRound`).set(null);
-        this.db.ref(`games/${this.currentGameId}/round`).set(this.state.round + 1);
-
-        // Reset the currentAnswers (set to null)
-        if (!!thisGameData.currentAnswers) {
-          this.db.ref(`games/${this.currentGameId}/currentAnswers`).remove();
-        }
-
-        // Pick another judge only if it hasn't been picked yet
-        if (this.state.judge === thisGameData.judge) {
-          const newJudge = this.pickAnotherJudge();
-          this.db.ref(`games/${this.currentGameId}/judge`).set(newJudge);
-          this.setState({
-            judge: newJudge
-          });
-
-          if (this.props.player === thisGameData.judge) {
-            // Pick a new question
-            this.pickOneQuestion();
-          }
-        }
-
-        // Get rid of the modal showing the winner
-        this.setState({
-          showWinnerModal: null,
-          currentAnswers: [],
-          round: this.state.round + 1,
-          winnerCardContent: null
-        });
-      }
-    }, 5000);
-  }
-
-  allPlayersHaveCards = (playersArray) => {
-    return playersArray.every(player => !!player.cards);
   }
 
   playerIsJudge = () => {
@@ -299,6 +321,16 @@ class Game extends Component {
           {
             !!this.state.showWinnerModal &&
             <Modal
+              modalType={ModalType.WINNER}
+              winner={this.state.showWinnerModal}
+              playedCards={Object.values(this.state.currentAnswers)}
+              winnerCardContent={this.state.winnerCardContent}
+            />
+          }
+          {
+            this.state.showLoadingModal &&
+            <Modal
+              modalType={ModalType.LOADING}
               winner={this.state.showWinnerModal}
               playedCards={Object.values(this.state.currentAnswers)}
               winnerCardContent={this.state.winnerCardContent}
@@ -337,6 +369,7 @@ class Game extends Component {
                   !!this.state.answers
                     && !!this.state.currentQuestion
                     && this.state.answersRequired
+                    && !this.state.showWinnerModal
                     ? !this.playerIsJudge()
                       ? <CardsArea
                         answers={this.state.answers}
