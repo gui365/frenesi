@@ -94,7 +94,6 @@ class Game extends Component {
             if (!!thisGameData.winner) {
               // Reset the winner (set to null)
               this.db.ref(`games/${this.currentGameId}/winner`).set(null);
-              console.log('Setting readyForNextRound to null');
               this.db.ref(`games/${this.currentGameId}/round`).set(this.state.round + 1);
 
               // Reset the currentAnswers (set to null)
@@ -264,19 +263,17 @@ class Game extends Component {
     let newAnswers;
     let newCurrentAnswers = Object.entries(this.state.currentAnswers);
     let cardContent;
-    let cardOwner;
+    let cardOwner = cardObj[0].owner;
     
     if (this.state.answersRequired === 1) {
       // Remove the card from the answers deck and set to state
-      newAnswers = answersArray.filter(a => a.id !== cardObj.id);
-      cardContent = cardObj.content;
-      cardOwner = cardObj.owner;
+      newAnswers = answersArray.filter(a => a.id !== cardObj[0].id);
+      cardContent = cardObj[0].content;
     } else {
       newAnswers = answersArray.filter(a => a.id !== cardObj[0].id && a.id !== cardObj[1].id);
       cardContent = `${cardObj[0].content} // ${cardObj[1].content}`;
-      cardOwner = cardObj[0].owner;
     }
-    
+
     this.setState({
       answers: newAnswers,
       currentAnswers: newCurrentAnswers.push({

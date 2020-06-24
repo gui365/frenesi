@@ -23,10 +23,6 @@ class CardsArea extends Component {
       cardsPlayedContent: [...this.state.cardsPlayedContent, card.content],
       cardsPlayedObject: [...this.state.cardsPlayedObject, card]
     }, () => {
-      console.log(this.props.answersRequired);
-      console.log(this.state.cardsPlayedContent.length);
-      console.log(this.state.numCardsPlayed);
-
       if (this.props.answersRequired === this.state.cardsPlayedContent.length) {
         this.props.handlePlayCard(this.state.answerCards, this.state.cardsPlayedObject);
       }
@@ -60,7 +56,7 @@ class CardsArea extends Component {
                       />
                     )
                   })
-                  : !!this.state.answerCards.length && this.state.numCardsPlayed === 1
+                  : !!this.state.answerCards.length && this.props.answersRequired === 2 && this.state.numCardsPlayed === 1
                     ? this.state.answerCards.slice(0, 7).filter(card => card.id !== this.state.cardsPlayedObject[0].id).map(card => {
                       return (
                         <Card
