@@ -8,15 +8,15 @@ export default [
     "owner": null,
     "requiresCards": 1
   },
-  // {
-  //   "id": "E01-Q002",
-  //   "type": "question",
-  //   "content": "Trifi se enfermó. Ahora el carrito lo empuja ___________ y lleva ___________.",
-  //   "package": "expansion001",
-  //   "drawn": false,
-  //   "owner": null,
-  //   "requiresCards": 2
-  // },
+  {
+    "id": "E01-Q002",
+    "type": "question",
+    "content": "Trifi se enfermó. Ahora el carrito lo empuja ___________ y lleva ___________.",
+    "package": "expansion001",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 2
+  },
   {
     "id": "E01-Q003",
     "type": "question",
@@ -26,24 +26,24 @@ export default [
     "owner": null,
     "requiresCards": 1
   },
-  // {
-  //   "id": "E01-Q004",
-  //   "type": "question",
-  //   "content": "Y el Oscar a la Mejor Película es para ___________, director ___________.",
-  //   "package": "expansion001",
-  //   "drawn": false,
-  //   "owner": null,
-  //   "requiresCards": 2
-  // },
-  // {
-  //   "id": "E01-Q005",
-  //   "type": "question",
-  //   "content": "McDonald's anunció que su nueva hamburguesa se llamará Mc___________, 100% carne de ___________.",
-  //   "package": "expansion001",
-  //   "drawn": false,
-  //   "owner": null,
-  //   "requiresCards": 2
-  // },
+  {
+    "id": "E01-Q004",
+    "type": "question",
+    "content": "Y el Oscar a la Mejor Película es para ___________, director ___________.",
+    "package": "expansion001",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 2
+  },
+  {
+    "id": "E01-Q005",
+    "type": "question",
+    "content": "McDonald's anunció que su nueva hamburguesa se llamará Mc___________, 100% carne de ___________.",
+    "package": "expansion001",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 2
+  },
   {
     "id": "E01-Q006",
     "type": "question",

@@ -260,25 +260,34 @@ class Game extends Component {
     this.props.history.push('/dashboard');
   }
 
-  handlePlayCard = (answers, card) => {
-    // TODO:
-    // Handle play more than 1 answer card
-
-    // Remove the card from the answers deck and set to state
-    const newAnswers = answers.filter(a => a.id !== card.id);
-    const newCurrentAnswers = Object.entries(this.state.currentAnswers);
-
+  handlePlayCard = (answersArray, cardObj) => {
+    let newAnswers;
+    let newCurrentAnswers = Object.entries(this.state.currentAnswers);
+    let cardContent;
+    let cardOwner;
+    
+    if (this.state.answersRequired === 1) {
+      // Remove the card from the answers deck and set to state
+      newAnswers = answersArray.filter(a => a.id !== cardObj.id);
+      cardContent = cardObj.content;
+      cardOwner = cardObj.owner;
+    } else {
+      newAnswers = answersArray.filter(a => a.id !== cardObj[0].id && a.id !== cardObj[1].id);
+      cardContent = `${cardObj[0].content} // ${cardObj[1].content}`;
+      cardOwner = cardObj[0].owner;
+    }
+    
     this.setState({
       answers: newAnswers,
       currentAnswers: newCurrentAnswers.push({
-        content: card.content,
-        owner: card.owner
+        content: cardContent,
+        owner: cardOwner
       })
     });
 
     this.db.ref(`/games/${this.state.currentGame.gameId}/currentAnswers`).push({
-      content: card.content,
-      owner: card.owner
+      content: cardContent,
+      owner: cardOwner
     });
 
     this.db.ref(`/games/${this.state.currentGame.gameId}/cards/answers`).update({

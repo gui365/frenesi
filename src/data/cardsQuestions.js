@@ -44,15 +44,15 @@ export default [
     "owner": null,
     "requiresCards": 1
   },
-  // {
-  //   "id": "Q006",
-  //   "type": "question",
-  //   "content": "Una nueva raza de perros fue desarrollada genéticamente cruzando ___________ y ___________.",
-  //   "package": "basic",
-  //   "drawn": false,
-  //   "owner": null,
-  //   "requiresCards": 2
-  // },
+  {
+    "id": "Q006",
+    "type": "question",
+    "content": "Una nueva raza de perros fue desarrollada genéticamente cruzando ___________ y ___________.",
+    "package": "basic",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 2
+  },
   {
     "id": "Q007",
     "type": "question",
@@ -98,15 +98,15 @@ export default [
     "owner": null,
     "requiresCards": 1
   },
-  // {
-  //   "id": "Q012",
-  //   "type": "question",
-  //   "content": "No es fácil ___________ con ___________.",
-  //   "package": "basic",
-  //   "drawn": false,
-  //   "owner": null,
-  //   "requiresCards": 2
-  // },
+  {
+    "id": "Q012",
+    "type": "question",
+    "content": "No es fácil ___________ con ___________.",
+    "package": "basic",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 2
+  },
   {
     "id": "Q013",
     "type": "question",
@@ -143,15 +143,15 @@ export default [
     "owner": null,
     "requiresCards": 1
   },
-  // {
-  //   "id": "Q017",
-  //   "type": "question",
-  //   "content": "Almuerzan hoy con la señora Mirtha Legrand: ___________ y ___________ .",
-  //   "package": "basic",
-  //   "drawn": false,
-  //   "owner": null,
-  //   "requiresCards": 2
-  // },
+  {
+    "id": "Q017",
+    "type": "question",
+    "content": "Almuerzan hoy con la señora Mirtha Legrand: ___________ y ___________ .",
+    "package": "basic",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 2
+  },
   {
     "id": "Q018",
     "type": "question",
@@ -206,15 +206,15 @@ export default [
     "owner": null,
     "requiresCards": 1
   },
-  // {
-  //   "id": "Q024",
-  //   "type": "question",
-  //   "content": "La mejor manera de sobornar a ___________ es ___________.",
-  //   "package": "basic",
-  //   "drawn": false,
-  //   "owner": null,
-  //   "requiresCards": 2
-  // },
+  {
+    "id": "Q024",
+    "type": "question",
+    "content": "La mejor manera de sobornar a ___________ es ___________.",
+    "package": "basic",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 2
+  },
   {
     "id": "Q025",
     "type": "question",
@@ -260,15 +260,15 @@ export default [
     "owner": null,
     "requiresCards": 1
   },
-  // {
-  //   "id": "Q030",
-  //   "type": "question",
-  //   "content": "Finalmente junté fuerzas para darle ___________ a ___________.",
-  //   "package": "basic",
-  //   "drawn": false,
-  //   "owner": null,
-  //   "requiresCards": 2
-  // },
+  {
+    "id": "Q030",
+    "type": "question",
+    "content": "Finalmente junté fuerzas para darle ___________ a ___________.",
+    "package": "basic",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 2
+  },
   {
     "id": "Q031",
     "type": "question",
@@ -278,15 +278,15 @@ export default [
     "owner": null,
     "requiresCards": 1
   },
-  // {
-  //   "id": "Q032",
-  //   "type": "question",
-  //   "content": "La similutud entre ___________ y ___________ es simplemente innegable.",
-  //   "package": "basic",
-  //   "drawn": false,
-  //   "owner": null,
-  //   "requiresCards": 2
-  // },
+  {
+    "id": "Q032",
+    "type": "question",
+    "content": "La similutud entre ___________ y ___________ es simplemente innegable.",
+    "package": "basic",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 2
+  },
   {
     "id": "Q033",
     "type": "question",
@@ -359,15 +359,15 @@ export default [
     "owner": null,
     "requiresCards": 1
   },
-  // {
-  //   "id": "Q041",
-  //   "type": "question",
-  //   "content": "Paso 1: ___________;\nPaso 2: ___________;\nPaso 3: Ganancia.",
-  //   "package": "basic",
-  //   "drawn": false,
-  //   "owner": null,
-  //   "requiresCards": 2
-  // },
+  {
+    "id": "Q041",
+    "type": "question",
+    "content": "Paso 1: ___________;\nPaso 2: ___________;\nPaso 3: Ganancia.",
+    "package": "basic",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 2
+  },
   {
     "id": "Q042",
     "type": "question",
@@ -377,15 +377,15 @@ export default [
     "owner": null,
     "requiresCards": 1
   },
-  // {
-  //   "id": "Q043",
-  //   "type": "question",
-  //   "content": "El premio Nobel de ciencia fue otorgado a ___________ por su trabajo con ___________.",
-  //   "package": "basic",
-  //   "drawn": false,
-  //   "owner": null,
-  //   "requiresCards": 2
-  // },
+  {
+    "id": "Q043",
+    "type": "question",
+    "content": "El premio Nobel de ciencia fue otorgado a ___________ por su trabajo con ___________.",
+    "package": "basic",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 2
+  },
   {
     "id": "Q044",
     "type": "question",
@@ -413,15 +413,15 @@ export default [
     "owner": null,
     "requiresCards": 1
   },
-  // {
-  //   "id": "Q047",
-  //   "type": "question",
-  //   "content": "Mis pasatiempos favoritos son jugar con ___________ y ___________.",
-  //   "package": "basic",
-  //   "drawn": false,
-  //   "owner": null,
-  //   "requiresCards": 2
-  // },
+  {
+    "id": "Q047",
+    "type": "question",
+    "content": "Mis pasatiempos favoritos son jugar con ___________ y ___________.",
+    "package": "basic",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 2
+  },
   {
     "id": "Q048",
     "type": "question",
@@ -431,15 +431,15 @@ export default [
     "owner": null,
     "requiresCards": 1
   },
-  // {
-  //   "id": "Q049",
-  //   "type": "question",
-  //   "content": "Mis testigos de casamiento van a ser ___________ y ___________.",
-  //   "package": "basic",
-  //   "drawn": false,
-  //   "owner": null,
-  //   "requiresCards": 2
-  // },
+  {
+    "id": "Q049",
+    "type": "question",
+    "content": "Mis testigos de casamiento van a ser ___________ y ___________.",
+    "package": "basic",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 2
+  },
   {
     "id": "Q050",
     "type": "question",
@@ -458,15 +458,15 @@ export default [
     "owner": null,
     "requiresCards": 1
   },
-  // {
-  //   "id": "Q052",
-  //   "type": "question",
-  //   "content": "Elefante Trompita tiró ___________ un día... pero otro día tiró ___________.",
-  //   "package": "basic",
-  //   "drawn": false,
-  //   "owner": null,
-  //   "requiresCards": 2
-  // },
+  {
+    "id": "Q052",
+    "type": "question",
+    "content": "Elefante Trompita tiró ___________ un día... pero otro día tiró ___________.",
+    "package": "basic",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 2
+  },
   {
     "id": "Q053",
     "type": "question",
@@ -476,15 +476,15 @@ export default [
     "owner": null,
     "requiresCards": 1
   },
-  // {
-  //   "id": "Q054",
-  //   "type": "question",
-  //   "content": "Más vale ___________ en mano que ___________.",
-  //   "package": "basic",
-  //   "drawn": false,
-  //   "owner": null,
-  //   "requiresCards": 2
-  // },
+  {
+    "id": "Q054",
+    "type": "question",
+    "content": "Más vale ___________ en mano que ___________.",
+    "package": "basic",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 2
+  },
   {
     "id": "Q055",
     "type": "question",

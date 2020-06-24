@@ -26,7 +26,7 @@ class App extends Component {
       this.setState({
         cards: {
           answers: answers.concat(answersExp, answersExp2),
-          questions: questions.concat(questionsExp, questionsExp2),
+          questions: questions.concat(questionsExp, questionsExp2)
         }
       })
     }, 1000);
