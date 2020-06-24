@@ -264,7 +264,7 @@ class Game extends Component {
     let newCurrentAnswers = Object.entries(this.state.currentAnswers);
     let cardContent;
     let cardOwner = cardObj[0].owner;
-    
+
     if (this.state.answersRequired === 1) {
       // Remove the card from the answers deck and set to state
       newAnswers = answersArray.filter(a => a.id !== cardObj[0].id);
@@ -314,6 +314,14 @@ class Game extends Component {
     this.db.ref(`/games/${this.state.currentGame.gameId}/winner`).set(card.owner);
 
     // Reset game -> new judge, new question
+  }
+
+  hasPlayerPlayed = () => {
+    return Object.values(this.state.currentAnswers).some(answer => answer.owner === this.props.player);
+  }
+
+  getPlayedCardContent = () => {
+    return Object.values(this.state.currentAnswers).find(answer => answer.owner === this.props.player);
   }
 
   render() {
@@ -377,11 +385,18 @@ class Game extends Component {
                     && this.state.answersRequired
                     && !this.state.showWinnerModal
                     ? !this.playerIsJudge()
-                      ? <CardsArea
-                        answers={this.state.answers}
-                        handlePlayCard={this.handlePlayCard}
-                        answersRequired={this.state.answersRequired}
-                      />
+                      ? !this.hasPlayerPlayed()
+                        ? <CardsArea
+                          answers={this.state.answers}
+                          handlePlayCard={this.handlePlayCard}
+                          answersRequired={this.state.answersRequired}
+                        />
+                        : (
+                          <div id='cardsarea'>
+                            <p className="message-large"><span className="bold">Jugaste:</span> {this.getPlayedCardContent().content}</p>
+                            <p className="message-large bold">Esperando a que todos jueguen</p>
+                          </div>
+                        )
                       : <JudgeArea
                         playedCards={this.state.currentAnswers}
                         players={this.state.players}

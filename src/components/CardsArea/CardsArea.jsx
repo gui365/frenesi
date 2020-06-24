@@ -39,10 +39,6 @@ class CardsArea extends Component {
                 <p className="message-small">Quedan <span style={{ fontWeight: 'bold' }}>{this.state.answerCards.length - 7}</span> cartas por jugador</p>
               }
               {
-                this.state.numCardsPlayed === this.props.answersRequired &&
-                <p className="message-large"><span className="bold">Jugaste:</span> {this.state.cardsPlayedContent.length > 1 ? this.state.cardsPlayedContent.join(" | ") : this.state.cardsPlayedContent[0]}</p>
-              }
-              {
                 // This may not be working properly every time...
                 !!this.state.answerCards.length && this.state.numCardsPlayed === 0
                   ?
@@ -56,18 +52,17 @@ class CardsArea extends Component {
                       />
                     )
                   })
-                  : !!this.state.answerCards.length && this.props.answersRequired === 2 && this.state.numCardsPlayed === 1
-                    ? this.state.answerCards.slice(0, 7).filter(card => card.id !== this.state.cardsPlayedObject[0].id).map(card => {
-                      return (
-                        <Card
-                          content={card.content}
-                          type='answer'
-                          key={card.id}
-                          onClick={() => { this.handleSelectCard(card) }}
-                        />
-                      )
-                    })
-                    : <p className="message-large bold">Esperando a que todos jueguen</p>
+                  : !!this.state.answerCards.length && this.props.answersRequired === 2 && this.state.numCardsPlayed === 1 &&
+                  this.state.answerCards.slice(0, 7).filter(card => card.id !== this.state.cardsPlayedObject[0].id).map(card => {
+                    return (
+                      <Card
+                        content={card.content}
+                        type='answer'
+                        key={card.id}
+                        onClick={() => { this.handleSelectCard(card) }}
+                      />
+                    )
+                  })
               }
             </div>
           )

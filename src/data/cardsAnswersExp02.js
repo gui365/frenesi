@@ -106,7 +106,7 @@ export default [
   {
     "id": "E02-A014",
     "type": "answer",
-    "content": "Mirtha Legrand",
+    "content": "Lassie",
     "package": "expansion002",
     "drawn": false,
     "owner": null
