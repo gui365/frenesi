@@ -11,6 +11,7 @@ const Login = (props) => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
   const [user, setUser] = useState(JSON.parse(sessionStorage.getItem('user')));
+  const [userIsValid, setUserIsValid] = useState(false);
 
   const handleChange = (event) => {
     if (event.target.name === 'email') {
@@ -28,6 +29,7 @@ const Login = (props) => {
           history.push('/dashboard');
         }
         setUser(userData);
+        setUserIsValid(true);
       }
     }).catch((err) => {
       if (err) {
@@ -54,7 +56,7 @@ const Login = (props) => {
     <form id="container-login" onSubmit={handleSubmit}>
       <Logo />
       {
-        user && user.email
+        user && user.email && userIsValid
           ?
           <>
             <h1 id='logged-in-message'>Hola {user.displayName ? user.displayName : user.email}</h1>

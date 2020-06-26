@@ -106,7 +106,7 @@ export default [
   {
     "id": "E02-A014",
     "type": "answer",
-    "content": "Lassie",
+    "content": "Mi chiquita",
     "package": "expansion002",
     "drawn": false,
     "owner": null
@@ -131,6 +131,30 @@ export default [
     "id": "E02-A016",
     "type": "answer",
     "content": "La cuarentena",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A017",
+    "type": "answer",
+    "content": "Una coreo",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A018",
+    "type": "answer",
+    "content": "Mentir",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A019",
+    "type": "answer",
+    "content": "Tornados",
     "package": "expansion002",
     "drawn": false,
     "owner": null

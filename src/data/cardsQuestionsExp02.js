@@ -34,5 +34,32 @@ export default [
     "drawn": false,
     "owner": null,
     "requiresCards": 1
+  },
+  {
+    "id": "E02-Q005",
+    "type": "question",
+    "content": "Para aprender a ___________ llamá a ___________",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 1
+  },
+  {
+    "id": "E02-Q006",
+    "type": "question",
+    "content": "¿Qué gusto tiene la sal?",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 1
+  },
+  {
+    "id": "E02-Q007",
+    "type": "question",
+    "content": "♫ No culpes a la noche, no culpes a ___________ ♫",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 1
   }
 ]
