@@ -15,7 +15,9 @@
   box-shadow: 0 3px 3px rgba(126, 126, 126, .2);
 
   &:disabled {
-    background-color: rgb(167, 167, 167);
+    background-color: rgb(211, 211, 211);
+    color: rgb(85, 85, 85);
+    border: none;
   }
 }
 

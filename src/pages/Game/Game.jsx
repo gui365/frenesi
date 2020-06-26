@@ -271,7 +271,7 @@ class Game extends Component {
       cardContent = cardObj[0].content;
     } else {
       newAnswers = answersArray.filter(a => a.id !== cardObj[0].id && a.id !== cardObj[1].id);
-      cardContent = `1️⃣ ${cardObj[0].content} // 2️⃣ ${cardObj[1].content}`;
+      cardContent = ` 1️⃣ ${cardObj[0].content} \r\n\r\n 2️⃣ ${cardObj[1].content}`;
     }
 
     this.setState({
@@ -394,10 +394,19 @@ class Game extends Component {
                         : (
                           <div id='cardsarea'>
                             <p className="message-large"><span className="bold">Jugaste:</span> {this.getPlayedCardContent().content}</p>
-                            <p className="message-large bold">Esperando a que todos jueguen</p>
+                            {
+                              Object.entries(this.state.currentAnswers).length === Object.entries(this.state.players).length - 1
+                                ? <JudgeArea
+                                  isJudge={this.playerIsJudge()}
+                                  playedCards={this.state.currentAnswers}
+                                  players={this.state.players}
+                                />
+                                : <p className="message-large bold">Esperando a que todos jueguen</p>
+                            }
                           </div>
                         )
                       : <JudgeArea
+                        isJudge={this.playerIsJudge()}
                         playedCards={this.state.currentAnswers}
                         players={this.state.players}
                         handlePickWinner={this.handlePickWinner}
