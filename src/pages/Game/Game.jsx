@@ -271,7 +271,7 @@ class Game extends Component {
       cardContent = cardObj[0].content;
     } else {
       newAnswers = answersArray.filter(a => a.id !== cardObj[0].id && a.id !== cardObj[1].id);
-      cardContent = `${cardObj[0].content} // ${cardObj[1].content}`;
+      cardContent = `1️⃣ ${cardObj[0].content} // 2️⃣ ${cardObj[1].content}`;
     }
 
     this.setState({

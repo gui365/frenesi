@@ -61,5 +61,14 @@ export default [
     "drawn": false,
     "owner": null,
     "requiresCards": 1
+  },
+  {
+    "id": "E02-Q008",
+    "type": "question",
+    "content": "Nueva crema humectante Avon con extacto de ___________",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 1
   }
 ]

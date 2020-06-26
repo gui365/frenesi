@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import AppRouter from './router/AppRouter';
 import Footer from './components/Footer';
 import { fire } from './fire';
+import { shuffle } from './utils/utils';
 import answers from './data/cardsAnswers';
 import answersExp from './data/cardsAnswersExp01';
 import answersExp2 from './data/cardsAnswersExp02';
@@ -25,8 +26,8 @@ class App extends Component {
     setTimeout(() => {
       this.setState({
         cards: {
-          answers: answers.concat(answersExp, answersExp2),
-          questions: questions.concat(questionsExp, questionsExp2)
+          answers: shuffle(answers.concat(answersExp, answersExp2)),
+          questions: shuffle(questions.concat(questionsExp, questionsExp2))
         }
       })
     }, 1000);

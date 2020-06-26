@@ -66,7 +66,7 @@ export default [
   {
     "id": "E02-A009",
     "type": "answer",
-    "content": "Preguntar quienes son Chirolita y Chewbacca",
+    "content": "Preguntar quiénes son Chirolita y Chewbacca",
     "package": "expansion002",
     "drawn": false,
     "owner": null
@@ -155,6 +155,22 @@ export default [
     "id": "E02-A019",
     "type": "answer",
     "content": "Tornados",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A020",
+    "type": "answer",
+    "content": "Dragma, la criatura mitológica boliviana",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A021",
+    "type": "answer",
+    "content": "Que te cambie la cadencia",
     "package": "expansion002",
     "drawn": false,
     "owner": null
