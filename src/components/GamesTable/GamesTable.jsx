@@ -83,9 +83,9 @@ const GamesTable = (props) => {
           <table id='games-table' className={userHasJoined && currentGameId ? 'opacity02' : null}>
             <thead>
               <tr>
-                <th>Codigo</th>
-                <th>Creador</th>
-                <th>Fecha</th>
+                <th>Código</th>
+                <th>Creado por</th>
+                {/* <th>Fecha</th> */}
                 <th></th>
                 <th></th>
               </tr>
@@ -96,7 +96,7 @@ const GamesTable = (props) => {
                   <tr className='data-row' key={`game-${game.gameId}`}>
                     <td>{game.gameId}</td>
                     <td>{game.createdBy}</td>
-                    <td>{game.createdOn}</td>
+                    {/* <td>{game.createdOn}</td> */}
                     {
                       !game.gameHasStarted
                         ? (<>
@@ -105,7 +105,6 @@ const GamesTable = (props) => {
                               icon='game'
                               isDisabled={userHasJoined && currentGameId}
                               className='game-options-btn'
-                              // content='Unirse'
                               clickHandler={() => { joinGame(game.gameId) }} />
                           </td>
                           <td>
@@ -113,7 +112,6 @@ const GamesTable = (props) => {
                               icon='trash'
                               isDisabled={userHasJoined && currentGameId}
                               className='game-options-btn'
-                              // content='x'
                               clickHandler={() => { deleteGame(game.gameId) }} />
                           </td>
                         </>)
