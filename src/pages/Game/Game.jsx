@@ -82,7 +82,7 @@ class Game extends Component {
           })
 
           this.setState({
-            answersRequired: 0,
+            answersRequired: null,
             currentQuestion: null,
             currentAnswers: [],
             players: thisGameData.players,
