@@ -126,19 +126,26 @@ class Game extends Component {
 
               this.db.ref(`games/${this.currentGameId}/readyForNextRound`).on('value', snapshot => {
                 const snap = snapshot.val();
+                let hasAlreadyPushedToArray = false;
 
-                if (!snap || (snap && !snap.includes(this.props.player))) {
-                  const existingString = snap ? snap : '';
+                if (snap) {
+                  for (let i = 0; i < Object.values(snap).length; i++) {
+                    if (Object.keys(Object.values(snap)[i])[0] === this.props.player) {
+                      hasAlreadyPushedToArray = true;
+                    }
+                  }
+                }
 
-                  this.db.ref(`games/${this.currentGameId}`).update({
-                    readyForNextRound: existingString + this.props.player
+                if (!snap || (snap && !hasAlreadyPushedToArray)) {
+                  this.db.ref(`games/${this.currentGameId}/readyForNextRound`).push({
+                    [this.props.player]: true
                   })
                 }
 
                 if (snap) {
-                  const allPlayersReadyForNextRound = Object.keys(this.state.players).every(player => {
-                    return snap.includes(player);
-                  });
+                  const allPlayersReadyForNextRound = snap
+                    ? snap.length === this.state.players.length
+                    : false;
 
                   if (allPlayersReadyForNextRound) {
                     this.setState({
