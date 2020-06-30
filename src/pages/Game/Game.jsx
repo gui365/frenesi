@@ -82,12 +82,13 @@ class Game extends Component {
           })
 
           this.setState({
-            players: thisGameData.players,
-            showWinnerModal: thisGameData.winner,
+            answersRequired: 0,
             currentQuestion: null,
             currentAnswers: [],
-            winnerCardContent,
-            questions: thisGameData.cards.questions
+            players: thisGameData.players,
+            questions: thisGameData.cards.questions,
+            showWinnerModal: thisGameData.winner,
+            winnerCardContent
           });
 
           setTimeout(() => {
@@ -238,8 +239,6 @@ class Game extends Component {
       const newQuestionsArray = [...this.state.questions];
       const q = newQuestionsArray[index];
       newQuestionsArray.splice(index, 1);
-      // console.log('cards required', q.requiresCards)
-      // console.log('card content', q.content)
       this.setState({
         answersRequired: q.requiresCards,
         currentQuestion: q.content,
