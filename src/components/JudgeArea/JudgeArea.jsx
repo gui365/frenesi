@@ -21,13 +21,13 @@ const JudgeArea = ({ handlePickWinner, isJudge, players, playedCards, showWinner
             {shuffle(shuffle(Object.values(playedCards))).map((card, index) => {
               return <button
                 style={{ whiteSpace: 'pre-wrap' }}
-                className={`played-card ${showWinnerModal ? 'disabled' : ''}`}
+                className={`card answer ${showWinnerModal ? 'disabled' : ''}`}
                 key={`played-card-${index}`}
                 type='button'
                 disabled={showWinnerModal || !isJudge}
                 onClick={() => { handlePickWinner(card) }}
               >
-                {card.content}
+                <p>{card.content}</p>
               </button>
             })}
           </>
