@@ -174,5 +174,13 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null
+  },
+  {
+    "id": "E02-A022",
+    "type": "answer",
+    "content": "Un contingente de coreanos",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
   }
 ]
