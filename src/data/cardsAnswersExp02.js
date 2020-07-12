@@ -182,5 +182,325 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null
+  },
+  {
+    "id": "E02-A023",
+    "type": "answer",
+    "content": "El cubo mágico",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A024",
+    "type": "answer",
+    "content": "El coronavirus",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A025",
+    "type": "answer",
+    "content": "Comer churros en la playa",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A026",
+    "type": "answer",
+    "content": "Participar de una reunión por Zoom",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A027",
+    "type": "answer",
+    "content": "El clavito que clavó Pablito",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A028",
+    "type": "answer",
+    "content": "Decir \"¡miá miá miá miá!\"",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A029",
+    "type": "answer",
+    "content": "Ser un electroencefalografista",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A030",
+    "type": "answer",
+    "content": "Antinorteamericano",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A031",
+    "type": "answer",
+    "content": "El demagorgon",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A032",
+    "type": "answer",
+    "content": "Crear nuevas cartas para el frenesí",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A033",
+    "type": "answer",
+    "content": "Cantar Aserejé",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A034",
+    "type": "answer",
+    "content": "Las aventuras de Filomeno",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A035",
+    "type": "answer",
+    "content": "Pelearse con un espejo",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A036",
+    "type": "answer",
+    "content": "Arrastrar objetos para aprender a caminar",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A037",
+    "type": "answer",
+    "content": "Explosiones",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A038",
+    "type": "answer",
+    "content": "Tu alma",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A039",
+    "type": "answer",
+    "content": "Una horda de vikingos",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A040",
+    "type": "answer",
+    "content": "Un tipo y una mina",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A041",
+    "type": "answer",
+    "content": "Fijoles mágicos",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A042",
+    "type": "answer",
+    "content": "Hombres",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A043",
+    "type": "answer",
+    "content": "Mujeres",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A044",
+    "type": "answer",
+    "content": "Amigos",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A045",
+    "type": "answer",
+    "content": "La clave del wifi",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A046",
+    "type": "answer",
+    "content": "Un unicornio",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A047",
+    "type": "answer",
+    "content": "Arcadas",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A048",
+    "type": "answer",
+    "content": "Silencio",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A049",
+    "type": "answer",
+    "content": "Mi pasado",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A050",
+    "type": "answer",
+    "content": "Mi brillante futuro",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A051",
+    "type": "answer",
+    "content": "Un desayuno balanceado",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A052",
+    "type": "answer",
+    "content": "Chun-Li",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A053",
+    "type": "answer",
+    "content": "Sopa... otra vez sopa",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A054",
+    "type": "answer",
+    "content": "Guacamole",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A055",
+    "type": "answer",
+    "content": "Levadura",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A056",
+    "type": "answer",
+    "content": "Juzgar a todo el mundo",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A057",
+    "type": "answer",
+    "content": "Las olas y el viento",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A058",
+    "type": "answer",
+    "content": "Un mar de dudas",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A059",
+    "type": "answer",
+    "content": "Poner cada cosa en su lugar",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A060",
+    "type": "answer",
+    "content": "Cacarear y poner un huevo",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A061",
+    "type": "answer",
+    "content": "Superpan y la Mujer Patabrilla",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A062",
+    "type": "answer",
+    "content": "La población de China",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
   }
 ]
