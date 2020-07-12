@@ -105,7 +105,7 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 2
   },
   {
     "id": "E02-Q013",
@@ -168,7 +168,7 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 2
   },
   {
     "id": "E02-Q020",
@@ -204,7 +204,7 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 2
   },
   {
     "id": "E02-Q024",
@@ -222,7 +222,7 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 2
   },
   {
     "id": "E02-Q026",
