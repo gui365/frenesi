@@ -330,7 +330,7 @@ export default [
   {
     "id": "E02-A041",
     "type": "answer",
-    "content": "Fijoles mágicos",
+    "content": "Frijoles mágicos",
     "package": "expansion002",
     "drawn": false,
     "owner": null
