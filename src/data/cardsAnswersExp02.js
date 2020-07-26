@@ -526,5 +526,13 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null
+  },
+  {
+    "id": "E02-A066",
+    "type": "answer",
+    "content": "El pupo",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
   }
 ]
