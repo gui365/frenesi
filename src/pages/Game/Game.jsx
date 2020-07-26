@@ -140,20 +140,20 @@ class Game extends Component {
                 if (!snap || (snap && !hasAlreadyPushedToArray)) {
                   this.db.ref(`games/${this.currentGameId}/readyForNextRound`).push({
                     [this.props.player]: true
-                  })
+                  });
                 }
 
                 if (snap) {
-                  const allPlayersReadyForNextRound = snap
-                    ? snap.length === this.state.players.length
-                    : false;
+                  const allPlayersReadyForNextRound = Object.values(snap).length === Object.values(this.state.players).length;
 
-                  if (allPlayersReadyForNextRound) {
-                    this.setState({
-                      showLoadingModal: false
-                    });
+                  if (this.props.player === 'Test1') {
+                    if (allPlayersReadyForNextRound) {
+                      this.setState({
+                        showLoadingModal: false
+                      });
 
-                    this.db.ref(`games/${this.currentGameId}/readyForNextRound`).off();
+                      this.db.ref(`games/${this.currentGameId}/readyForNextRound`).off();
+                    }
                   }
                 }
               });
