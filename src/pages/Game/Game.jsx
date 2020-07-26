@@ -146,14 +146,12 @@ class Game extends Component {
                 if (snap) {
                   const allPlayersReadyForNextRound = Object.values(snap).length === Object.values(this.state.players).length;
 
-                  if (this.props.player === 'Test1') {
-                    if (allPlayersReadyForNextRound) {
-                      this.setState({
-                        showLoadingModal: false
-                      });
+                  if (allPlayersReadyForNextRound) {
+                    this.setState({
+                      showLoadingModal: false
+                    });
 
-                      this.db.ref(`games/${this.currentGameId}/readyForNextRound`).off();
-                    }
+                    this.db.ref(`games/${this.currentGameId}/readyForNextRound`).off();
                   }
                 }
               });
