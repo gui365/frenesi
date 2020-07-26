@@ -502,5 +502,29 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null
+  },
+  {
+    "id": "E02-A063",
+    "type": "answer",
+    "content": "Callejear",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A064",
+    "type": "answer",
+    "content": "Ciencia",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A065",
+    "type": "answer",
+    "content": "Chucky, el muñeco maldito",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
   }
 ]
