@@ -40,9 +40,9 @@
     }
   }
 
-  &:disabled {
-    background-color: rgb(240, 240, 240);
-    color: rgb(85, 85, 85);
+  &.disabled {
+    background-color: rgb(73, 73, 73);
+    color: #fff;
     border: none;
   }
 }
