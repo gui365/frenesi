@@ -48,7 +48,7 @@ class CardsArea extends Component {
                         content={card.content}
                         type='answer'
                         key={card.id}
-                        onClick={() => { this.handleSelectCard(card) }}
+                        onClick={() => { return !this.props.showLoadingModal ? this.handleSelectCard(card) : null }}
                       />
                     )
                   })
@@ -59,7 +59,7 @@ class CardsArea extends Component {
                         content={card.content}
                         type='answer'
                         key={card.id}
-                        onClick={() => { this.handleSelectCard(card) }}
+                        onClick={() => { return !this.props.showLoadingModal ? this.handleSelectCard(card) : null }}
                       />
                     )
                   })
