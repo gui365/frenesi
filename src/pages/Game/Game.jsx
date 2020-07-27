@@ -388,13 +388,13 @@ class Game extends Component {
                     && !!this.state.currentQuestion
                     && this.state.answersRequired
                     && !this.state.showWinnerModal
+                    && !this.state.showLoadingModal
                     ? !this.playerIsJudge()
                       ? !this.hasPlayerPlayed()
                         ? <CardsArea
                           answers={this.state.answers}
                           handlePlayCard={this.handlePlayCard}
                           answersRequired={this.state.answersRequired}
-                          showLoadingModal={this.state.showLoadingModal}
                         />
                         : (
                           <div id='cardsarea'>
@@ -405,7 +405,6 @@ class Game extends Component {
                                   isJudge={this.playerIsJudge()}
                                   playedCards={this.state.currentAnswers}
                                   players={this.state.players}
-                                  showLoadingModal={this.state.showLoadingModal}
                                 />
                                 : <p className="message-large bold">Esperando a que todos jueguen</p>
                             }
