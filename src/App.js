@@ -27,7 +27,8 @@ class App extends Component {
       this.setState({
         cards: {
           answers: shuffle(answers.concat(answersExp, answersExp2)),
-          questions: shuffle(questions.concat(questionsExp, questionsExp2))
+          // questions: shuffle(questions.concat(questionsExp, questionsExp2))
+          questions: shuffle(questions)
         }
       })
     }, 1000);

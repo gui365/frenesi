@@ -232,5 +232,14 @@ export default [
     "drawn": false,
     "owner": null,
     "requiresCards": 1
+  },
+  {
+    "id": "E02-Q027",
+    "type": "question",
+    "content": "Lo que mata es ___________",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 1
   }
 ]

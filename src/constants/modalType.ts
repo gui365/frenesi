@@ -1,4 +1,5 @@
 export enum ModalType {
   LOADING,
-  WINNER
+  WINNER,
+  GAMEOVER
 }

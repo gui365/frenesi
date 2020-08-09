@@ -534,5 +534,29 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null
+  },
+  {
+    "id": "E02-A067",
+    "type": "answer",
+    "content": "Injusticia",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A068",
+    "type": "answer",
+    "content": "Un potro con otro zoótropo",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A069",
+    "type": "answer",
+    "content": "Batman",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
   }
 ]
