@@ -558,5 +558,21 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null
+  },
+  {
+    "id": "E02-A070",
+    "type": "answer",
+    "content": "Papá Pitufo",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A071",
+    "type": "answer",
+    "content": "Menear",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
   }
 ]

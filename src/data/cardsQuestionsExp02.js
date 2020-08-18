@@ -241,5 +241,23 @@ export default [
     "drawn": false,
     "owner": null,
     "requiresCards": 1
+  },
+  {
+    "id": "E02-Q028",
+    "type": "question",
+    "content": "♫ Na-na na-na na-na na-na na-na na-na na-na na-na, ¡___________! ♫",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 1
+  },
+  {
+    "id": "E02-Q029",
+    "type": "question",
+    "content": "¡Rápido! ¡Pasame ___________ que se me acaba ___________!",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 1
   }
 ]

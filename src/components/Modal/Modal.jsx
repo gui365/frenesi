@@ -49,6 +49,13 @@ const Modal = ({ modalType, winner, winnerCardContent, gameWinner }) => {
             </div >
           </div >
         )
+      default:
+        <div className='d-flex a-center j-center modal-wrapper'>
+          <div className='d-flex a-center j-center flex-direction-column' id='modal-loading'>
+            <p className='loading-message bold'>Cargando la proxima ronda...</p >
+            <Spinner />
+          </div >
+        </div >
     }
   }
 

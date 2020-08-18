@@ -344,6 +344,7 @@ class Game extends Component {
       gameWinner: winners
     });
 
+    // // Navigate back to the Dashboard
     // setTimeout(() => {
     //   this.endGame();
     // }, 10000);
@@ -358,92 +359,96 @@ class Game extends Component {
         &&
         // ?
         // (
-          // !this.state.gameOver
-            // ?
-             <div id='game-container'>
-              {
-                !!this.state.showWinnerModal &&
-                <Modal
-                  modalType={ModalType.WINNER}
-                  winner={this.state.showWinnerModal}
-                  winnerCardContent={this.state.winnerCardContent}
-                />
-              }
-              {
-                this.state.showLoadingModal &&
-                <Modal
-                  modalType={ModalType.LOADING}
-                />
-              }
-              <Navbar
-                judge={this.state.judge}
-                players={this.state.players}
-                answersLeft={this.state.answers.length}
-                questionsLeft={this.state.questions.length}
-              />
-              {
-                !this.state.showSpinner
-                  ? <>
-                    <h1 className='page-title'>
-                      {
-                        this.props.match.params.gameId
-                          ? `Partida ${this.props.match.params.gameId}`
-                          : null
-                      }
-                    </h1>
-                    {
-                      !this.state.errorNoGameIdFound && !this.state.showSpinner && this.props.player === this.state.createdBy &&
-                      <div className='end-game-div'>
-                        <button id='end-game-button' onClick={this.endGame}>Terminar</button>
-                      </div>
-                    }
-                    {
-                      !!this.state.questions.length
-                      && !this.state.errorNoGameIdFound
-                      && !!this.state.currentQuestion
-                      &&
-                      <PlayArea question={this.state.currentQuestion} />
-                    }
-                    {
-                      !!this.state.answers
-                        && !!this.state.currentQuestion
-                        && this.state.answersRequired
-                        && !this.state.showWinnerModal
-                        && !this.state.showLoadingModal
-                        ? !this.playerIsJudge()
-                          ? !this.hasPlayerPlayed()
-                            ? <CardsArea
-                              answers={this.state.answers}
-                              handlePlayCard={this.handlePlayCard}
-                              answersRequired={this.state.answersRequired}
-                            />
-                            : (
-                              <div id='cardsarea'>
-                                <p className="message-large"><span className="bold">Jugaste:</span> {this.getPlayedCardContent().content}</p>
-                                {
-                                  Object.entries(this.state.currentAnswers).length === Object.entries(this.state.players).length - 1
-                                    ? <JudgeArea
-                                      isJudge={this.playerIsJudge()}
-                                      playedCards={this.state.currentAnswers}
-                                      players={this.state.players}
-                                    />
-                                    : <p className="message-large bold">Esperando a que todos jueguen</p>
-                                }
-                              </div>
-                            )
-                          : <JudgeArea
-                            isJudge={this.playerIsJudge()}
-                            playedCards={this.state.currentAnswers}
-                            players={this.state.players}
-                            handlePickWinner={this.handlePickWinner}
-                            showWinnerModal={this.state.showWinnerModal}
-                          />
-                        : null
-                    }
-                  </>
-                  : <Spinner styleImg={{ marginTop: '3rem' }} width='100px' height='100px' />
-              }
-            </div>
+        // !this.state.gameOver
+        // ?
+        <div id='game-container'>
+          {
+            !!this.state.showWinnerModal &&
+            <Modal
+              modalType={ModalType.WINNER}
+              winner={this.state.showWinnerModal}
+              winnerCardContent={this.state.winnerCardContent}
+            />
+          }
+          {
+            this.state.showLoadingModal &&
+            <Modal
+              modalType={ModalType.LOADING}
+            />
+          }
+          <Navbar
+            judge={this.state.judge}
+            players={this.state.players}
+            answersLeft={this.state.answers.length}
+            questionsLeft={this.state.questions.length}
+          />
+          {
+            !this.state.showSpinner
+              ? <>
+                <h1 className='page-title'>
+                  {
+                    this.props.match.params.gameId
+                      ? `Partida ${this.props.match.params.gameId}`
+                      : null
+                  }
+                </h1>
+                {
+                  !this.state.errorNoGameIdFound && !this.state.showSpinner && this.props.player === this.state.createdBy &&
+                  <div className='end-game-div'>
+                    <button id='end-game-button' onClick={this.endGame}>Terminar</button>
+                  </div>
+                }
+                {
+                  !!this.state.questions.length
+                  && !this.state.errorNoGameIdFound
+                  && !!this.state.currentQuestion
+                  &&
+                  <PlayArea question={this.state.currentQuestion} />
+                }
+                {
+                  !!this.state.answers
+                    && !!this.state.currentQuestion
+                    && this.state.answersRequired
+                    && !this.state.showWinnerModal
+                    && !this.state.showLoadingModal
+                    // A. Player is NOT the judge
+                    ? !this.playerIsJudge()
+                      ? !this.hasPlayerPlayed()
+                        // Player has not yet played
+                        ? <CardsArea
+                          answers={this.state.answers}
+                          handlePlayCard={this.handlePlayCard}
+                          answersRequired={this.state.answersRequired}
+                        />
+                        : (
+                          <div id='cardsarea'>
+                            <p className="message-large"><span className="bold">Jugaste:</span> {this.getPlayedCardContent().content}</p>
+                            {
+                              Object.entries(this.state.currentAnswers).length === Object.entries(this.state.players).length - 1
+                                ? <JudgeArea
+                                  isJudge={this.playerIsJudge()}
+                                  playedCards={this.state.currentAnswers}
+                                  players={this.state.players}
+                                />
+                                : <p className="message-large bold">Esperando a que todos jueguen</p>
+                            }
+                          </div>
+                        )
+                      // Player has already played | JudgeArea will show answers (disabled buttons)
+                      : <JudgeArea
+                        isJudge={this.playerIsJudge()}
+                        playedCards={this.state.currentAnswers}
+                        players={this.state.players}
+                        handlePickWinner={this.handlePickWinner}
+                        showWinnerModal={this.state.showWinnerModal}
+                      />
+                    // B. Player is the judge
+                    : null
+                }
+              </>
+              : <Spinner styleImg={{ marginTop: '3rem' }} width='100px' height='100px' />
+          }
+        </div>
         //     : <Modal
         //       modalType={ModalType.GAMEOVER}
         //       gameWinner={this.state.gameWinner}
@@ -456,3 +461,92 @@ class Game extends Component {
 }
 
 export default withRouter(Game);
+
+{/* <div id='game-container'>
+  {
+    !!this.state.showWinnerModal &&
+    <Modal
+      modalType={ModalType.WINNER}
+      winner={this.state.showWinnerModal}
+      playedCards={Object.values(this.state.currentAnswers)}
+      winnerCardContent={this.state.winnerCardContent}
+    />
+  }
+  {
+    this.state.showLoadingModal &&
+    <Modal
+      modalType={ModalType.LOADING}
+      winner={this.state.showWinnerModal}
+      playedCards={Object.values(this.state.currentAnswers)}
+      winnerCardContent={this.state.winnerCardContent}
+    />
+  }
+  <Navbar
+    judge={this.state.judge}
+    players={this.state.players}
+    answersLeft={this.state.answers.length}
+    questionsLeft={this.state.questions.length}
+  />
+  {
+    !this.state.showSpinner
+      ? <>
+        <h1 className='page-title'>
+          {
+            this.props.match.params.gameId
+              ? `Partida ${this.props.match.params.gameId}`
+              : null
+          }
+        </h1>
+        {
+          !this.state.errorNoGameIdFound && !this.state.showSpinner && this.props.player === this.state.createdBy &&
+          <div className='end-game-div'>
+            <button id='end-game-button' onClick={this.endGame}>Terminar</button>
+          </div>
+        }
+        {
+          !!this.state.questions.length
+          && !this.state.errorNoGameIdFound
+          && !!this.state.currentQuestion
+          &&
+          <PlayArea question={this.state.currentQuestion} />
+        }
+        {
+          !!this.state.answers
+            && !!this.state.currentQuestion
+            && this.state.answersRequired
+            && !this.state.showWinnerModal
+            && !this.state.showLoadingModal
+            ? !this.playerIsJudge()
+              ? !this.hasPlayerPlayed()
+                ? <CardsArea
+                  answers={this.state.answers}
+                  handlePlayCard={this.handlePlayCard}
+                  answersRequired={this.state.answersRequired}
+                />
+                : (
+                  <div id='cardsarea'>
+                    <p className="message-large"><span className="bold">Jugaste:</span> {this.getPlayedCardContent().content}</p>
+                    {
+                      Object.entries(this.state.currentAnswers).length === Object.entries(this.state.players).length - 1
+                        ? <JudgeArea
+                          isJudge={this.playerIsJudge()}
+                          playedCards={this.state.currentAnswers}
+                          players={this.state.players}
+                        />
+                        : <p className="message-large bold">Esperando a que todos jueguen</p>
+                    }
+                  </div>
+                )
+              : <JudgeArea
+                isJudge={this.playerIsJudge()}
+                playedCards={this.state.currentAnswers}
+                players={this.state.players}
+                handlePickWinner={this.handlePickWinner}
+                showWinnerModal={this.state.showWinnerModal}
+              />
+            : null
+        }
+      </>
+      : <Spinner styleImg={{ marginTop: '3rem' }} width='100px' height='100px' />
+  }
+</div> */}
