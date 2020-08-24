@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import './GamesTable.scss';
 import Button from '../../components/Button';
 import Spinner from '../../components/Spinner';
@@ -34,6 +35,13 @@ const GamesTable = (props) => {
       return playersString;
     } else {
       return 'Este juego fue eliminado. Por favor, unite a otro.';
+    }
+  }
+
+  const rejoinGame = (gameId) => {
+    const history = props.history;
+    if (history) {
+      history.push(`/game/${gameId}`);
     }
   }
 
@@ -117,10 +125,9 @@ const GamesTable = (props) => {
                         </>)
                         : <td colSpan="2">
                           <Button
-                            isDisabled={true}
                             className='game-options-btn in-progress-btn'
                             content='En progreso'
-                          />
+                            clickHandler={() => { rejoinGame(game.gameId) }} />
                         </td>
                     }
                   </tr>
@@ -138,4 +145,4 @@ const GamesTable = (props) => {
   )
 };
 
-export default GamesTable;
+export default withRouter(GamesTable);

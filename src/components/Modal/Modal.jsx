@@ -50,12 +50,14 @@ const Modal = ({ modalType, winner, winnerCardContent, gameWinner }) => {
           </div >
         )
       default:
-        <div className='d-flex a-center j-center modal-wrapper'>
-          <div className='d-flex a-center j-center flex-direction-column' id='modal-loading'>
-            <p className='loading-message bold'>Cargando la proxima ronda...</p >
-            <Spinner />
+        return (
+          <div className='d-flex a-center j-center modal-wrapper'>
+            <div className='d-flex a-center j-center flex-direction-column' id='modal-loading'>
+              <p className='loading-message bold'>Cargando la proxima ronda...</p >
+              <Spinner />
+            </div >
           </div >
-        </div >
+        )
     }
   }
 
@@ -66,8 +68,8 @@ const Modal = ({ modalType, winner, winnerCardContent, gameWinner }) => {
           <div class="before"></div>
           <div class="after"></div>
         </div>
-        <h2 className='bold'>{gameWinner.length == 1 ? 'FELICITACIONES' : 'EMPATE'}</h2>
-        <h4 className='bold'>{gameWinner.map(w => w.displayName).join(gameWinner.length == 2 ? ' & ' : ', ')}</h4>
+        <h2 className='bold'>{gameWinner.length === 1 ? 'FELICITACIONES' : 'EMPATE'}</h2>
+        <h4 className='bold'>{gameWinner.map(w => w.displayName).join(gameWinner.length === 2 ? ' & ' : ', ')}</h4>
         <h6 className='bold'>{gameWinner[0].wins} puntos</h6>
       </>
     )
