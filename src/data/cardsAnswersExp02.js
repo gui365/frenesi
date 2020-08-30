@@ -490,7 +490,7 @@ export default [
   {
     "id": "E02-A061",
     "type": "answer",
-    "content": "Superpan y la Mujer Patabrilla",
+    "content": "Cheap And Deil",
     "package": "expansion002",
     "drawn": false,
     "owner": null
