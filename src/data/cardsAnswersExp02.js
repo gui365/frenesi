@@ -574,5 +574,13 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null
+  },
+  {
+    "id": "E02-A072",
+    "type": "answer",
+    "content": "Manino Mil",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
   }
 ]

@@ -259,5 +259,14 @@ export default [
     "drawn": false,
     "owner": null,
     "requiresCards": 1
+  },
+  {
+    "id": "E02-Q030",
+    "type": "question",
+    "content": "¿___________? Adermicina",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 1
   }
 ]
