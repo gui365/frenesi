@@ -60,6 +60,28 @@
   }
 }
 
+button#btn-hide {
+  background: none !important;
+  margin: 0 !important;
+  padding: 0;
+  height: 24px;
+}
+
+#div-inputs-outer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+form#container-login {
+  #div-inputs-inner {
+    input {
+      width: 300px !important;
+      margin-bottom: 0 !important;
+    }
+  }
+}
+
 @keyframes rotate {
   from {
     transform: rotate(0deg);

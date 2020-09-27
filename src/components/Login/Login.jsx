@@ -12,6 +12,7 @@ const Login = (props) => {
   const [error, setError] = useState(null);
   const [user, setUser] = useState(JSON.parse(sessionStorage.getItem('user')));
   const [userIsValid, setUserIsValid] = useState(false);
+  const [hidePassword, setHidePassword] = useState(true);
 
   const handleChange = (event) => {
     if (event.target.name === 'email') {
@@ -22,7 +23,8 @@ const Login = (props) => {
   }
 
   const login = () => {
-    fire.auth().signInWithEmailAndPassword(email, password).then(userData => {
+    setHidePassword(true);
+    fire.auth().signInWithEmailAndPassword(email.trim(), password).then(userData => {
       if (!!userData) {
         const history = props.history;
         if (history) {
@@ -52,6 +54,10 @@ const Login = (props) => {
 
   const isInvalid = email === '' || password === '';
 
+  const switchType = () => {
+    setHidePassword(!hidePassword);
+  }
+
   return (
     <form id="container-login" onSubmit={handleSubmit}>
       <Logo />
@@ -64,9 +70,14 @@ const Login = (props) => {
           </>
           :
           <>
-            <div>
-              <Input label="email" name="email" changeFunction={handleChange} type="text" /><br />
-              <Input label="contraseña" name="password" changeFunction={handleChange} type="password" />
+            <div id="div-inputs-outer a-center j-center">
+              <div className="div-inputs-inner d-flex a-center j-center">
+                <Input label="email" name="email" changeFunction={handleChange} type="text" /><br />
+              </div>
+              <div className="div-inputs-inner d-flex a-center j-center">
+                <Input label="contraseña" name="password" changeFunction={handleChange} type={hidePassword ? 'password' : 'text'} />
+                <button id='btn-hide' type='button' onClick={switchType}>👁️</button>
+              </div>
             </div>
             <div>
               <Button type="submit" isDisabled={isInvalid} content="Entrar" />
