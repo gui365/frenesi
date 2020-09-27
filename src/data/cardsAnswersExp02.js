@@ -582,5 +582,13 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null
+  },
+  {
+    "id": "E02-A073",
+    "type": "answer",
+    "content": "El quetejedi",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
   }
 ]
