@@ -231,22 +231,22 @@ export default [
     "drawn": false,
     "owner": null
   },
-  {
-    "id": "E02-A029",
-    "type": "answer",
-    "content": "Ser un electroencefalografista",
-    "package": "expansion002",
-    "drawn": false,
-    "owner": null
-  },
-  {
-    "id": "E02-A030",
-    "type": "answer",
-    "content": "Antinorteamericano",
-    "package": "expansion002",
-    "drawn": false,
-    "owner": null
-  },
+  // {
+  //   "id": "E02-A029",
+  //   "type": "answer",
+  //   "content": "Ser un electroencefalografista",
+  //   "package": "expansion002",
+  //   "drawn": false,
+  //   "owner": null
+  // },
+  // {
+  //   "id": "E02-A030",
+  //   "type": "answer",
+  //   "content": "Antinorteamericano",
+  //   "package": "expansion002",
+  //   "drawn": false,
+  //   "owner": null
+  // },
   {
     "id": "E02-A031",
     "type": "answer",
@@ -546,7 +546,7 @@ export default [
   {
     "id": "E02-A068",
     "type": "answer",
-    "content": "Un potro con otro zoótropo",
+    "content": "Un zoótropo",
     "package": "expansion002",
     "drawn": false,
     "owner": null
@@ -587,6 +587,22 @@ export default [
     "id": "E02-A073",
     "type": "answer",
     "content": "El quetejedi",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A074",
+    "type": "answer",
+    "content": "Champión",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A075",
+    "type": "answer",
+    "content": "La ginecóloga Conchel",
     "package": "expansion002",
     "drawn": false,
     "owner": null
