@@ -152,15 +152,15 @@ export default [
     "owner": null,
     "requiresCards": 1
   },
-  {
-    "id": "E02-Q018",
-    "type": "question",
-    "content": "La medicina alternativa usa los poderes medicinales de ___________",
-    "package": "expansion002",
-    "drawn": false,
-    "owner": null,
-    "requiresCards": 1
-  },
+  // {
+  //   "id": "E02-Q018",
+  //   "type": "question",
+  //   "content": "La medicina alternativa usa los poderes medicinales de ___________",
+  //   "package": "expansion002",
+  //   "drawn": false,
+  //   "owner": null,
+  //   "requiresCards": 1
+  // },
   {
     "id": "E02-Q019",
     "type": "question",
@@ -268,5 +268,23 @@ export default [
     "drawn": false,
     "owner": null,
     "requiresCards": 1
+  },
+  {
+    "id": "E02-Q031",
+    "type": "question",
+    "content": "Me acabo de hacer un lifting para que no se me note ___________",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 1
+  },
+  {
+    "id": "E02-Q032",
+    "type": "question",
+    "content": "No confíes en ___________ si te ofrece ___________",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 2
   }
 ]

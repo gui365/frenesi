@@ -245,7 +245,7 @@ export default [
   {
     "id": "Q028",
     "type": "question",
-    "content": "Para esta Navidad, le voy a pedir ___________ a Papá Noel.",
+    "content": "Si te portás mal te voy a dar ___________.",
     "package": "basic",
     "drawn": false,
     "owner": null,
