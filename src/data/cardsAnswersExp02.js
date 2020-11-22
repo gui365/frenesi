@@ -606,5 +606,29 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null
+  },
+  {
+    "id": "E02-A076",
+    "type": "answer",
+    "content": "Las crónicas de Martita",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A077",
+    "type": "answer",
+    "content": "Un desubicado",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A078",
+    "type": "answer",
+    "content": "Un irresponsable",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
   }
 ]

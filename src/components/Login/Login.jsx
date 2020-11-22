@@ -76,7 +76,7 @@ const Login = (props) => {
               </div>
               <div className="div-inputs-inner d-flex a-center j-center">
                 <Input label="contraseña" name="password" changeFunction={handleChange} type={hidePassword ? 'password' : 'text'} />
-                <button id='btn-hide' type='button' onClick={switchType}>👁️</button>
+                <button id='btn-hide' type='button' onClick={switchType}><span role="img" aria-label="eye emoji">👁️</span></button>
               </div>
             </div>
             <div>
