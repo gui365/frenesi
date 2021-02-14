@@ -286,5 +286,23 @@ export default [
     "drawn": false,
     "owner": null,
     "requiresCards": 2
+  },
+  {
+    "id": "E02-Q033",
+    "type": "question",
+    "content": "¿Cuál es el colmo de ___________ ? ___________",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 2
+  },
+  {
+    "id": "E02-Q034",
+    "type": "question",
+    "content": "Saphirus, saphirus... aromatiza ___________",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 1
   }
 ]

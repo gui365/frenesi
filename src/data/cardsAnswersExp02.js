@@ -250,7 +250,7 @@ export default [
   {
     "id": "E02-A031",
     "type": "answer",
-    "content": "El demagorgon",
+    "content": "El demogorgon",
     "package": "expansion002",
     "drawn": false,
     "owner": null
