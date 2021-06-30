@@ -630,5 +630,21 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null
+  },
+  {
+    "id": "E02-A079",
+    "type": "answer",
+    "content": "Nada",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A080",
+    "type": "answer",
+    "content": "Algo",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
   }
 ]
