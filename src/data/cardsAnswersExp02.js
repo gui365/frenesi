@@ -646,5 +646,21 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null
+  },
+  {
+    "id": "E02-A081",
+    "type": "answer",
+    "content": "Una milanesa de MB",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
+  },
+  {
+    "id": "E02-A082",
+    "type": "answer",
+    "content": "Picol, nuestro amigo imaginario",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null
   }
 ]
