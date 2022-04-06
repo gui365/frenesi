@@ -6,7 +6,8 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "E02-Q002",
@@ -15,7 +16,8 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "E02-Q003",
@@ -24,7 +26,8 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "E02-Q004",
@@ -33,7 +36,8 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "E02-Q005",
@@ -42,7 +46,8 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null,
-    "requiresCards": 2
+    "requiresCards": 2,
+    "isEnabled": true
   },
   {
     "id": "E02-Q006",
@@ -51,7 +56,8 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "E02-Q007",
@@ -60,7 +66,8 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "E02-Q008",
@@ -69,7 +76,8 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "E02-Q009",
@@ -78,7 +86,8 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "E02-Q010",
@@ -87,7 +96,8 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "E02-Q011",
@@ -96,7 +106,8 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "E02-Q012",
@@ -105,7 +116,8 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null,
-    "requiresCards": 2
+    "requiresCards": 2,
+    "isEnabled": true
   },
   {
     "id": "E02-Q013",
@@ -114,7 +126,8 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "E02-Q014",
@@ -123,7 +136,8 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "E02-Q015",
@@ -132,7 +146,8 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "E02-Q016",
@@ -141,7 +156,8 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "E02-Q017",
@@ -150,17 +166,19 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
-  // {
-  //   "id": "E02-Q018",
-  //   "type": "question",
-  //   "content": "La medicina alternativa usa los poderes medicinales de ___________",
-  //   "package": "expansion002",
-  //   "drawn": false,
-  //   "owner": null,
-  //   "requiresCards": 1
-  // },
+  {
+    "id": "E02-Q018",
+    "type": "question",
+    "content": "La medicina alternativa usa los poderes medicinales de ___________",
+    "package": "expansion002",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 1,
+    "isEnabled": false
+  },
   {
     "id": "E02-Q019",
     "type": "question",
@@ -168,7 +186,8 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null,
-    "requiresCards": 2
+    "requiresCards": 2,
+    "isEnabled": true
   },
   {
     "id": "E02-Q020",
@@ -177,7 +196,8 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "E02-Q021",
@@ -186,7 +206,8 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "E02-Q022",
@@ -195,7 +216,8 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "E02-Q023",
@@ -204,7 +226,8 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null,
-    "requiresCards": 2
+    "requiresCards": 2,
+    "isEnabled": true
   },
   {
     "id": "E02-Q024",
@@ -213,7 +236,8 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "E02-Q025",
@@ -222,7 +246,8 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null,
-    "requiresCards": 2
+    "requiresCards": 2,
+    "isEnabled": true
   },
   {
     "id": "E02-Q026",
@@ -231,7 +256,8 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "E02-Q027",
@@ -240,7 +266,8 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "E02-Q028",
@@ -249,7 +276,8 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "E02-Q029",
@@ -258,7 +286,8 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null,
-    "requiresCards": 2
+    "requiresCards": 2,
+    "isEnabled": true
   },
   {
     "id": "E02-Q030",
@@ -267,7 +296,8 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "E02-Q031",
@@ -276,7 +306,8 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "E02-Q032",
@@ -285,7 +316,8 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null,
-    "requiresCards": 2
+    "requiresCards": 2,
+    "isEnabled": true
   },
   {
     "id": "E02-Q033",
@@ -294,7 +326,8 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null,
-    "requiresCards": 2
+    "requiresCards": 2,
+    "isEnabled": true
   },
   {
     "id": "E02-Q034",
@@ -303,6 +336,7 @@ export default [
     "package": "expansion002",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   }
 ]

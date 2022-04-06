@@ -5,7 +5,8 @@ export default [
     "content": "Decir \"poooobre\" todo el tiempo",
     "package": "expansion001",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "E01-A002",
@@ -13,7 +14,8 @@ export default [
     "content": "Maaaaaaaaaaaaax",
     "package": "expansion001",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "E01-A003",
@@ -21,7 +23,8 @@ export default [
     "content": "Roberta Dulce 1234",
     "package": "expansion001",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "E01-A004",
@@ -29,23 +32,26 @@ export default [
     "content": "Jugar con Toto",
     "package": "expansion001",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
-  // {
-  //   "id": "E01-A005",
-  //   "type": "answer",
-  //   "content": "Limpiar el pis de Ofi",
-  //   "package": "expansion001",
-  //   "drawn": false,
-  //   "owner": null
-  // },
+  {
+    "id": "E01-A005",
+    "type": "answer",
+    "content": "Limpiar el pis de Ofi",
+    "package": "expansion001",
+    "drawn": false,
+    "owner": null,
+    "isEnabled": false
+  },
   {
     "id": "E01-A006",
     "type": "answer",
     "content": "Obi",
     "package": "expansion001",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "E01-A007",
@@ -53,7 +59,8 @@ export default [
     "content": "Normi",
     "package": "expansion001",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "E01-A008",
@@ -61,7 +68,8 @@ export default [
     "content": "Selva",
     "package": "expansion001",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "E01-A009",
@@ -69,7 +77,8 @@ export default [
     "content": "Rafa",
     "package": "expansion001",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "E01-A010",
@@ -77,7 +86,8 @@ export default [
     "content": "Jugar con los sentimientos",
     "package": "expansion001",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "E01-A011",
@@ -85,7 +95,8 @@ export default [
     "content": "Trifi",
     "package": "expansion001",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "E01-A012",
@@ -93,7 +104,8 @@ export default [
     "content": "Un pulpo bailando flamenco",
     "package": "expansion001",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "E01-A013",
@@ -101,7 +113,8 @@ export default [
     "content": "Diego",
     "package": "expansion001",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "E01-A014",
@@ -109,7 +122,8 @@ export default [
     "content": "Rochi",
     "package": "expansion001",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "E01-A015",
@@ -117,7 +131,8 @@ export default [
     "content": "Decir \"¡qué envidia!\" por todo",
     "package": "expansion001",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "E01-A016",
@@ -125,7 +140,8 @@ export default [
     "content": "Un lunar hecho con masa",
     "package": "expansion001",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "E01-A017",
@@ -133,7 +149,8 @@ export default [
     "content": "Un corpiño roto",
     "package": "expansion001",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "E01-A020",
@@ -141,7 +158,8 @@ export default [
     "content": "Caca, pedo, pis",
     "package": "expansion001",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "E01-A021",
@@ -149,7 +167,8 @@ export default [
     "content": "Salvo Montalbano",
     "package": "expansion001",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "E01-A022",
@@ -157,7 +176,8 @@ export default [
     "content": "Hacer caca atrás de la cortina",
     "package": "expansion001",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "E01-A023",
@@ -165,7 +185,8 @@ export default [
     "content": "Enterarse de que el payaso Plín Plín tenía alergia",
     "package": "expansion001",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "E01-A024",
@@ -173,7 +194,8 @@ export default [
     "content": "Mi linda nariz",
     "package": "expansion001",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "E01-A025",
@@ -181,7 +203,8 @@ export default [
     "content": "Aliento de perro",
     "package": "expansion001",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "E01-A026",
@@ -189,7 +212,8 @@ export default [
     "content": "Encontrar a Wally",
     "package": "expansion001",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "E01-A027",
@@ -197,7 +221,8 @@ export default [
     "content": "Un triste tigre tragando trigo",
     "package": "expansion001",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "E01-A028",
@@ -205,7 +230,8 @@ export default [
     "content": "He-Man",
     "package": "expansion001",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "E01-A029",
@@ -213,7 +239,8 @@ export default [
     "content": "Rubeola",
     "package": "expansion001",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "E01-A030",
@@ -221,7 +248,8 @@ export default [
     "content": "Julián",
     "package": "expansion001",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "E01-A031",
@@ -229,35 +257,40 @@ export default [
     "content": "La punta del Obelisco",
     "package": "expansion001",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },{
     "id": "E01-A032",
     "type": "answer",
     "content": "La lora",
     "package": "expansion001",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },{
     "id": "E01-A033",
     "type": "answer",
     "content": "Cursar segundo grado",
     "package": "expansion001",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },{
     "id": "E01-A034",
     "type": "answer",
     "content": "Un mimo que habla",
     "package": "expansion001",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },{
     "id": "E01-A035",
     "type": "answer",
     "content": "Ser de Sagitario",
     "package": "expansion001",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "E01-A036",
@@ -265,7 +298,8 @@ export default [
     "content": "Tener 18 hijos",
     "package": "expansion001",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "E01-A037",
@@ -273,7 +307,8 @@ export default [
     "content": "¡Baratijas!",
     "package": "expansion001",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "E01-A018",
@@ -281,7 +316,8 @@ export default [
     "content": "El crayón amarillo",
     "package": "expansion001",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "E01-A038",
@@ -289,7 +325,8 @@ export default [
     "content": "Unas Frenys de Pumper Nic",
     "package": "expansion001",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "E01-A039",
@@ -297,7 +334,8 @@ export default [
     "content": "Frank Sinatra",
     "package": "expansion001",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "E01-A040",
@@ -305,7 +343,8 @@ export default [
     "content": "Hablar italiano después de ver a Montalbano",
     "package": "expansion001",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "E01-A041",
@@ -313,7 +352,8 @@ export default [
     "content": "Shrek y Fiona",
     "package": "expansion001",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "E01-A042",
@@ -321,6 +361,7 @@ export default [
     "content": "Blancanieves y los cinco enanitos (dos renunciaron)",
     "package": "expansion001",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   }
 ]

@@ -1,13 +1,14 @@
 export default [
-  // {
-  //   "id": "Q001",
-  //   "type": "question",
-  //   "content": "La pelea comenzó por ___________.",
-  //   "package": "basic",
-  //   "drawn": false,
-  //   "owner": null,
-  //   "requiresCards": 1
-  // },
+  {
+    "id": "Q001",
+    "type": "question",
+    "content": "La pelea comenzó por ___________.",
+    "package": "basic",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 1,
+    "isEnabled": false
+  },
   {
     "id": "Q002",
     "type": "question",
@@ -15,7 +16,8 @@ export default [
     "package": "basic",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "Q003",
@@ -24,26 +26,29 @@ export default [
     "package": "basic",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
-  // {
-  //   "id": "Q004",
-  //   "type": "question",
-  //   "content": "Lo primero que hago cuando llego a casa después del trabajo, es ___________.",
-  //   "package": "basic",
-  //   "drawn": false,
-  //   "owner": null,
-  //   "requiresCards": 1
-  // },
-  // {
-  //   "id": "Q005",
-  //   "type": "question",
-  //   "content": "Después de 20 años, pude ahorrar suficiente plata para comparme ___________.",
-  //   "package": "basic",
-  //   "drawn": false,
-  //   "owner": null,
-  //   "requiresCards": 1
-  // },
+  {
+    "id": "Q004",
+    "type": "question",
+    "content": "Lo primero que hago cuando llego a casa después del trabajo, es ___________.",
+    "package": "basic",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 1,
+    "isEnabled": false
+  },
+  {
+    "id": "Q005",
+    "type": "question",
+    "content": "Después de 20 años, pude ahorrar suficiente plata para comparme ___________.",
+    "package": "basic",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 1,
+    "isEnabled": false
+  },
   {
     "id": "Q006",
     "type": "question",
@@ -51,7 +56,8 @@ export default [
     "package": "basic",
     "drawn": false,
     "owner": null,
-    "requiresCards": 2
+    "requiresCards": 2,
+    "isEnabled": true
   },
   {
     "id": "Q007",
@@ -60,7 +66,8 @@ export default [
     "package": "basic",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "Q008",
@@ -69,7 +76,8 @@ export default [
     "package": "basic",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "Q009",
@@ -78,17 +86,19 @@ export default [
     "package": "basic",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
-  // {
-  //   "id": "Q010",
-  //   "type": "question",
-  //   "content": "¿Qué estará pensando Marley en este momento?",
-  //   "package": "basic",
-  //   "drawn": false,
-  //   "owner": null,
-  //   "requiresCards": 1
-  // },
+  {
+    "id": "Q010",
+    "type": "question",
+    "content": "¿Qué estará pensando Marley en este momento?",
+    "package": "basic",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 1,
+    "isEnabled": false
+  },
   {
     "id": "Q011",
     "type": "question",
@@ -96,7 +106,8 @@ export default [
     "package": "basic",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "Q012",
@@ -105,17 +116,19 @@ export default [
     "package": "basic",
     "drawn": false,
     "owner": null,
-    "requiresCards": 2
+    "requiresCards": 2,
+    "isEnabled": true
   },
-  // {
-  //   "id": "Q013",
-  //   "type": "question",
-  //   "content": "\"Sólo hay una cosa por hacer para poder estar juntos, Juan Gabriel Fernando: ___________.\"",
-  //   "package": "basic",
-  //   "drawn": false,
-  //   "owner": null,
-  //   "requiresCards": 1
-  // },
+  {
+    "id": "Q013",
+    "type": "question",
+    "content": "\"Sólo hay una cosa por hacer para poder estar juntos, Juan Gabriel Fernando: ___________.\"",
+    "package": "basic",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 1,
+    "isEnabled": false
+  },
   {
     "id": "Q014",
     "type": "question",
@@ -123,7 +136,8 @@ export default [
     "package": "basic",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "Q015",
@@ -132,7 +146,8 @@ export default [
     "package": "basic",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "Q016",
@@ -141,17 +156,19 @@ export default [
     "package": "basic",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
-  // {
-  //   "id": "Q017",
-  //   "type": "question",
-  //   "content": "Almuerzan hoy con la señora Mirtha Legrand: ___________ y ___________ .",
-  //   "package": "basic",
-  //   "drawn": false,
-  //   "owner": null,
-  //   "requiresCards": 2
-  // },
+  {
+    "id": "Q017",
+    "type": "question",
+    "content": "Almuerzan hoy con la señora Mirtha Legrand: ___________ y ___________ .",
+    "package": "basic",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 2,
+    "isEnabled": false
+  },
   {
     "id": "Q018",
     "type": "question",
@@ -159,17 +176,19 @@ export default [
     "package": "basic",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
-  // {
-  //   "id": "Q019",
-  //   "type": "question",
-  //   "content": "La selección necesita recambio. De 9 tendría que jugar ___________.",
-  //   "package": "basic",
-  //   "drawn": false,
-  //   "owner": null,
-  //   "requiresCards": 1
-  // },
+  {
+    "id": "Q019",
+    "type": "question",
+    "content": "La selección necesita recambio. De 9 tendría que jugar ___________.",
+    "package": "basic",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 1,
+    "isEnabled": false
+  },
   {
     "id": "Q020",
     "type": "question",
@@ -177,7 +196,8 @@ export default [
     "package": "basic",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "Q021",
@@ -186,7 +206,8 @@ export default [
     "package": "basic",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "Q022",
@@ -195,7 +216,8 @@ export default [
     "package": "basic",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "Q023",
@@ -204,7 +226,8 @@ export default [
     "package": "basic",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "Q024",
@@ -213,7 +236,8 @@ export default [
     "package": "basic",
     "drawn": false,
     "owner": null,
-    "requiresCards": 2
+    "requiresCards": 2,
+    "isEnabled": true
   },
   {
     "id": "Q025",
@@ -222,17 +246,19 @@ export default [
     "package": "basic",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
-  // {
-  //   "id": "Q026",
-  //   "type": "question",
-  //   "content": "Para conducir su nuevo programa de preguntas y respuestas Telefé contrató a ___________.",
-  //   "package": "basic",
-  //   "drawn": false,
-  //   "owner": null,
-  //   "requiresCards": 1
-  // },
+  {
+    "id": "Q026",
+    "type": "question",
+    "content": "Para conducir su nuevo programa de preguntas y respuestas Telefé contrató a ___________.",
+    "package": "basic",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 1,
+    "isEnabled": false
+  },
   {
     "id": "Q027",
     "type": "question",
@@ -240,7 +266,8 @@ export default [
     "package": "basic",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "Q028",
@@ -249,7 +276,8 @@ export default [
     "package": "basic",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "Q029",
@@ -258,17 +286,19 @@ export default [
     "package": "basic",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
-  // {
-  //   "id": "Q030",
-  //   "type": "question",
-  //   "content": "Finalmente junté fuerzas para darle ___________ a ___________.",
-  //   "package": "basic",
-  //   "drawn": false,
-  //   "owner": null,
-  //   "requiresCards": 2
-  // },
+  {
+    "id": "Q030",
+    "type": "question",
+    "content": "Finalmente junté fuerzas para darle ___________ a ___________.",
+    "package": "basic",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 2,
+    "isEnabled": false
+  },
   {
     "id": "Q031",
     "type": "question",
@@ -276,7 +306,8 @@ export default [
     "package": "basic",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "Q032",
@@ -285,35 +316,39 @@ export default [
     "package": "basic",
     "drawn": false,
     "owner": null,
-    "requiresCards": 2
+    "requiresCards": 2,
+    "isEnabled": true
   },
-  // {
-  //   "id": "Q033",
-  //   "type": "question",
-  //   "content": "Si pudiera pedir un deseo, pediría ___________.",
-  //   "package": "basic",
-  //   "drawn": false,
-  //   "owner": null,
-  //   "requiresCards": 1
-  // },
-  // {
-  //   "id": "Q034",
-  //   "type": "question",
-  //   "content": "Las autoridades confirmaron que detuvieron a ___________ por evasión de impuestos.",
-  //   "package": "basic",
-  //   "drawn": false,
-  //   "owner": null,
-  //   "requiresCards": 1
-  // },
-  // {
-  //   "id": "Q035",
-  //   "type": "question",
-  //   "content": "La teoría de la relatividad describe el movimiento de los cuerpos en ausencia de ___________.",
-  //   "package": "basic",
-  //   "drawn": false,
-  //   "owner": null,
-  //   "requiresCards": 1
-  // },
+  {
+    "id": "Q033",
+    "type": "question",
+    "content": "Si pudiera pedir un deseo, pediría ___________.",
+    "package": "basic",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 1,
+    "isEnabled": false
+  },
+  {
+    "id": "Q034",
+    "type": "question",
+    "content": "Las autoridades confirmaron que detuvieron a ___________ por evasión de impuestos.",
+    "package": "basic",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 1,
+    "isEnabled": false
+  },
+  {
+    "id": "Q035",
+    "type": "question",
+    "content": "La teoría de la relatividad describe el movimiento de los cuerpos en ausencia de ___________.",
+    "package": "basic",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 1,
+    "isEnabled": false
+  },
   {
     "id": "Q036",
     "type": "question",
@@ -321,17 +356,19 @@ export default [
     "package": "basic",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
-  // {
-  //   "id": "Q037",
-  //   "type": "question",
-  //   "content": "Para curar el empacho, lo mejor es ___________.",
-  //   "package": "basic",
-  //   "drawn": false,
-  //   "owner": null,
-  //   "requiresCards": 1
-  // },
+  {
+    "id": "Q037",
+    "type": "question",
+    "content": "Para curar el empacho, lo mejor es ___________.",
+    "package": "basic",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 1,
+    "isEnabled": false
+  },
   {
     "id": "Q038",
     "type": "question",
@@ -339,7 +376,8 @@ export default [
     "package": "basic",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "Q039",
@@ -348,7 +386,8 @@ export default [
     "package": "basic",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "Q040",
@@ -357,7 +396,8 @@ export default [
     "package": "basic",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "Q041",
@@ -366,7 +406,8 @@ export default [
     "package": "basic",
     "drawn": false,
     "owner": null,
-    "requiresCards": 2
+    "requiresCards": 2,
+    "isEnabled": true
   },
   {
     "id": "Q042",
@@ -375,7 +416,8 @@ export default [
     "package": "basic",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "Q043",
@@ -384,7 +426,8 @@ export default [
     "package": "basic",
     "drawn": false,
     "owner": null,
-    "requiresCards": 2
+    "requiresCards": 2,
+    "isEnabled": true
   },
   {
     "id": "Q044",
@@ -393,7 +436,8 @@ export default [
     "package": "basic",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "Q045",
@@ -402,7 +446,8 @@ export default [
     "package": "basic",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "Q046",
@@ -411,7 +456,8 @@ export default [
     "package": "basic",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "Q047",
@@ -420,44 +466,49 @@ export default [
     "package": "basic",
     "drawn": false,
     "owner": null,
-    "requiresCards": 2
+    "requiresCards": 2,
+    "isEnabled": true
   },
-  // {
-  //   "id": "Q048",
-  //   "type": "question",
-  //   "content": "La operación fue todo un éxito. Finalmente pudieron remover ___________ de mi panza.",
-  //   "package": "basic",
-  //   "drawn": false,
-  //   "owner": null,
-  //   "requiresCards": 1
-  // },
-  // {
-  //   "id": "Q049",
-  //   "type": "question",
-  //   "content": "Mis testigos de casamiento van a ser ___________ y ___________.",
-  //   "package": "basic",
-  //   "drawn": false,
-  //   "owner": null,
-  //   "requiresCards": 2
-  // },
-  // {
-  //   "id": "Q050",
-  //   "type": "question",
-  //   "content": "Esta noche voy a bailar hasta ___________.",
-  //   "package": "basic",
-  //   "drawn": false,
-  //   "owner": null,
-  //   "requiresCards": 1
-  // },
-  // {
-  //   "id": "Q051",
-  //   "type": "question",
-  //   "content": "Paz, amor y ___________.",
-  //   "package": "basic",
-  //   "drawn": false,
-  //   "owner": null,
-  //   "requiresCards": 1
-  // },
+  {
+    "id": "Q048",
+    "type": "question",
+    "content": "La operación fue todo un éxito. Finalmente pudieron remover ___________ de mi panza.",
+    "package": "basic",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 1,
+    "isEnabled": false
+  },
+  {
+    "id": "Q049",
+    "type": "question",
+    "content": "Mis testigos de casamiento van a ser ___________ y ___________.",
+    "package": "basic",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 2,
+    "isEnabled": false
+  },
+  {
+    "id": "Q050",
+    "type": "question",
+    "content": "Esta noche voy a bailar hasta ___________.",
+    "package": "basic",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 1,
+    "isEnabled": false
+  },
+  {
+    "id": "Q051",
+    "type": "question",
+    "content": "Paz, amor y ___________.",
+    "package": "basic",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 1,
+    "isEnabled": false
+  },
   {
     "id": "Q052",
     "type": "question",
@@ -465,7 +516,8 @@ export default [
     "package": "basic",
     "drawn": false,
     "owner": null,
-    "requiresCards": 2
+    "requiresCards": 2,
+    "isEnabled": true
   },
   {
     "id": "Q053",
@@ -474,7 +526,8 @@ export default [
     "package": "basic",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "Q054",
@@ -483,7 +536,8 @@ export default [
     "package": "basic",
     "drawn": false,
     "owner": null,
-    "requiresCards": 2
+    "requiresCards": 2,
+    "isEnabled": true
   },
   {
     "id": "Q055",
@@ -492,7 +546,8 @@ export default [
     "package": "basic",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "Q056",
@@ -501,17 +556,19 @@ export default [
     "package": "basic",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
-  // {
-  //   "id": "Q057",
-  //   "type": "question",
-  //   "content": "El amor sin besos es como ___________.",
-  //   "package": "basic",
-  //   "drawn": false,
-  //   "owner": null,
-  //   "requiresCards": 1
-  // },
+  {
+    "id": "Q057",
+    "type": "question",
+    "content": "El amor sin besos es como ___________.",
+    "package": "basic",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 1,
+    "isEnabled": false
+  },
   {
     "id": "Q058",
     "type": "question",
@@ -519,7 +576,8 @@ export default [
     "package": "basic",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "Q059",
@@ -528,26 +586,29 @@ export default [
     "package": "basic",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
-  // {
-  //   "id": "Q060",
-  //   "type": "question",
-  //   "content": "En Japón, es de buena educación traer ___________ a una reunión.",
-  //   "package": "basic",
-  //   "drawn": false,
-  //   "owner": null,
-  //   "requiresCards": 1
-  // },
-  // {
-  //   "id": "Q061",
-  //   "type": "question",
-  //   "content": "La suma del cuadrado de los catetos es igual a la suma del cuadrado de ___________.",
-  //   "package": "basic",
-  //   "drawn": false,
-  //   "owner": null,
-  //   "requiresCards": 1
-  // },
+  {
+    "id": "Q060",
+    "type": "question",
+    "content": "En Japón, es de buena educación traer ___________ a una reunión.",
+    "package": "basic",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 1,
+    "isEnabled": false
+  },
+  {
+    "id": "Q061",
+    "type": "question",
+    "content": "La suma del cuadrado de los catetos es igual a la suma del cuadrado de ___________.",
+    "package": "basic",
+    "drawn": false,
+    "owner": null,
+    "requiresCards": 1,
+    "isEnabled": false
+  },
   {
     "id": "Q062",
     "type": "question",
@@ -555,6 +616,7 @@ export default [
     "package": "basic",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   }
 ]

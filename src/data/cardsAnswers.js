@@ -5,7 +5,8 @@ export default [
     "content": "La zurda de Messi",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A002",
@@ -13,23 +14,26 @@ export default [
     "content": "Una carnecita de Obi",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": false
   },
-  // {
-  //   "id": "A003",
-  //   "type": "answer",
-  //   "content": "La ruedita de Ofi",
-  //   "package": "basic",
-  //   "drawn": false,
-  //   "owner": null
-  // },
+  {
+    "id": "A003",
+    "type": "answer",
+    "content": "La ruedita de Ofi",
+    "package": "basic",
+    "drawn": false,
+    "owner": null,
+    "isEnabled": false
+  },
   {
     "id": "A004",
     "type": "answer",
     "content": "Moria Casán",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A005",
@@ -37,7 +41,8 @@ export default [
     "content": "Que los Pumas le ganen a Nueva Zelanda por goleada",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A006",
@@ -45,7 +50,8 @@ export default [
     "content": "La garra de Delpo",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A007",
@@ -53,7 +59,8 @@ export default [
     "content": "El Linyera",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A008",
@@ -61,7 +68,8 @@ export default [
     "content": "Jugar a los imperios",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A009",
@@ -69,7 +77,8 @@ export default [
     "content": "Una pizza de Normi",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A010",
@@ -77,7 +86,8 @@ export default [
     "content": "Celebrar Navidad, Hanukkah y Kwanzaa",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A011",
@@ -85,7 +95,8 @@ export default [
     "content": "Luli",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A012",
@@ -93,7 +104,8 @@ export default [
     "content": "Matu",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A013",
@@ -101,7 +113,8 @@ export default [
     "content": "Un árbol de quinotos",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A014",
@@ -109,7 +122,8 @@ export default [
     "content": "Una cervecita helada",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A015",
@@ -117,7 +131,8 @@ export default [
     "content": "Gaby",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A016",
@@ -125,7 +140,8 @@ export default [
     "content": "La hecatombe, la debacle total",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A017",
@@ -133,7 +149,8 @@ export default [
     "content": "Un morrón",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A018",
@@ -141,7 +158,8 @@ export default [
     "content": "Un combo Whopper con papas",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A019",
@@ -149,7 +167,8 @@ export default [
     "content": "3 empanadas",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A020",
@@ -157,7 +176,8 @@ export default [
     "content": "Encontrar plata en el bolsillo del pantalón",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A021",
@@ -165,7 +185,8 @@ export default [
     "content": "La canción de Colchones Cannon sonando ininterrumpidamente por el resto de la eternidad",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A022",
@@ -173,7 +194,8 @@ export default [
     "content": "Savaş y sus regalos",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A023",
@@ -181,7 +203,8 @@ export default [
     "content": "Edu",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A024",
@@ -189,7 +212,8 @@ export default [
     "content": "Guille Bormioli",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A025",
@@ -197,7 +221,8 @@ export default [
     "content": "Guille Barilá",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A026",
@@ -205,7 +230,8 @@ export default [
     "content": "Lore",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A027",
@@ -213,7 +239,8 @@ export default [
     "content": "Una lechuza que no hace \"shh\"",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A028",
@@ -221,7 +248,8 @@ export default [
     "content": "Una Tita",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A029",
@@ -229,7 +257,8 @@ export default [
     "content": "Un millón de dólares",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A030",
@@ -237,7 +266,8 @@ export default [
     "content": "El 57",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A031",
@@ -245,7 +275,8 @@ export default [
     "content": "Peppa Pig",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A032",
@@ -253,7 +284,8 @@ export default [
     "content": "Una apachurrada",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A033",
@@ -261,7 +293,8 @@ export default [
     "content": "Que Argentina gane el Mundial",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A034",
@@ -269,7 +302,8 @@ export default [
     "content": "Un quilombo",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A035",
@@ -277,7 +311,8 @@ export default [
     "content": "Una cachetada",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A036",
@@ -285,7 +320,8 @@ export default [
     "content": "El Chavo del 8",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A037",
@@ -293,7 +329,8 @@ export default [
     "content": "Ir a Burger King",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A038",
@@ -301,7 +338,8 @@ export default [
     "content": "Un Gancia",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A039",
@@ -309,7 +347,8 @@ export default [
     "content": "Un motochorro",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A040",
@@ -317,7 +356,8 @@ export default [
     "content": "Un chorizopán",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A041",
@@ -325,7 +365,8 @@ export default [
     "content": "Pablito Ruiz",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A042",
@@ -333,7 +374,8 @@ export default [
     "content": "Dormir dos días seguidos",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A043",
@@ -341,7 +383,8 @@ export default [
     "content": "La verdad absoluta",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A044",
@@ -349,7 +392,8 @@ export default [
     "content": "Fito Páez",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A045",
@@ -357,7 +401,8 @@ export default [
     "content": "La Doctora Juguetes",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A046",
@@ -365,7 +410,8 @@ export default [
     "content": "Un ratón de laboratorio",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A047",
@@ -373,7 +419,8 @@ export default [
     "content": "Comer hasta reventar",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A048",
@@ -381,7 +428,8 @@ export default [
     "content": "El Obelisco",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A049",
@@ -389,7 +437,8 @@ export default [
     "content": "Diego Armando Maradona",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A050",
@@ -397,7 +446,8 @@ export default [
     "content": "Queso y batata",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A051",
@@ -405,7 +455,8 @@ export default [
     "content": "Un moco verde",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A052",
@@ -413,7 +464,8 @@ export default [
     "content": "Extraterrestres",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A053",
@@ -421,7 +473,8 @@ export default [
     "content": "Caminar con las manos, haciendo la vertical",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A054",
@@ -429,7 +482,8 @@ export default [
     "content": "Un juguete chino de dudosa calidad",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A055",
@@ -437,7 +491,8 @@ export default [
     "content": "Un chiflete",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A056",
@@ -445,7 +500,8 @@ export default [
     "content": "Sonreir hasta que te duela la cara",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A057",
@@ -453,7 +509,8 @@ export default [
     "content": "Amor... injusto y doloroso amor",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A058",
@@ -461,7 +518,8 @@ export default [
     "content": "Mi dignidad",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A059",
@@ -469,7 +527,8 @@ export default [
     "content": "Sonrojarse de vergüenza",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A060",
@@ -477,7 +536,8 @@ export default [
     "content": "Rarscarte la cabeza y descubrir que tenés piojos",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A061",
@@ -485,7 +545,8 @@ export default [
     "content": "Desayunar las sobras de la cena de ayer",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A062",
@@ -493,7 +554,8 @@ export default [
     "content": "Una Barbie sin ropa",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A063",
@@ -501,7 +563,8 @@ export default [
     "content": "Basura por todos lados",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A064",
@@ -509,7 +572,8 @@ export default [
     "content": "Un escupitajo",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A065",
@@ -517,7 +581,8 @@ export default [
     "content": "Un huevo podrido",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A066",
@@ -525,7 +590,8 @@ export default [
     "content": "Olor a pis",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A067",
@@ -533,7 +599,8 @@ export default [
     "content": "Helado de merluza",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A068",
@@ -541,7 +608,8 @@ export default [
     "content": "10.000 monedas de un centavo",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A069",
@@ -549,7 +617,8 @@ export default [
     "content": "Los pájaros de Obi",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A070",
@@ -557,7 +626,8 @@ export default [
     "content": "Las ideas de Freud",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A071",
@@ -565,7 +635,8 @@ export default [
     "content": "Hillary Clinton",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A072",
@@ -573,7 +644,8 @@ export default [
     "content": "Shakira",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A073",
@@ -581,7 +653,8 @@ export default [
     "content": "Tener Sugus en lugar de uñas",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A074",
@@ -589,7 +662,8 @@ export default [
     "content": "Un mundo hecho de chocolate",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A075",
@@ -597,7 +671,8 @@ export default [
     "content": "Un frenesí incontrolable",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A076",
@@ -605,7 +680,8 @@ export default [
     "content": "Homero Simpson",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A077",
@@ -613,7 +689,8 @@ export default [
     "content": "Chapotear descalzo en un charco de aceite",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A078",
@@ -621,7 +698,8 @@ export default [
     "content": "Tocar el piano con los pies",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A079",
@@ -629,7 +707,8 @@ export default [
     "content": "La escarapela",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A080",
@@ -637,7 +716,8 @@ export default [
     "content": "Hablar turco",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A081",
@@ -645,7 +725,8 @@ export default [
     "content": "Mi balance del año",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A082",
@@ -653,7 +734,8 @@ export default [
     "content": "Tomar sopa en Diciembre",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A083",
@@ -661,7 +743,8 @@ export default [
     "content": "Chirolita",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A084",
@@ -669,7 +752,8 @@ export default [
     "content": "Arroz. toneladas y toneladas de arroz",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A085",
@@ -677,7 +761,8 @@ export default [
     "content": "Ser vegetariano",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A086",
@@ -685,7 +770,8 @@ export default [
     "content": "La abeja reina de Savaş",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A087",
@@ -693,7 +779,8 @@ export default [
     "content": "Un granito en la punta de la nariz",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A088",
@@ -701,7 +788,8 @@ export default [
     "content": "Robocop",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A089",
@@ -709,7 +797,8 @@ export default [
     "content": "Limpiar la heladera después de 3 años y descubrir un ecosistema",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A090",
@@ -717,7 +806,8 @@ export default [
     "content": "Pasta de dientes sabor a ajo",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A091",
@@ -725,7 +815,8 @@ export default [
     "content": "Dar vueltas en la calesita hasta enloquecer",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A092",
@@ -733,7 +824,8 @@ export default [
     "content": "Tomarse el 60 desde Constitución hasta Tigre en hora pico",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A093",
@@ -741,7 +833,8 @@ export default [
     "content": "Bañarse en leche de cabra",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A094",
@@ -749,7 +842,8 @@ export default [
     "content": "Una galaxia muy, muy lejana...",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A095",
@@ -757,7 +851,8 @@ export default [
     "content": "Un chocolatín Jack",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A096",
@@ -765,7 +860,8 @@ export default [
     "content": "Un Game Boy",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A097",
@@ -773,7 +869,8 @@ export default [
     "content": "Un Walkman",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A098",
@@ -781,7 +878,8 @@ export default [
     "content": "Una moneda de $1 tocada por millones de personas",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A099",
@@ -789,7 +887,8 @@ export default [
     "content": "Un Paty",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A100",
@@ -797,7 +896,8 @@ export default [
     "content": "Jugar al MAME32",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A101",
@@ -805,7 +905,8 @@ export default [
     "content": "Pac-Man",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A102",
@@ -813,7 +914,8 @@ export default [
     "content": "Perder al Tetris",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A103",
@@ -821,7 +923,8 @@ export default [
     "content": "Ganar un desafío en el Preguntados",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A104",
@@ -829,7 +932,8 @@ export default [
     "content": "Una maratón de chinchón, escoba, Rummy y Buraco",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A105",
@@ -837,7 +941,8 @@ export default [
     "content": "Chupar un clavo",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A106",
@@ -845,7 +950,8 @@ export default [
     "content": "Una Ferrari",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A107",
@@ -853,7 +959,8 @@ export default [
     "content": "Pañuelos de papel",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A108",
@@ -861,7 +968,8 @@ export default [
     "content": "Chipá",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A109",
@@ -869,7 +977,8 @@ export default [
     "content": "101 Dálmatas",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A110",
@@ -877,7 +986,8 @@ export default [
     "content": "Chewbacca",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A111",
@@ -885,7 +995,8 @@ export default [
     "content": "El Pato Donald",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A112",
@@ -893,7 +1004,8 @@ export default [
     "content": "Una pelela",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A113",
@@ -901,7 +1013,8 @@ export default [
     "content": "Una tormenta perfecta",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A114",
@@ -909,7 +1022,8 @@ export default [
     "content": "Pasos de baile",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A115",
@@ -917,7 +1031,8 @@ export default [
     "content": "Una catapulta",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A116",
@@ -925,7 +1040,8 @@ export default [
     "content": "El elefante Trompita",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A117",
@@ -933,7 +1049,8 @@ export default [
     "content": "Flancitos de mayonesa",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A118",
@@ -941,7 +1058,8 @@ export default [
     "content": "Apagar un incendio con una pistola de agua",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A119",
@@ -949,7 +1067,8 @@ export default [
     "content": "Superman",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A120",
@@ -957,7 +1076,8 @@ export default [
     "content": "Manu Ginóbili",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A121",
@@ -965,7 +1085,8 @@ export default [
     "content": "Un vino y una soda",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A122",
@@ -973,7 +1094,8 @@ export default [
     "content": "Comprar baratijas",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A123",
@@ -981,7 +1103,8 @@ export default [
     "content": "Esperar el colectivo 37-4 a Ciudad Universitaria",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A124",
@@ -989,7 +1112,8 @@ export default [
     "content": "Hacer lo mismo una y otra vez esperando resultados diferentes",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A125",
@@ -997,7 +1121,8 @@ export default [
     "content": "¡Chocolate!",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A126",
@@ -1005,7 +1130,8 @@ export default [
     "content": "Andar en monociclo",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A127",
@@ -1013,7 +1139,8 @@ export default [
     "content": "Alf",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A128",
@@ -1021,7 +1148,8 @@ export default [
     "content": "Caperucita roja",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A129",
@@ -1029,7 +1157,8 @@ export default [
     "content": "María, la del barrio",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A130",
@@ -1037,7 +1166,8 @@ export default [
     "content": "Boca Juniors",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A131",
@@ -1045,7 +1175,8 @@ export default [
     "content": "El Rey de Copas",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A132",
@@ -1053,7 +1184,8 @@ export default [
     "content": "El auto fantástico",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A133",
@@ -1061,7 +1193,8 @@ export default [
     "content": "Descubrir que el asesino era el mayordomo",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A134",
@@ -1069,7 +1202,8 @@ export default [
     "content": "Llegar a la caja en Carrefour con el chango lleno y sin plata",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A135",
@@ -1077,7 +1211,8 @@ export default [
     "content": "Mirar \"La novicia rebelde\" hasta el infinito",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A136",
@@ -1085,7 +1220,8 @@ export default [
     "content": "Ir a la costa y olvidarse la malla",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A137",
@@ -1093,7 +1229,8 @@ export default [
     "content": "Jugar al Bomber-Man cantando \"Vamos a comer fondue\"",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A138",
@@ -1101,7 +1238,8 @@ export default [
     "content": "Aleluya",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A139",
@@ -1109,7 +1247,8 @@ export default [
     "content": "Que pasen la canción \"Suerte para la prueba\" en todas las radios",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A140",
@@ -1117,7 +1256,8 @@ export default [
     "content": "La mentalidad empresarial del \"podemos vender\"",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A141",
@@ -1125,7 +1265,8 @@ export default [
     "content": "Cantar \"sí mamá, cuando quieras lo haré\" a dúo con Maluma",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A142",
@@ -1133,7 +1274,8 @@ export default [
     "content": "Elsa Bor de Lencuentro",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A143",
@@ -1141,7 +1283,8 @@ export default [
     "content": "El Papa Francisco",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A144",
@@ -1149,7 +1292,8 @@ export default [
     "content": "El Dalai Lama",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A145",
@@ -1157,7 +1301,8 @@ export default [
     "content": "Lisandro Aristimuño",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A146",
@@ -1165,7 +1310,8 @@ export default [
     "content": "Ricky Martin",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A147",
@@ -1173,7 +1319,8 @@ export default [
     "content": "Tener un plan B, C y D",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A148",
@@ -1181,7 +1328,8 @@ export default [
     "content": "Viajar a Marte y no volver",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A149",
@@ -1189,7 +1337,8 @@ export default [
     "content": "Decir \"te amo\" y no recibir respuesta",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A150",
@@ -1197,7 +1346,8 @@ export default [
     "content": "Preferir pasar tiempo con Toto que con cualquier otra persona",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   },
   {
     "id": "A151",
@@ -1205,6 +1355,7 @@ export default [
     "content": "Recomendar \"Un verano para recordar\" a tus enemigos",
     "package": "basic",
     "drawn": false,
-    "owner": null
+    "owner": null,
+    "isEnabled": true
   }
 ]

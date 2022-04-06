@@ -6,7 +6,8 @@ export default [
     "package": "expansion001",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "E01-Q002",
@@ -15,7 +16,8 @@ export default [
     "package": "expansion001",
     "drawn": false,
     "owner": null,
-    "requiresCards": 2
+    "requiresCards": 2,
+    "isEnabled": true
   },
   {
     "id": "E01-Q003",
@@ -24,7 +26,8 @@ export default [
     "package": "expansion001",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "E01-Q004",
@@ -33,7 +36,8 @@ export default [
     "package": "expansion001",
     "drawn": false,
     "owner": null,
-    "requiresCards": 2
+    "requiresCards": 2,
+    "isEnabled": true
   },
   {
     "id": "E01-Q005",
@@ -42,7 +46,8 @@ export default [
     "package": "expansion001",
     "drawn": false,
     "owner": null,
-    "requiresCards": 2
+    "requiresCards": 2,
+    "isEnabled": true
   },
   {
     "id": "E01-Q006",
@@ -51,7 +56,8 @@ export default [
     "package": "expansion001",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "E01-Q007",
@@ -60,7 +66,8 @@ export default [
     "package": "expansion001",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "E01-Q008",
@@ -69,7 +76,8 @@ export default [
     "package": "expansion001",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "E01-Q009",
@@ -78,7 +86,8 @@ export default [
     "package": "expansion001",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "E01-Q010",
@@ -87,7 +96,8 @@ export default [
     "package": "expansion001",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "E01-Q011",
@@ -96,7 +106,8 @@ export default [
     "package": "expansion001",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   },
   {
     "id": "E01-Q012",
@@ -105,6 +116,7 @@ export default [
     "package": "expansion001",
     "drawn": false,
     "owner": null,
-    "requiresCards": 1
+    "requiresCards": 1,
+    "isEnabled": true
   }
 ]

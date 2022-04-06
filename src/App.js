@@ -26,16 +26,30 @@ class App extends Component {
     setTimeout(() => {
       this.setState({
         cards: {
-          answers: shuffle(answers.concat(answersExp, answersExp2)),
-          questions: shuffle(questions.concat(questionsExp, questionsExp2))
+          answers: shuffle(this.filterOutDisabledCards(answers)
+            .concat(
+              this.filterOutDisabledCards(answersExp),
+              this.filterOutDisabledCards(answersExp2)
+            )
+          ),
+          questions: shuffle(this.filterOutDisabledCards(questions)
+            .concat(
+              this.filterOutDisabledCards(questionsExp),
+              this.filterOutDisabledCards(questionsExp2)
+            )
+          )
         }
       })
     }, 1000);
   }
 
+  filterOutDisabledCards(arr) {
+    return arr.filter(item => item.isEnabled);
+  }
+
   render() {
     return (
-      <div style={{ boxSizing: 'border-box', height:'100vh' }}>
+      <div style={{ boxSizing: 'border-box', height: '100vh' }}>
         <AppRouter cards={this.state.cards} />
         {
           window.location.pathname.includes('dashboard') &&
