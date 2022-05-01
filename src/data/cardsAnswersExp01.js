@@ -51,7 +51,7 @@ export default [
     "package": "expansion001",
     "drawn": false,
     "owner": null,
-    "isEnabled": true
+    "isEnabled": false
   },
   {
     "id": "E01-A007",

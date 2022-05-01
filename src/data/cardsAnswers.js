@@ -618,7 +618,7 @@ export default [
     "package": "basic",
     "drawn": false,
     "owner": null,
-    "isEnabled": true
+    "isEnabled": false
   },
   {
     "id": "A070",
