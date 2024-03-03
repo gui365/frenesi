@@ -191,7 +191,7 @@ export default [
   {
     "id": "A022",
     "type": "answer",
-    "content": "Savaş y sus regalos",
+    "content": "Una banana",
     "package": "basic",
     "drawn": false,
     "owner": null,
@@ -767,7 +767,7 @@ export default [
   {
     "id": "A086",
     "type": "answer",
-    "content": "La abeja reina de Savaş",
+    "content": "Pastafrola",
     "package": "basic",
     "drawn": false,
     "owner": null,
